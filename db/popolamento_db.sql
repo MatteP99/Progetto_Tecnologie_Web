@@ -9,6 +9,6 @@ INSERT INTO Cibo VALUES (3, 'Pasta asciutta', 6.00, 'Pasca grano duro.', '/pasta
 INSERT INTO Cibo VALUES (4, 'Pasta in Bianco', 6.00, 'Pasca grano duro, burro e un pizzico d\'olio.', '/pasta_bianco.jpg','Primo');
 INSERT INTO Cibo VALUES (5, 'Pasta al pomodoro', 6.00, 'Pasca grano duro, sugo al pomodoro con olio, basilico e un pizzico d\'aglio.', '/pasta_pomodoro.jpg','Primo');
 -- Popolamento tabella sede universitaria
-INSERT INTO Cibo VALUES (0, 'Unibo Cesena - Scienze, Ingegneria e Architettura', 'Via del Puffarbacco 90');
-INSERT INTO Cibo VALUES (1, 'Unibo Cesena - Economia', 'Via del Toro 30');
-INSERT INTO Cibo VALUES (2, 'Unibo Cesena - Psicologia', 'Via Amadori 12');
+INSERT INTO Sede_universitaria VALUES (0, 'Unibo Cesena - Scienze, Ingegneria e Architettura', 'Via del Puffarbacco 90');
+INSERT INTO Sede_universitaria VALUES (1, 'Unibo Cesena - Economia', 'Via del Toro 30');
+INSERT INTO Sede_universitaria VALUES (2, 'Unibo Cesena - Psicologia', 'Via Amadori 12');

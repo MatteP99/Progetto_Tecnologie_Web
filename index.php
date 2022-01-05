@@ -3,8 +3,7 @@
 	require_once("bootstrap.php");
 
 	//Logica
-	$templateParams["titolo"] = "Home";
-	$templateParams["sediuniversitarie"] = $db->getSedeUniversitaria();
+	$templateParams["Cibo"] = $db->getCibo();
 
 	//Pagina introduttiva
 	require("template/home.php");

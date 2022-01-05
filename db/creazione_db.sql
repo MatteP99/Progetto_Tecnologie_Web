@@ -1,7 +1,7 @@
 -- File contenente le query per la creazione del database
 -- Tabella cibo
 CREATE TABLE Cibo (
-id INT(11) UNSIGNED  NOT NULL AUTO_INCREMENT,
+id INT(11) UNSIGNED  NOT NULL,
 nome VARCHAR(20) NOT NULL,
 prezzo DOUBLE NOT NULL,
 descrizione VARCHAR(300) NOT NULL,
@@ -12,7 +12,7 @@ PRIMARY KEY (id)
 );
 -- Tabella sede universitaria
 CREATE TABLE Sede_universitaria (
-id INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+id INT(11) UNSIGNED NOT NULL,
 nome VARCHAR(50) NOT NULL,
 indirizzo VARCHAR(50) NOT NULL,
 

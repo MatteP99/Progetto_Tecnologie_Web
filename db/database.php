@@ -12,9 +12,9 @@
 			}
 		}
 		//Funzione provvisoria
-		public function getSedeUniversitaria() {
-			$statement = $this->db->prepare("SELECT nome, indirizzo, cap
-			FROM sede_universitaria");
+		public function getCibo() {
+			$statement = $this->db->prepare("SELECT nome, prezzo, descrizione, immagine_cibo, tipologia
+			FROM cibo");
 			//Assegnamento parametri alla query $statement->bind_param("s", variabile);
 			$statement->execute();
 			$result = $statement->get_result();
