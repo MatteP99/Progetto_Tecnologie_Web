@@ -7,5 +7,5 @@
 	$templateParams["sediuniversitarie"] = $db->getSedeUniversitaria();
 
 	//Pagina introduttiva
-	require("template/base.php");
+	require("template/home.php");
 ?>
