@@ -13,6 +13,57 @@ header{
     text-align: center;
 }
 
+.toast-container {
+    margin-bottom: 0.8rem;
+    display: none;
+}
+
+.toast-container > span {
+    display: none;
+}
+
+.toast {
+    border: 1px #f8f9fa solid;
+    border-radius: 5px;
+    background-color: white;
+    display: inline-block;
+    text-align: center;
+    padding: 4px 1em;
+    box-shadow: 4px 4px 5px darkgray;
+}
+
+.toast-header {
+    color: darkslategray;
+    padding: 2px;
+}
+
+.toast-header > button {
+    border: 0;
+    background-color: inherit;
+    font-size: 1.5rem;
+    color: #c2c2c2;
+}
+
+.toast-header > button:hover {
+    color: black;
+}
+
+.toast-header > small {
+    padding-left: 2rem;
+    text-align: right;
+    font-size: 0.7rem;
+    color: #6c757d;
+}
+
+.toast-body {
+    margin-top: 0.3rem;
+    text-align: left;
+    color: black;
+    padding: 2px;
+}
+
+
+
 nav{
     float:left;
     width:250px;
