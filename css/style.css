@@ -1,6 +1,5 @@
-ul
-{
-list-style-type: none;
+ul {
+    list-style-type: none;
 }
 
 header{
@@ -14,11 +13,15 @@ header{
 }
 
 .toast-container {
+    font-family: sans-serif;
     margin-bottom: 0.8rem;
     display: none;
+    position: relative;
+    z-index: 999;
+    font-size: 1.3rem;
 }
 
-.toast-container > span {
+.toast-container > p {
     display: none;
 }
 
@@ -27,44 +30,55 @@ header{
     border-radius: 5px;
     background-color: white;
     display: inline-block;
+    min-width: 80%;
+    max-width: 90%;
     text-align: center;
     padding: 4px 1em;
     box-shadow: 4px 4px 5px darkgray;
 }
 
 .toast-header {
+    border-bottom: 0;
     color: darkslategray;
-    padding: 2px;
+    height: 0.3rem;
+    padding-top: 0.6rem;
 }
 
-.toast-header > button {
-    border: 0;
-    background-color: inherit;
-    font-size: 1.5rem;
-    color: #c2c2c2;
+.toast-header > strong {
+    float: left;
+    margin-top: 5px;
 }
 
-.toast-header > button:hover {
-    color: black;
-}
-
-.toast-header > small {
+.toast-header small {
     padding-left: 2rem;
-    text-align: right;
-    font-size: 0.7rem;
+    font-size: 1rem;    
+    vertical-align: text-top;
     color: #6c757d;
 }
 
+.toast-header button {
+    border: 0;
+    background-color: inherit;
+    font-size: 2rem;
+    color: #c2c2c2;
+}
+
+.toast-header button:hover {
+    color: black;
+}
+
+.minc {
+    float: right;
+}
+
 .toast-body {
-    margin-top: 0.3rem;
+    margin-top: 0.9rem;
     text-align: left;
     color: black;
     padding: 2px;
 }
 
-
-
-nav{
+nav {
     float:left;
     width:250px;
     height: 700px;
@@ -77,7 +91,7 @@ nav{
     background-color: lightcoral;
 }
 
-body{
+body {
     display:flex;
     min-height:100vh;
     flex-direction:column;
@@ -85,7 +99,7 @@ body{
 .main-content{flex:1;}
 
 
-footer{
+footer {
     background-color: green;
     width: 100%;
     height: 40px;
@@ -96,8 +110,36 @@ footer{
     padding-bottom: 10px;
 }
 
-body
-{display:flex;min-height:100vh;flex-direction:column;
+body {
+    display:flex;min-height:100vh;flex-direction:column;
 }
-.main-content{flex:1;}
 
+.main-content {
+    flex:1;
+}
+
+@media screen and (min-width:768px) {
+    .toast-container {
+        font-size: 1.1rem;
+    }
+
+    .toast {
+        min-width: 35%;
+        max-width: 40%;
+    }
+
+    .toast-header small {
+        font-size: 0.7rem;
+    }
+
+    .toast-header button {
+        font-size: 1.5rem;
+    }
+}
+
+@media screen and (min-width:1280px) {
+    .toast {
+        min-width: 16%;
+        max-width: 24%;
+    }
+}

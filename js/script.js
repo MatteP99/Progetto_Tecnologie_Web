@@ -57,23 +57,25 @@ function setCookie(cname, cvalue, exdays) {
 function sendNotification(title, description) {
   $("body > header").append(`
   <div class="toast-container">
-    <span>${Date.now()}</span>
+    <p>${Date.now()}</p>
     <div class="toast">
       <div class="toast-header">
-        <strong class="mr-auto">${title}</strong>
-        <small>0 min ago</small>
-        <button type="button" class="close">
-          <span>&times;</span>
-        </button>
+        <strong>${title}</strong>
+        <span class="minc">
+          <small>0 min ago</small>
+          <button type="button" class="close">
+            <span>&times;</span>
+          </button>
+        </span>
       </div>
       <div class="toast-body">
-        ${description}
+        <p>${description}</p>
       </div>
     </div>
   </div>
   `);
   $(".toast-container:last").fadeIn();
-  $(".toast-header > button").click(function(event) {
+  $(".toast-header button").click(function(event) {
     event.preventDefault();
     $(this).parents(".toast-container").fadeOut("fast", function() {
       sleep(300);
@@ -84,7 +86,7 @@ function sendNotification(title, description) {
 
 function update_time() {
     $(".toast-container").each( function() {
-      let start = new Date(parseInt($(this).find("span:first").text()));
+      let start = new Date(parseInt($(this).find("p:first").text()));
       let time = new Date(Date.now() - start);
       $(this).find("small").text(time.getMinutes() + " min ago");
     });
