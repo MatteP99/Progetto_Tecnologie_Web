@@ -13,12 +13,17 @@ header{
 }
 
 .toast-container {
+    opacity: 0.7;
     font-family: sans-serif;
     margin-bottom: 0.8rem;
     display: none;
     position: relative;
     z-index: 999;
     font-size: 1.3rem;
+}
+
+.toast-container:hover {
+    opacity: 1;
 }
 
 .toast-container > p {

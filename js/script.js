@@ -59,7 +59,7 @@ function sendNotification(title, description) {
   <div class="toast-container">
     <p>${Date.now()}</p>
     <div class="toast">
-      <div class="toast-header">
+      <header class="toast-header">
         <strong>${title}</strong>
         <span class="minc">
           <small>0 min ago</small>
@@ -67,7 +67,7 @@ function sendNotification(title, description) {
             <span>&times;</span>
           </button>
         </span>
-      </div>
+      </header>
       <div class="toast-body">
         <p>${description}</p>
       </div>
@@ -85,11 +85,11 @@ function sendNotification(title, description) {
 }
 
 function update_time() {
-    $(".toast-container").each( function() {
-      let start = new Date(parseInt($(this).find("p:first").text()));
-      let time = new Date(Date.now() - start);
-      $(this).find("small").text(time.getMinutes() + " min ago");
-    });
+  $(".toast-container").each( function() {
+    let start = new Date(parseInt($(this).find("p:first").text()));
+    let time = new Date(Date.now() - start);
+    $(this).find("small").text(time.getMinutes() + " min ago");
+  });
 }
 
 function sleep(milliseconds) {
