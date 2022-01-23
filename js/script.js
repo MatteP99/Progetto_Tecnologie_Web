@@ -1,15 +1,24 @@
 $(document).ready(function () {
-  setCookie("cart", '{"cart_ids":""}', 1);
+  setCookie("cart", '{"cart_ids":{}}', 1);
   /* $.getJSON("dummy_page.php", function(data) {
       let formattedData = formatData(data);
       $("main").append(formattedData);
   }); */
-  $(":button").click(function(event) {
-    event.preventDefault();
-    addToCart($(this).val());
-  });
   sendNotification("Prova", "Descrizione di prova");
   setInterval(update_time, 1000 * 60);
+  /*
+    addItemToCart sarà la classe da dare ai bottoni che 
+    aggiungeranno gli articoli al carrello.
+
+    itemId suppongo sia un elemento HTML nascosto
+    all'interno dell'articolo da inserire nel
+    carrello che contiene l'id dell'articolo
+  */
+  $(".addItemToCart").click(function(event) {
+    event.preventDefault();
+    let id = $(this).siblings(".itemId:first").text();
+    addToCart(parseInt(id));
+  });
 });
 
 function formatData(data) {
@@ -22,13 +31,12 @@ function formatData(data) {
 }
 
 function addToCart(id) {
-  cart = getCookie("cart");
-  cartObj = JSON.parse(cart);
-  if (cartObj.cart_ids === "") {
-    cartObj.cart_ids = id;
-  } else {
-    cartObj.cart_ids += ',' + id;
+  let idStr = id.toString();
+  let cartObj = JSON.parse(getCookie("cart"));
+  if(!(idStr in cartObj.cart_ids)) {
+    cartObj.cart_ids[idStr] = 0;
   }
+  cartObj.cart_ids[idStr] += 1;
   setCookie("cart", JSON.stringify(cartObj), 1);
 }
 
