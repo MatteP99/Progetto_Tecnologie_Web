@@ -14,15 +14,16 @@
   <body>
     <header><h1>Home</h1></header>  
   
+    <a>Login</a>
+
     <nav>
       <ul>
-        <li><a href="home.html">Home</a></li>
-        <li><a href="Delivery.html">Delivery</a></li>
-        <li><a href="Blitz.html">Spero non facciano un blitz</a></li>
+        <li><a href="template/home.php">Home</a></li>
+        <li><a href="template/delivery.php">Delivery</a></li>
       </ul>
     </nav>
 
-    <main></main>
+    <section> 
       
     <footer><p>Che bello mangiare</p></footer>
       
