@@ -1,24 +1,34 @@
 $(document).ready(function () {
-  setCookie("cart", '{"cart_ids":{}}', 1);
-  /* $.getJSON("dummy_page.php", function(data) {
-      let formattedData = formatData(data);
-      $("main").append(formattedData);
-  }); */
-  sendNotification("Prova", "Descrizione di prova");
-  setInterval(update_time, 1000 * 60);
-  /*
-    addItemToCart sarà la classe da dare ai bottoni che 
-    aggiungeranno gli articoli al carrello.
+    let i = 1;
+    let src = ["upload/slideshow/img1.jpg","upload/slideshow/img2.jpg","upload/slideshow/img3.jpg"];
+    let img = $("body > header > img:first");
+    setCookie("cart", '{"cart_ids":{}}', 1);
+    /* $.getJSON("dummy_page.php", function(data) {
+        let formattedData = formatData(data);
+        $("main").append(formattedData);
+    }); */
+    sendNotification("Prova", "Descrizione di prova");
+    setInterval(update_time, 1000 * 60);
+    setInterval(() => {
+        img.fadeOut("slow", () => {    
+            img.attr("src", src[i]);
+            img.fadeIn("slow");
+        });
+        i = i < 2 ? i + 1 : 0;
+    }, 8000);
+    /*
+        addItemToCart sarà la classe da dare ai bottoni che 
+        aggiungeranno gli articoli al carrello.
 
-    itemId suppongo sia un elemento HTML nascosto
-    all'interno dell'articolo da inserire nel
-    carrello che contiene l'id dell'articolo
-  */
-  $(".addItemToCart").click(function(event) {
-    event.preventDefault();
-    let id = $(this).siblings(".itemId:first").text();
-    addToCart(parseInt(id));
-  });
+        itemId suppongo sia un elemento HTML nascosto
+        all'interno dell'articolo da inserire nel
+        carrello che contiene l'id dell'articolo
+    */
+    $(".addItemToCart").click(function(event) {
+        event.preventDefault();
+        let id = $(this).siblings(".itemId:first").text();
+        addToCart(parseInt(id));
+    });
 });
 
 function formatData(data) {
@@ -63,7 +73,7 @@ function setCookie(cname, cvalue, exdays) {
 }
 
 function sendNotification(title, description) {
-  $("body > header").append(`
+  $("body > header .notifications").append(`
   <div class="toast-container">
     <p>${Date.now()}</p>
     <div class="toast">
