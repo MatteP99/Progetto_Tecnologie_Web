@@ -187,7 +187,7 @@ body {
 }
 
 main {
-    padding: 7% 4%;
+    padding: 7% 10%;
 }
 
 main h2 {
@@ -210,8 +210,8 @@ main > section > div {
 
 .img_main_left_home > img {
     float: left;
-    width: 25%;
-    margin: 0 3% 3%;
+    width: 40%;
+    margin: 0 4% 4%;
     border-radius: 10px;
 }
 
@@ -358,7 +358,13 @@ footer > div:last-child li {
 
     main {
         margin-left: 15%;
+        padding: 7% 4%;
     }
+
+    .img_main_left_home > img {
+        width: 25%;
+        margin: 0 3% 3%;
+    }    
 
     footer {
         margin-left: 15%;
