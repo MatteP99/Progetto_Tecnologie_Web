@@ -1,10 +1,10 @@
 <?php
-	//Inclusione bootstrap
-	require_once("bootstrap.php");
+require_once 'require.php';
 
-	//Logica
-	$templateParams["Cibo"] = $db->getCibo();
+//Aggiunta di controllo, utente loggato o non
+$templateParams["title"] = "ZACCOLLA OSTERIA - Home";
+$templateParams["name"] = "home.php";
+//Funzione prendere articoli
 
-	//Pagina introduttiva
-	require("template/home.php");
+require("template/base.php");
 ?>
