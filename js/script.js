@@ -29,6 +29,31 @@ $(document).ready(function () {
         let id = $(this).siblings(".itemId:first").text();
         addToCart(parseInt(id));
     });
+    $(".icon").click(() => {
+        let nav = $("nav");
+        if (!nav.hasClass("menu_open")) {            
+            $(".nav_logo").fadeOut(() => {                
+                nav.animate({height: "100%", opacity: "0.975"}, () => {
+                    $(".nav_logo").fadeIn();
+                    $(".nav_links").fadeIn();
+                    nav.addClass("menu_open");
+                });                
+
+            });
+        } else {
+            $(".nav_links").fadeOut();
+            $(".nav_logo").fadeOut(() => {                      
+                nav.animate({height: "6rem"}, () => {
+                    nav.removeAttr("style");
+                    nav.removeAttr("class");              
+                    $(".nav_links").removeAttr("style");
+                    $(".nav_logo").fadeIn(() => {                        
+                        $(".nav_logo").removeAttr("style");  
+                    });
+                });
+            });
+        }            
+    });
 });
 
 function formatData(data) {

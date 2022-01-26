@@ -15,12 +15,15 @@
     </head>
     <body>
         <nav>
-            <div class="nav_links">
-                <a href="./template/home.php">
-                    <div>
-                        <img src="./upload/logo.png" alt="logo" />
-                    </div>
+            <div>
+                <a class="icon">
+                    <i class="fa fa-bars"></i>
                 </a>
+            </div>
+            <div class="nav_logo">
+                <img src="./upload/logo.png" alt="logo" />
+            </div>
+            <div class="nav_links">
                 <ul>
                     <li><a href="./template/home.php">HOME</a></li>
                     <li><a href="./template/menu.php">MENU</a></li>
@@ -31,9 +34,9 @@
             </div>
             <div class="nav_contacts">
                 <ul>
-                    <li><a class="fab fa-facebook"></a></li>
-                    <li><a class="fab fa-instagram"></a></li>
-                    <li><a class="fab fa-twitter"></a></li>
+                    <li><a class="fab fa-facebook" href="https://www.facebook.com/Osteria-Zaccolla"></a></li>
+                    <li><a class="fab fa-instagram" href="https://www.instagram.com/Osteria-Zaccolla"></a></li>
+                    <li><a class="fab fa-twitter" href="https://www.twitter.com/Osteria-Zaccolla"></a></li>
                 </ul>
                 <p>Piazza Baschetti 23, 47863, Cesena (FC)</p>
             </div>
@@ -43,13 +46,13 @@
             <img src="upload/slideshow/img1.jpg" alt=""/>
         </header>
         <main>
-            <article>
+            <section>
                 <div class="introductive_title_home">
                     <header>
                         <h2 style="text-align: center">
                             Quella della Zacolla Osteria è una lunga storia d’amore.
                             <br/>
-                            Siamo figli della nostra terra e dei suoi sapori e in tavola
+                            Siamo figli della nostra terra e dei suoi sapori; in tavola
                             <br/>
                             ne raccontiamo i profumi intensi come grandi buongustai.
                         </h2>
@@ -58,11 +61,11 @@
                 <div class="text_main_home">
                     <section>
                         <div class="img_main_left_home">
-                            <img src="" alt="" />
+                            <img src="upload/piadina.jpg" alt="piadina" />
                         </div>
                         <div class="text_main_left_home">
                             <p>
-                            Come noi, anche Zacolla, un vecchio coltivatore locale, amava profondamente Cesena e la sua terra. Ogni sera, partiva con il suo trattore e, quando rientrava a casa, la sua scorta era piena di prodotti appena raccolti e freschi. Sua moglie, la Casalinga della zona, preparava tutti i giorni e con grande cura piatti deliziosi e di stagione.
+                            Come noi, anche Zacolla, un vecchio coltivatore locale, amava profondamente Cesena e la sua terra. Ogni sera partiva con il suo trattore e quando rientrava a casa, la sua scorta era piena di prodotti appena raccolti e freschi. Sua moglie, la casalinga della zona, preparava tutti i giorni e con grande cura piatti deliziosi e di stagione.
                             </p>
                             <p>
                             Insieme, portavano così sulla loro tavola ogni giorno il sapore della terra, fino a quando non decisero di aprire un piccolo chioschetto in centro. Ed è proprio qui che è nato il Zacolla Osteria.
@@ -74,22 +77,24 @@
                     </section>
                 </div>
                 <div class="img_main_down_home">
-                    <img src="" alt="" />
+                    <img src="upload/cappelletti.jpg" alt="cappelletti" />
                 </div>
-            </article>
+            </section>
         </main>
         <footer>
             <div>
                 <img src="./upload/logo.png" alt="logo" />
             </div>
-            <div id="footer_address">
-                <p>Piazza Baschetti 23, 47863, Cesena (FC)</p>
-            </div>
             <div>
-                <ul>
-                    <li><a class="fas fa-phone"> 331-7848795</a><li>
-                    <li><a class="fas fa-pen"> info@osteriazaccolla.it</a><li>
-                </ul>
+                <div>                
+                    <ul>
+                        <li><a class="fas fa-phone" href="tel:3317848795"> 331-7848795</a><li>
+                        <li><a class="fas fa-pen" href="mailto:info@osteriazaccolla.it"> info@osteriazaccolla.it</a><li>
+                    </ul>
+                </div>
+                <div>
+                    <p>Piazza Baschetti 23, 47863, Cesena (FC)</p>
+                </div>
             </div>
         </footer>
     </body>
