@@ -40,6 +40,10 @@ nav > div:first-child {
     border-radius: 12%;
 }
 
+nav a span {
+    display: none;
+}
+
 nav > div {
     display: none;
 }
@@ -187,25 +191,25 @@ body {
 }
 
 main {
-    padding: 7% 10%;
+    padding: 7% 6%;
+    text-align: center;
 }
 
-main h2 {
-    font-size: 2rem;
+main > section header {
+    font-size: 1.5rem;
 }
 
 main > section {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    gap: 100px
+    gap: 100px;    
 }
 
 main > section > div {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
 }
 
 .img_main_left_home > img {
@@ -215,8 +219,13 @@ main > section > div {
     border-radius: 10px;
 }
 
+.text_main_home {
+    display: block;
+}
+
 .text_main_left_home {
     margin: 0 2%;
+    text-align: left;
 }
 
 .text_main_left_home > p {
@@ -228,6 +237,10 @@ main > section > div {
 
 main > section > div:last-child {
     align-items: center;
+}
+
+main > section > header {
+    margin: 0 10%;
 }
 
 main > section > div:last-child > img {
