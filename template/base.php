@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="it">
     <head>
+		<meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <link href="css/style.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href=
             "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css" />
@@ -10,8 +12,6 @@
             crossorigin="anonymous"></script>
         <script src="js/script.js"></script>
         <title><?php echo $templateParams["title"]?></title>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
     <body>
         <nav>
@@ -23,7 +23,7 @@
             </div>
             <div class="nav_links">
                 <ul>
-                    <li><a <?php isActive("home.php");?> href="home.php">HOME</a></li>
+                    <li><a <?php isActive("home.php");?> href="index.php">HOME</a></li>
                     <li><a <?php isActive("menu.php");?> href="menu.php">MENU</a></li>
                     <li><a <?php isActive("delivery.php");?> href="delivery.php">DELIVERY</a></li>
                     <li><a <?php isActive("contacts.php");?> href="contacts.php">CONTATTI</a></li>
