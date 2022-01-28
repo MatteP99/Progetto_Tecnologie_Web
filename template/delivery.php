@@ -4,72 +4,37 @@
         <p>Servizio online per ordinare i tuoi piatti. Ricordati che puoi decidere se venirli a prendere, oppure te li portiamo noi!</p>
     </header>
     <ul>
+	    <?php foreach ($templateParams["type"] as $type):?>
         <li>
-            <h3>Primi</h3>
+            <h3><?php echo $type["name"];?></h3>
             <ul>
+            <?php foreach ($templateParams["food"] as $food):
+            if($food["type_food"] == $type["id_type"]): ?>
                 <li>
-                    <h4>Tagliatelle al ragù</h4>
-                    <img src="upload/tagliatelle.jpg" alt="">
-                    <button>Aggiungi al carrello</button>
+                <?php if($food["quantity"] > 0): ?>
+                    <img src="<?php echo UPLOAD_DIR.$food["img"];?>" alt="<?php echo $food["name"];?>" />
+                    <h4><?php echo $food["name"]?>
+                    <h5>€ <?php echo $food["price"]?></h3>
+                    <p><?php echo $food["description"]?></p>
+                    <button>Aggiungi al Carrello</button>
+                    </div>
+                <?php else: ?>
+                    <img src="<?php echo UPLOAD_DIR.$food["img_out"];?>" alt="<?php echo $food["name"];?>" /><!--Immagine da cambiare-->
+                    <h4><?php echo $food["name"]?></h4>
+                    <h5>€ <?php echo $food["price"]?></h5>
+                    <p><?php echo $food["description"]?></p>
+                    <button>Aggiungi al Carrello</button><!--Link da bloccare-->
+                <?php endif; ?>
                 </li>
-                <li>
-                    <h4>Cappelletti</h4>
-                    <img src="upload/cappelletti-in-brodo.jpg" alt="">
-                    <button>Aggiungi al carrello</button>
-                </li>
-                <li>
-                    <h4>Cappelletti</h4>
-                    <img src="upload/cappelletti-in-brodo.jpg" alt="">
-                    <button>Aggiungi al carrello</button>
-                </li>
-                <li>
-                    <h4>Cappelletti</h4>
-                    <img src="upload/cappelletti-in-brodo.jpg" alt="">
-                    <button>Aggiungi al carrello</button>
-                </li>
+            <?php endif; ?>
+            <?php endforeach; ?>
             </ul>
         </li>
-        <li>
-            <h3>Secondi</h3>
-            <ul>
-                <li>
-                    <h4>Tagliatelle al ragù</h4>
-                    <img src="upload/tagliatelle.jpg" alt="">
-                    <button>Aggiungi al carrello</button>
-                </li>
-                <li>
-                    <h4>Cappelletti</h4>
-                    <img src="upload/cappelletti-in-brodo.jpg" alt="">
-                    <button>Aggiungi al carrello</button>
-                </li>
-                <li>
-                    <h4>Cappelletti</h4>
-                    <img src="upload/cappelletti-in-brodo.jpg" alt="">
-                    <button>Aggiungi al carrello</button>
-                </li>
-                <li>
-                    <h4>Cappelletti</h4>
-                    <img src="upload/cappelletti-in-brodo.jpg" alt="">
-                    <button>Aggiungi al carrello</button>
-                </li>
-            </ul>
-        </li>
-        <li>
-            <h3>Antipasti</h3>
-        </li>
-        <li>        
-            <h3>Piadine</h3>
-        </li>        
-        <li>        
-            <h3>Cascioni</h3>
-        </li>        
-        <li>        
-            <h3>Dolci</h3>
-        </li>
+        <?php endforeach; ?>
         <li>
             <button id="vcart">Visualizza carrello</button>
         </li>
-    </ul>
+    </ul>    
 </section>
 <section id="cart">    
         <button type="button" class="close">
