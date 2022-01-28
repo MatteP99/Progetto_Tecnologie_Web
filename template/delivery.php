@@ -16,13 +16,13 @@
                     <h4><?php echo $food["name"]?></h4>
                     <h5>€ <?php echo $food["price"]?></h5>
                     <p><?php echo $food["description"]?></p>
-                    <button>Aggiungi al Carrello</button>
+                    <button class="addItemToCart">Aggiungi al Carrello</button>
                 <?php else: ?>
                     <img src="<?php echo UPLOAD_DIR.$food["img_out"];?>" alt="<?php echo $food["name"];?>" /><!--Immagine da cambiare-->
                     <h4><?php echo $food["name"]?></h4>
                     <h5>€ <?php echo $food["price"]?></h5>
                     <p><?php echo $food["description"]?></p>
-                    <button>Aggiungi al Carrello</button><!--Link da bloccare-->
+                    <button class="addItemToCart">Aggiungi al Carrello</button><!--Link da bloccare-->
                 <?php endif; ?>
                 </li>
             <?php endif; ?>
@@ -35,8 +35,23 @@
         </li>
     </ul>    
 </section>
-<section id="cart">    
+<section id="cart">
+    <div>
         <button type="button" class="close">
             <span>&times;</span>
         </button>
+        <h2>Carrello</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th id="nome">Nome</th>
+                    <th id="prezzo">Prezzo</th>
+                    <th id="quantita">Quantità</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <button>Acquista</button>
+    </div>
 </section>

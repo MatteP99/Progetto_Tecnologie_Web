@@ -7,7 +7,6 @@ $(document).ready(function () {
         let formattedData = formatData(data);
         $("main").append(formattedData);
     }); */
-    sendNotification("Prova", "Descrizione di prova");
     setInterval(update_time, 1000 * 60);
     setInterval(() => {
         img.fadeOut("slow", () => {    
@@ -28,6 +27,9 @@ $(document).ready(function () {
         event.preventDefault();
         let id = $(this).siblings(".itemId:first").text();
         addToCart(parseInt(id));
+        let name = $(this).siblings("h4").text()
+        addToCartTable(name, $(this).siblings("h5").text());
+        sendNotification(name,"Aggiunto al carrello!");
     });
     $(".icon").click(() => {
         let nav = $("nav");
@@ -57,7 +59,7 @@ $(document).ready(function () {
     $("#vcart").click(() => {
         $("#cart").css("display", "flex");
     });    
-    $("#cart > button").click(() => {
+    $("#cart > div > button:first").click(() => {
         $("#cart").css("display", "none");
     });
 });
@@ -68,7 +70,7 @@ function formatData(data) {
     let dataItem = '';
     formattedData.append(dataItem);
   }
-  return formattedData;
+    return formattedData;
 }
 
 function addToCart(id) {
@@ -79,6 +81,31 @@ function addToCart(id) {
   }
   cartObj.cart_ids[idStr] += 1;
   setCookie("cart", JSON.stringify(cartObj), 1);
+
+}
+
+function addToCartTable(name, price) {
+    let rowNum = 0;
+    let quantity = 0;
+    $("[headers='nome']").each((i, elem) => {
+        let elemName = elem.innerText;
+        if(elemName == name) {
+            rowNum = i;            
+            quantity = parseInt($("#cart tbody tr").eq(i).children(":last").text());
+            quantity++;
+        }
+    });
+    if (quantity === 0) {
+        $("#cart tbody").append(`
+            <tr>
+                <td headers="nome">${name}</td>
+                <td headers="prezzo">${price}</td>
+                <td headers="quantita">1</td>
+            </tr>
+        `);
+    } else {
+        $("#cart tbody tr").eq(rowNum).children(":last").text(quantity);
+    }
 }
 
 function getCookie(cname) {
