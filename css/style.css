@@ -233,12 +233,16 @@ h4 {
     flex-direction: column;
     overflow: hidden;
     justify-content: space-between;
-    gap: 20px;
+    gap: 8px;
     align-items: center;
 }
 
 .delivery > ul ul > li * {
     margin: 0;
+}
+
+.delivery > ul ul > li > p {
+    margin-bottom: 10px;
 }
 
 .delivery > ul ul > li img {

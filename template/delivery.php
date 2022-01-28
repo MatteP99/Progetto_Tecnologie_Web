@@ -13,11 +13,10 @@
                 <li>
                 <?php if($food["quantity"] > 0): ?>
                     <img src="<?php echo UPLOAD_DIR.$food["img"];?>" alt="<?php echo $food["name"];?>" />
-                    <h4><?php echo $food["name"]?>
-                    <h5>€ <?php echo $food["price"]?></h3>
+                    <h4><?php echo $food["name"]?></h4>
+                    <h5>€ <?php echo $food["price"]?></h5>
                     <p><?php echo $food["description"]?></p>
                     <button>Aggiungi al Carrello</button>
-                    </div>
                 <?php else: ?>
                     <img src="<?php echo UPLOAD_DIR.$food["img_out"];?>" alt="<?php echo $food["name"];?>" /><!--Immagine da cambiare-->
                     <h4><?php echo $food["name"]?></h4>
@@ -40,4 +39,4 @@
         <button type="button" class="close">
             <span>&times;</span>
         </button>
-<section>
+</section>
