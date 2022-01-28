@@ -237,7 +237,7 @@ h4 {
     align-items: center;
 }
 
-.delivery > ul ul > li h4 {
+.delivery > ul ul > li * {
     margin: 0;
 }
 
