@@ -54,6 +54,12 @@ $(document).ready(function () {
             });
         }            
     });
+    $("#vcart").click(() => {
+        $("#cart").css("display", "flex");
+    });    
+    $("#cart > button").click(() => {
+        $("#cart").css("display", "none");
+    });
 });
 
 function formatData(data) {
