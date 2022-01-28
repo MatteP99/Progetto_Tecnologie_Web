@@ -3,7 +3,8 @@ require_once 'require.php';
 
 $templateParams["title"] = "ZACCOLLA OSTERIA - Delivery";
 $templateParams["name"] = "delivery.php";
-//Funzioni
+$templateParams["type"] = $db->getFoodTypes();
+$templateParams["food"] = $db->getFood();
 
 require("template/base.php");
 ?>
