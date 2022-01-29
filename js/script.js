@@ -56,11 +56,12 @@ $(document).ready(function () {
             });
         }            
     });
-    $("#vcart").click(() => {
+    $("#vcart").click(() => {        
+        $("#cart").fadeIn();
         $("#cart").css("display", "flex");
     });    
     $("#cart > div > button:first").click(() => {
-        $("#cart").css("display", "none");
+        $("#cart").fadeOut();
     });
 });
 
