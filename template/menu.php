@@ -1,12 +1,12 @@
 <section>
-    <div class="introductive_title_home"><!--Modificata classe div-->
+    <div class="introductive_title_menu"><!--Modificata classe div-->
         <header>
             <h2 style="text-align: center">
                 SIAMO GENTE DI TERRA, ORGOGLIOSI DI ESSERLO.
             </h2>
         </header>
     </div> 
-    <div class="text_main_home">
+    <div class="text_main_menu">
         <section>
             <div class="img_main_left_1_menu"><!--Modificata classe div-->
                 <img src="upload/mozzarella_pomodorini.jpg" alt="mozzarella e pomodorini" />
