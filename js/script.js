@@ -88,6 +88,7 @@ function addToCart(id) {
 function addToCartTable(name, price) {
     let rowNum = 0;
     let quantity = 0;
+    let rowQuantity = 0;
     $("[headers='nome']").each((i, elem) => {
         let elemName = elem.innerText;
         if(elemName == name) {
@@ -96,6 +97,7 @@ function addToCartTable(name, price) {
             quantity++;
         }
     });
+
     if (quantity === 0) {
         $("#cart tbody").append(`
             <tr>
@@ -106,6 +108,18 @@ function addToCartTable(name, price) {
         `);
     } else {
         $("#cart tbody tr").eq(rowNum).children(":last").text(quantity);
+    }
+
+    rowQuantity = $("#cart tbody tr").length;
+
+    if (rowQuantity == 1) {
+        $("#cart table").css("height","20%");
+    } else if (rowQuantity == 2) {
+        $("#cart table").css("height","30%");
+    } else if (rowQuantity == 3) {
+        $("#cart table").css("height","40%");
+    } else {
+        $("#cart table").removeAttr("style");
     }
 }
 
