@@ -5,7 +5,7 @@ CREATE SCHEMA IF NOT EXISTS db_web_project DEFAULT CHARACTER SET utf8mb4 COLLATE
 USE db_web_project;
 
 -- Table Type
-CREATE TABLE IF NOT EXISTS db_web_project.type_ (
+CREATE TABLE IF NOT EXISTS db_web_project.types (
 id_type INT(11) UNSIGNED  NOT NULL AUTO_INCREMENT,
 name TEXT NOT NULL,
 
@@ -24,7 +24,7 @@ type_food INT(11) UNSIGNED NOT NULL,
 quantity INT(11) NOT NULL,
 
 PRIMARY KEY (id_food),
-FOREIGN KEY (type_food) REFERENCES type_ (id_type)
+FOREIGN KEY (type_food) REFERENCES types (id_type)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- Table university
@@ -37,7 +37,7 @@ address TEXT NOT NULL,
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- Table user
-CREATE TABLE IF NOT EXISTS db_web_project.user_ (
+CREATE TABLE IF NOT EXISTS db_web_project.users (
 id_user INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
 name TEXT NOT NULL,
 username TEXT NOT NULL,
@@ -52,14 +52,14 @@ PRIMARY KEY (id_user)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- Table order
-CREATE TABLE IF NOT EXISTS db_web_project.order_ (
+CREATE TABLE IF NOT EXISTS db_web_project.orders (
 id_order INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
 id_user INT(11) UNSIGNED NOT NULL,
 id_food INT(11) UNSIGNED NOT NULL,
 order_state enum('loading','shipped','delivered') DEFAULT 'loading',
 
 PRIMARY KEY (id_order),
-FOREIGN KEY (id_user) REFERENCES user_ (id_user),
+FOREIGN KEY (id_user) REFERENCES users (id_user),
 FOREIGN KEY (id_food) REFERENCES food (id_food)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -71,7 +71,7 @@ id_food INT(11) UNSIGNED NOT NULL,
 quantity INT(11) NOT NULL,
   
 PRIMARY KEY (`id_cart`),
-FOREIGN KEY (id_user) REFERENCES user_ (id_user),
+FOREIGN KEY (id_user) REFERENCES users (id_user),
 FOREIGN KEY (id_food) REFERENCES food (id_food)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -86,6 +86,6 @@ data DATETIME NOT NULL DEFAULT current_timestamp(),
 status ENUM('read','not read','not read on screen') NOT NULL DEFAULT 'not read on screen',
 
 PRIMARY KEY (id_notify),
-FOREIGN KEY (id_user) REFERENCES user_ (id_user),
-FOREIGN KEY (id_order) REFERENCES order_ (id_order)
+FOREIGN KEY (id_user) REFERENCES users (id_user),
+FOREIGN KEY (id_order) REFERENCES orders (id_order)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

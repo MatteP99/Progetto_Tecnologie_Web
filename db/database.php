@@ -13,7 +13,7 @@ class DatabaseHelper {
 	
 	//Function get foods types
 	public function getFoodTypes() {
-		$statement = $this->db->prepare("SELECT type_.* FROM type_");
+		$statement = $this->db->prepare("SELECT types.* FROM types");
 		$statement->execute();
 		$result = $statement->get_result();
 		
