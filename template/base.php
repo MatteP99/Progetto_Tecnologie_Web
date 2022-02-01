@@ -11,6 +11,13 @@
             integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
             crossorigin="anonymous"></script>
         <script src="js/script.js"></script>
+        <?php
+        if ($templateParams["name"] == "login-form.php") {
+            echo '<script src="js/login.js"></script>';
+        } elseif ($templateParams["name"] == "delivery.php") {
+            echo '<script src="js/delivery.js"></script>';
+        }
+        ?>
         <title><?php echo $templateParams["title"]?></title>
     </head>
     <body>
@@ -24,10 +31,9 @@
             <div class="nav_links">
                 <ul>
                     <li><a <?php isActive("home.php");?> href="index.php">HOME</a></li>
-                    <li><a <?php isActive("menu.php");?> href="menu.php">MENU</a></li>
                     <li><a <?php isActive("delivery.php");?> href="delivery.php">DELIVERY</a></li>
                     <li><a <?php isActive("contacts.php");?> href="contacts.php">CONTATTI</a></li>
-                    <li><a <?php isActive("aboutus.php");?> href="aboutus.php">SU DI NOI</a></li>
+                    <li><a <?php isActive("login-form.php");?> href="login.php">LOGIN</a></li>
                 </ul>
             </div>
             <div class="nav_contacts">

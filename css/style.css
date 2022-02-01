@@ -193,12 +193,63 @@ main > section header {
     font-size: 1.5rem;
 }
 
-main > section {
+main > section, form {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     gap: 100px;    
 }
+
+form {
+    align-items: center;
+    gap: 50px;
+}
+
+form ul {
+    padding-left: 0;
+    text-align: left;
+    min-width: 450px;
+}
+
+form li {
+    margin: 20px 30px;
+}
+
+form li:first-child, form li:last-child  {
+    text-align: center;
+    padding: 30px 0;
+}
+
+[type="text"], [type="password"], [type="email"] {
+    width: 200px;
+    float: right;
+}
+
+form .signup {
+    display: none;
+}
+
+.invalid:focus-visible {
+    outline-color:  red;
+}
+
+.invalid {
+    border: 1px solid red;
+}
+
+.valid {
+    border: 2px solid lightgreen !important;
+}
+
+.valid:focus-visible {
+    outline-color: lightgreen !important;
+}
+
+form > ul > li > * {
+    padding: 0 10px;
+}
+
+
 
 main > section > div {
     display: flex;
@@ -465,6 +516,10 @@ footer > div:last-child li {
         width: 25%;
         margin: 0 3% 3%;
     }   
+
+    form ul {
+        min-width: 500px;
+    }
 }
 
 
@@ -533,6 +588,10 @@ footer > div:last-child li {
     main {
         margin-left: 20%;
         padding: 7% 4%;
+    }
+
+    form ul {
+        min-width: 600px;
     }
     
     footer {
