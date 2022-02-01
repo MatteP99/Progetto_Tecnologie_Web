@@ -18,7 +18,34 @@ $(document).ready(function () {
             img.fadeIn("slow");
         });
         i = i < 2 ? i + 1 : 0;
-    }, 8000);
+    }, 8000);    
+
+    //Bottone per menu a schermo intero
+    $(".icon").click(() => {
+        let nav = $("nav");
+        if (!nav.hasClass("menu_open")) {            
+            $(".nav_logo").fadeOut(() => {                
+                nav.animate({height: "100%", opacity: "0.975"}, () => {
+                    $(".nav_logo").fadeIn();
+                    $(".nav_links").fadeIn();
+                    nav.addClass("menu_open");
+                });                
+
+            });
+        } else {
+            $(".nav_links").fadeOut();
+            $(".nav_logo").fadeOut(() => {                      
+                nav.animate({height: "6rem"}, () => {
+                    nav.removeAttr("style");
+                    nav.removeAttr("class");              
+                    $(".nav_links").removeAttr("style");
+                    $(".nav_logo").fadeIn(() => {                        
+                        $(".nav_logo").removeAttr("style");  
+                    });
+                });
+            });
+        }            
+    });
 });
 
 function formatData(data) {

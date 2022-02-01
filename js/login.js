@@ -16,8 +16,11 @@ $(document).ready(function() {
         $("input").each(function() {
             if ($(this).hasClass("invalid")) {
                 $(this).removeClass("invalid");
-            } else if ($(this).hasClass("valid")) {
+                $(this).val("");
+            }
+            if ($(this).hasClass("valid")) {
                 $(this).removeClass("valid");
+                $(this).val("");
             }
         });
     });
