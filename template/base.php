@@ -16,7 +16,7 @@
     <body>
         <nav>
             <div>
-                <a class="icon fa fa-bars"><span>Icona menu a tendina</span></a>
+                <a class="icon fa fa-bars" aria-label="icona menu a tendina"></a>
             </div>
             <div class="nav_logo">
                 <img src="./upload/logo.png" alt="logo" />
@@ -32,9 +32,9 @@
             </div>
             <div class="nav_contacts">
                 <ul>
-                    <li><a class="fab fa-facebook" href="https://www.facebook.com/Osteria-Zaccolla"><span>Icona Facebook</span></a></li>
-                    <li><a class="fab fa-instagram" href="https://www.instagram.com/Osteria-Zaccolla"><span>Icona instagram</span></a></li>
-                    <li><a class="fab fa-twitter" href="https://www.twitter.com/Osteria-Zaccolla"><span>Icona Twitter</span></a></li>
+                    <li><a class="fab fa-facebook" href="https://www.facebook.com/Osteria-Zaccolla" title="icona facebook"></a></li>
+                    <li><a class="fab fa-instagram" href="https://www.instagram.com/Osteria-Zaccolla" title="icona instagram"></a></li>
+                    <li><a class="fab fa-twitter" href="https://www.twitter.com/Osteria-Zaccolla" title="icona twitter"></a></li>
                 </ul>
                 <p>Piazza Baschetti 23, 47863, Cesena (FC)</p>
             </div>

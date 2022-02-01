@@ -250,6 +250,10 @@ h5 {
     margin-bottom: 10px;
 }
 
+.delivery > ul ul > li > p:first-child {
+    display: none;
+}
+
 .delivery > ul ul > li img {
     height: 30vw;
     width: 30vw;
@@ -266,13 +270,22 @@ h5 {
     font-weight: 600;
 }
 
-.delivery button:hover, #cart button:last-child:hover {
+.delivery button:hover, #cart button:hover {
     color:white;
     background-color: #FFC29A;
 }
 
-#vcart, #cart button:last-child {
+#cart button:last-child {
     padding: 1%;
+}
+
+#vcart {
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    border-radius: 50%;
+    padding: 14px;
+    font-size: 24px;
 }
 
 .img_main_left_home > img {
@@ -334,7 +347,7 @@ main > section > div:last-child > img {
     justify-content: space-evenly;
 }
 
-#cart button:first-child {
+#cart > div > button:first-child {
     position: fixed;
     border: 0;
     background-color: inherit;
@@ -358,6 +371,17 @@ main > section > div:last-child > img {
 th, td {
     text-align: center;
     width: 33%;
+}
+
+td > button {
+    width: 1.5rem;
+    height: 1.5rem;
+    padding: 0 !important;
+}
+
+td > .quantity {
+    font-weight: 800;
+    padding: 0px 4px;
 }
 
 th {

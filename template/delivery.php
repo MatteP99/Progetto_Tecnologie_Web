@@ -12,17 +12,19 @@
             if($food["type_food"] == $type["id_type"]): ?>
                 <li>
                 <?php if($food["quantity"] > 0): ?>
+                    <p class="itemId"><?php echo $food["id_food"] ?></p>
                     <img src="<?php echo UPLOAD_DIR.$food["img"];?>" alt="<?php echo $food["name"];?>" />
                     <h4><?php echo $food["name"]?></h4>
                     <h5>€ <?php echo $food["price"]?></h5>
                     <p><?php echo $food["description"]?></p>
                     <button class="addItemToCart">Aggiungi al Carrello</button>
-                <?php else: ?>
+                <?php else: ?>                    
+                    <p class="itemId"><?php echo $food["id_food"] ?></p>
                     <img src="<?php echo UPLOAD_DIR.$food["img_out"];?>" alt="<?php echo $food["name"];?>" /><!--Immagine da cambiare-->
                     <h4><?php echo $food["name"]?></h4>
                     <h5>€ <?php echo $food["price"]?></h5>
                     <p><?php echo $food["description"]?></p>
-                    <button class="addItemToCart">Aggiungi al Carrello</button><!--Link da bloccare-->
+                    <button class="blocked">Aggiungi al Carrello</button><!--Link da bloccare-->
                 <?php endif; ?>
                 </li>
             <?php endif; ?>
@@ -30,10 +32,8 @@
             </ul>
         </li>
         <?php endforeach; ?>
-        <li>
-            <button id="vcart">Visualizza carrello</button>
-        </li>
     </ul>    
+    <button id="vcart" aria-label="Visualizza carrello" class="fas fa-shopping-cart"></button>
 </section>
 <section id="cart">
     <div>
