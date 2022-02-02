@@ -2,35 +2,25 @@ $(document).ready(function () {
     let i = 1;
     let src = ["upload/slideshow/img1.jpg","upload/slideshow/img2.jpg","upload/slideshow/img3.jpg"];
     let img = $("body > header > img:first");
-    setCookie("cart", '{"cart_ids":{}}', 1);
+
     /* $.getJSON("dummy_page.php", function(data) {
         let formattedData = formatData(data);
         $("main").append(formattedData);
     }); */
+
+    //Utilizzato per aggiornare il tempo delle notifiche
     setInterval(update_time, 1000 * 60);
+
+    //Animazione dello slideshow
     setInterval(() => {
         img.fadeOut("slow", () => {    
             img.attr("src", src[i]);
             img.fadeIn("slow");
         });
         i = i < 2 ? i + 1 : 0;
-    }, 8000);
-    /*
-        addItemToCart sarà la classe da dare ai bottoni che 
-        aggiungeranno gli articoli al carrello.
+    }, 8000);    
 
-        itemId suppongo sia un elemento HTML nascosto
-        all'interno dell'articolo da inserire nel
-        carrello che contiene l'id dell'articolo
-    */
-    $(".addItemToCart").click(function(event) {
-        event.preventDefault();
-        let id = $(this).siblings(".itemId:first").text();
-        addToCart(parseInt(id));
-        let name = $(this).siblings("h4").text()
-        addToCartTable(name, $(this).siblings("h5").text());
-        sendNotification(name,"Aggiunto al carrello!");
-    });
+    //Bottone per menu a schermo intero
     $(".icon").click(() => {
         let nav = $("nav");
         if (!nav.hasClass("menu_open")) {            
@@ -56,13 +46,6 @@ $(document).ready(function () {
             });
         }            
     });
-    $("#vcart").click(() => {        
-        $("#cart").fadeIn();
-        $("#cart").css("display", "flex");
-    });    
-    $("#cart > div > button:first").click(() => {
-        $("#cart").fadeOut();
-    });
 });
 
 function formatData(data) {
@@ -74,91 +57,41 @@ function formatData(data) {
     return formattedData;
 }
 
-function addToCart(id) {
-  let idStr = id.toString();
-  let cartObj = JSON.parse(getCookie("cart"));
-  if(!(idStr in cartObj.cart_ids)) {
-    cartObj.cart_ids[idStr] = 0;
-  }
-  cartObj.cart_ids[idStr] += 1;
-  setCookie("cart", JSON.stringify(cartObj), 1);
-
-}
-
-function addToCartTable(name, price) {
-    let rowNum = 0;
-    let quantity = 0;
-    $("[headers='nome']").each((i, elem) => {
-        let elemName = elem.innerText;
-        if(elemName == name) {
-            rowNum = i;            
-            quantity = parseInt($("#cart tbody tr").eq(i).children(":last").text());
-            quantity++;
-        }
-    });
-    if (quantity === 0) {
-        $("#cart tbody").append(`
-            <tr>
-                <td headers="nome">${name}</td>
-                <td headers="prezzo">${price}</td>
-                <td headers="quantita">1</td>
-            </tr>
-        `);
-    } else {
-        $("#cart tbody tr").eq(rowNum).children(":last").text(quantity);
-    }
-}
-
-function getCookie(cname) {
-  let name = cname + "=";
-  let ca = document.cookie.split(';');
-  for(let i = 0; i < ca.length; i++) {
-    let c = ca[i];
-    while (c.charAt(0) == ' ') {
-      c = c.substring(1);
-    }
-    if (c.indexOf(name) == 0) {
-      return c.substring(name.length, c.length);
-    }
-  }
-  return "";
-}
-
-function setCookie(cname, cvalue, exdays) {
-  const d = new Date();
-  d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-  let expires = "expires="+d.toUTCString();
-  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-}
-
-function sendNotification(title, description) {
-  $("body > header .notifications").append(`
-  <div class="toast-container">
-    <p>${Date.now()}</p>
-    <div class="toast">
-      <header class="toast-header">
-        <strong>${title}</strong>
-        <span class="minc">
-          <small>0 min ago</small>
-          <button type="button" class="close">
-            <span>&times;</span>
-          </button>
-        </span>
-      </header>
-      <div class="toast-body">
-        <p>${description}</p>
-      </div>
+function sendNotification(title, description, millis = 0) {
+    let index = $(".toast-container").length;
+    $("body > header .notifications").append(`
+    <div class="toast-container">
+        <p>${Date.now()}</p>
+        <div class="toast">
+        <header class="toast-header">
+            <strong>${title}</strong>
+            <span class="minc">
+            <small>0 min ago</small>
+            <button type="button" class="close">
+                <span>&times;</span>
+            </button>
+            </span>
+        </header>
+        <div class="toast-body">
+            <p>${description}</p>
+        </div>
+        </div>
     </div>
-  </div>
-  `);
-  $(".toast-container:last").fadeIn();
-  $(".toast-header button").click(function(event) {
-    event.preventDefault();
-    $(this).parents(".toast-container").fadeOut("fast", function() {
-      sleep(300);
-      $(this).remove();
+    `);
+    let notification = $(`.toast-container:eq(${index})`);
+    notification.fadeIn();
+    $(".toast-header button").click(function(event) {
+        event.preventDefault();
+        $(this).parents(".toast-container").fadeOut("fast", function() {
+            sleep(300);
+            $(this).remove();
+        });
     });
-  });
+    if (millis > 0) {
+        setTimeout(() => {
+            notification.fadeOut("fast");
+        }, millis);
+    }
 }
 
 function update_time() {
