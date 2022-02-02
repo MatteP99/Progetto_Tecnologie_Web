@@ -46,7 +46,7 @@ email TEXT NOT NULL,
 phone_num TEXT NOT NULL,
 address TEXT NOT NULL,
 email_uni TEXT,
-student_status ENUM('Cliente-Studente','Cliente', 'Admin') NOT NULL,
+user_status ENUM('Cliente-Studente','Cliente', 'Admin') NOT NULL,
 
 PRIMARY KEY (id_user)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
