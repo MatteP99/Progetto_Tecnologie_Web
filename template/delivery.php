@@ -18,11 +18,11 @@
                     <p><?php echo $food["description"]?></p>
                     <button class="addItemToCart">Aggiungi al Carrello</button>
                 <?php else: ?>
-                    <img src="<?php echo UPLOAD_DIR.$food["img_out"];?>" alt="<?php echo $food["name"];?>" /><!--Immagine da cambiare-->
+                    <img src="<?php echo UPLOAD_DIR.$food["img_out"];?>" alt="<?php echo $food["name"]."non disponibile";?>" />
                     <h4><?php echo $food["name"]?></h4>
                     <h5>€ <?php echo $food["price"]?></h5>
                     <p><?php echo $food["description"]?></p>
-                    <button class="addItemToCart">Aggiungi al Carrello</button><!--Link da bloccare-->
+                    <button disabled>Aggiungi al Carrello</button>
                 <?php endif; ?>
                 </li>
             <?php endif; ?>

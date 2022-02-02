@@ -41,18 +41,18 @@ INSERT INTO food VALUES (21, 'Cheeseburger', 'Pane con semi di sesamo, carne bov
 INSERT INTO food VALUES (22, 'Little boy', 'Pane con semi di sesamo, carne bovina 150g, insalata, pomodoro, bacon, sottiletta, cipolla rossa di tropea e ketchup.', 6.50, 'panini/little_boy.jpg', 'panini/little_boy_out.jpg', 4, 50);
 INSERT INTO food VALUES (23, 'Alabama', 'Pane con semi di sesamo, carne bovina 150g, insalata, pomodoro, bacon, cipolla cotta su piastra, BBQ e ketchup.', 8.00, 'panini/alabama.jpg', 'panini/alabama_out.jpg', 4, 50);
 INSERT INTO food VALUES (24, 'Emiliano', 'Pane con semi di sesamo, carne bovina 150g, insalata, pomodoro, bacon, scamorza affumicata e ketchup.', 9.00, 'panini/emiliano.jpg', 'panini/emiliano_out.jpg', 4, 50);
-INSERT INTO food VALUES (25, 'Big boss', 'Pane con semi di sesamo, 2 fette di carne bovina 300g, insalata, pomodoro, bacon, cipolla cotta, BBQ e ketchup.', 10.00, 'panini/big_boss.jpg', 'panini/big_boss_out.jpg', 4, 50);
 -- Piadine
-INSERT INTO food VALUES (26, 'Piadina emilia', 'Piada, insalata, pomodoro e stracchino.', 5.00, 'piada/piada_emilia.jpg', 'piada/piada_emilia_out.jpg', 4, 50);
-INSERT INTO food VALUES (27, 'Piada salcicca', 'Piada, cipolla cotta e salciccia.', 5.50, 'piada/piada_salciccia.jpg', 'piada/piada_salciccia_out.jpg', 4, 50);
-INSERT INTO food VALUES (28, 'Piada crudo', 'Piada, prosciutto crudo, rucola e stracchino.', 5.30, 'piada/piada_crudo.jpg', 'piada/piada_crudo_out.jpg', 4, 50);
-INSERT INTO food VALUES (29, 'Piada cotto', 'Piada, prosciutto cotto, insalata di lattuga e pomodoro.', 5.20, 'piada/piada_cotto.jpg', 'piada/piada_cotto_out.jpg', 4, 50);
-INSERT INTO food VALUES (30, 'Piada sfiziosa', 'Piada, hot dog, ketchup e maionese.', 5.90, 'piada/piada_sfiziosa.jpg', 'piada/piada_sfiziosa_out.jpg', 4, 50);
+INSERT INTO food VALUES (25, 'Piada stracchino', 'Piada e stracchino.', 4.00, 'piada/piada_stracchino.jpg', 'piada/piada_stracchino_out.jpg', 5, 50);
+INSERT INTO food VALUES (26, 'Piadina emilia', 'Piada, insalata, pomodoro e stracchino.', 5.00, 'piada/piada_emilia.jpg', 'piada/piada_emilia_out.jpg', 5, 50);
+INSERT INTO food VALUES (27, 'Piada salsicca', 'Piada, cipolla cotta e salsiccia.', 5.50, 'piada/piada_salsiccia.jpg', 'piada/piada_salsiccia_out.jpg', 5, 50);
+INSERT INTO food VALUES (28, 'Piada crudo', 'Piada, prosciutto crudo, rucola e stracchino.', 5.30, 'piada/piada_crudo.jpg', 'piada/piada_crudo_out.jpg', 5, 50);
+INSERT INTO food VALUES (29, 'Piada cotto', 'Piada, prosciutto cotto, insalata di lattuga e pomodoro.', 5.20, 'piada/piada_cotto.jpg', 'piada/piada_cotto_out.jpg', 5, 50);
+INSERT INTO food VALUES (30, 'Piada sfiziosa', 'Piada, wurstels, ketchup e maionese.', 5.90, 'piada/piada_sfiziosa.jpg', 'piada/piada_sfiziosa_out.jpg', 5, 50);
 -- Pizze
 INSERT INTO food VALUES (31, 'Pizza Margherita', 'Mozzarella fior di latte, olio, basilico, pomodoro e impasto da 200g.', 4.00, 'pizze/pizza_margherita.jpg', 'pizze/pizza_margherita_out.jpg', 6, 50);
 INSERT INTO food VALUES (32, 'Pizza Bufala', 'Mozzarella di bufala, olio, basilico, pomodoro e impasto da 200g.', 6.50, 'pizze/pizza_bufala.jpg', 'pizze/pizza_bufala_out.jpg', 6, 50);
 INSERT INTO food VALUES (33, 'Pizza Parmigiana', 'Mozzarella fior di latte, olio, basilico, pomodoro, melanzane fresche e impasto da 200g.', 9.00, 'pizze/pizza_parmigiana.jpg', 'pizze/pizza_parmigiana_out.jpg', 6, 50);
-INSERT INTO food VALUES (34, 'Pizza Americana', 'Mozzarella fior di latte, olio, basilico, pomodoro, wurstel, patatine fritte e impasto da 200g.', 7.00, 'pizze/pizza_americana.jpg', 'pizze/pizza_mamericana_out.jpg', 6, 50);
+INSERT INTO food VALUES (34, 'Pizza Americana', 'Mozzarella fior di latte, olio, basilico, pomodoro, wurstel, patatine fritte e impasto da 200g.', 7.00, 'pizze/pizza_americana.jpg', 'pizze/pizza_americana_out.jpg', 6, 50);
 INSERT INTO food VALUES (35, 'Pizza Quattro Formaggi', 'Mozzarella fior di latte, gorgonzola, pecorino, scamorza, olio, basilico, pomodoro e impasto da 200g.', 8.50, 'pizze/pizza_formaggi.jpg', 'pizze/pizza_formaggi_out.jpg', 6, 50);
 INSERT INTO food VALUES (36, 'Pizza Funghi', 'Mozzarella fior di latte, olio, basilico, pomodoro, funghi porcini e impasto da 200g.', 5.50, 'pizze/pizza_funghi.jpg', 'pizze/pizza_funghi_out.jpg', 6, 50);
 -- Dolci
