@@ -11,6 +11,7 @@
             <?php foreach ($templateParams["food"] as $food):
             if($food["type_food"] == $type["id_type"]): ?>
                 <li>
+                    <p class="itemId"><?php echo $food["id_food"] ?></p>
                 <?php if($food["quantity"] > 0): ?>
                     <img src="<?php echo UPLOAD_DIR.$food["img"];?>" alt="<?php echo $food["name"];?>" />
                     <h4><?php echo $food["name"]?></h4>
@@ -31,7 +32,7 @@
         </li>
         <?php endforeach; ?>
         <li>
-            <button id="vcart">Visualizza carrello</button>
+            <button id="vcart" class="fas fa-shopping-cart" aria-label="visualizza carrello"></button>
         </li>
     </ul>    
 </section>
