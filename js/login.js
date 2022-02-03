@@ -5,10 +5,12 @@ $(document).ready(function() {
     $("#registrazione").click(function() {
         $(".signup").slideDown();
         $("input").each(function() {
-            if (!($(this).hasClass("invalid")) && $(this).attr("type") !== "text" && $(this).val() !== "Invia") {
+            if (!($(this).hasClass("invalid")) && $(this).attr("type") !== "text" && $(this).val() !== "Invia" && $(this).attr("type") !== "radio" ) {
                 $(this).addClass("invalid");
             }
         });
+        $("i.fas").addClass("fa-times");        
+        $("input:last").prop("disabled", true);
     });
 
     $("#login").click(function() {
@@ -23,73 +25,114 @@ $(document).ready(function() {
                 $(this).val("");
             }
         });
+        $("i").removeAttr("class");
+        $("i").addClass("fas");
+        $("input:last").prop("disabled", false);
     });
 
     $("#mail").keyup(function() {
         if(emailRegEx.test($(this).val())) {
             if (!($(this).hasClass("valid"))) {
                 $(this).addClass("valid");
+                $(this).siblings("i").removeClass("fa-times");                
+                $(this).siblings("i").addClass("fa-check");
             }
         } else {
             if ($(this).hasClass("valid")) {
-                $(this).removeClass("valid");
+                $(this).removeClass("valid");                
+                $(this).siblings("i").removeClass("fa-check");
+                $(this).siblings("i").addClass("fa-times"); 
             }
         }
-
+        
         if($(this).val() !== $("#mail_conf").val()) {
             if($("#mail_conf").hasClass("valid")) {
-                $("#mail_conf").removeClass("valid");
+                $("#mail_conf").removeClass("valid");                
+                $("#mail_conf").siblings("i").removeClass("fa-check");
+                $("#mail_conf").siblings("i").addClass("fa-times"); 
             }
         } else {
-            if(!($("#mail_conf").hasClass("valid"))) {
+            if(!($("#mail_conf").hasClass("valid")) &&  emailRegEx.test($("#mail").val())) {
                 $("#mail_conf").addClass("valid");
+                $("#mail_conf").siblings("i").removeClass("fa-times");                
+                $("#mail_conf").siblings("i").addClass("fa-check");
             }
         }
+        check_submit();
     });
 
     $("#mail_conf").keyup(function() {
-        if($(this).val() === $("#mail").val() &&  $("#mail").val() !== "") {
+        if($(this).val() === $("#mail").val() &&  emailRegEx.test($("#mail").val())) {
             if (!($(this).hasClass("valid"))) {
                 $(this).addClass("valid");
+                $(this).siblings("i").removeClass("fa-times");                
+                $(this).siblings("i").addClass("fa-check");
             }
         } else {
             if ($(this).hasClass("valid")) {
-                $(this).removeClass("valid");
+                $(this).removeClass("valid");                
+                $(this).siblings("i").removeClass("fa-check");
+                $(this).siblings("i").addClass("fa-times"); 
             }
         }
+        check_submit();
     });
 
     $("#password").keyup(function() {
-        if(passRegEx.test($(this).val())) {
-            if (!($(this).hasClass("valid"))) {
-                $(this).addClass("valid");
+        if($("#registrazione").is(":checked")) {
+            if(passRegEx.test($(this).val())) {
+                if (!($(this).hasClass("valid"))) {
+                    $(this).addClass("valid");
+                    $(this).siblings("i").removeClass("fa-times");                
+                    $(this).siblings("i").addClass("fa-check");
+                }
+            } else {
+                if ($(this).hasClass("valid")) {
+                    $(this).removeClass("valid");                
+                    $(this).siblings("i").removeClass("fa-check");
+                    $(this).siblings("i").addClass("fa-times"); 
+                }
             }
-        } else {
-            if ($(this).hasClass("valid")) {
-                $(this).removeClass("valid");
+            
+            if($(this).val() !== $("#password_conf").val()) {
+                if($("#password_conf").hasClass("valid")) {
+                    $("#password_conf").removeClass("valid");                
+                    $("#password_conf").siblings("i").removeClass("fa-check");
+                    $("#password_conf").siblings("i").addClass("fa-times"); 
+                }
+            } else {
+                if(!($("#password_conf").hasClass("valid")) && passRegEx.test($(this).val())) {
+                    $("#password_conf").addClass("valid");
+                    $("#password_conf").siblings("i").removeClass("fa-times");                
+                    $("#password_conf").siblings("i").addClass("fa-check");
+                }
             }
-        }
-
-        if($(this).val() !== $("#password_conf").val()) {
-            if($("#password_conf").hasClass("valid")) {
-                $("#password_conf").removeClass("valid");
-            }
-        } else {
-            if(!($("#password_conf").hasClass("valid"))) {
-                $("#password_conf").addClass("valid");
-            }
+            check_submit();
         }
     });
 
     $("#password_conf").keyup(function() {
-        if($(this).val() === $("#password").val() && $("#password").val() !== "") {
+        if($(this).val() === $("#password").val() && passRegEx.test($("#password").val())) {
             if (!($(this).hasClass("valid"))) {
                 $(this).addClass("valid");
+                $(this).siblings("i").removeClass("fa-times");                
+                $(this).siblings("i").addClass("fa-check");
             }
         } else {
             if ($(this).hasClass("valid")) {
-                $(this).removeClass("valid");
+                $(this).removeClass("valid");                
+                $(this).siblings("i").removeClass("fa-check");
+                $(this).siblings("i").addClass("fa-times");                
             }
         }
+        check_submit();
     });
 });
+
+function check_submit() {
+    if($("i.fa-check").length === $("i.fas").length) {
+        $("input:last").prop("disabled", false);
+    } else {
+        $("input:last").prop("disabled", true);
+    }
+}

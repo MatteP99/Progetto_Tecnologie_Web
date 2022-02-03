@@ -13,18 +13,22 @@
         </li>
         <li class="signup">
             <label for="mail">Mail:</label>
+            <i class="fas"></i>
             <input type="email" id="mail" name="mail" />
         </li>
         <li class="signup">
             <label for="mail_conf">Conferma email:</label>
+            <i class="fas"></i>
             <input type="email" id="mail_conf" name="mail_conf" />
         </li>
         <li>
             <label for="password">Password:</label>
+            <i class="fas"></i>
             <input type="password" id="password" name="password" required />
         </li>
         <li class="signup">
             <label for="password_conf">Conferma password:</label>
+            <i class="fas"></i>
             <input type="password" id="password_conf" name="password_conf" />
         </li>
         <li>

@@ -8,6 +8,10 @@ a {
 }
 
 a:hover {
+    font-weight: 900;
+}
+
+a.icon:hover {
     color: white;
 }
 
@@ -208,7 +212,7 @@ form {
 form ul {
     padding-left: 0;
     text-align: left;
-    min-width: 450px;
+    min-width: 470px;
 }
 
 form li {
@@ -249,7 +253,9 @@ form > ul > li > * {
     padding: 0 10px;
 }
 
-
+form > ul > li > i {
+    padding: 0;
+}
 
 main > section > div {
     display: flex;
@@ -588,10 +594,6 @@ footer > div:last-child li {
         margin-left: 20%;
         padding: 7% 4%;
     }
-
-    form ul {
-        min-width: 600px;
-    }
     
     footer {
         margin-left: 20%;
@@ -639,6 +641,10 @@ footer > div:last-child li {
     main {
         margin-left: 15%;
         padding: 7% 4%;
+    }
+
+    form ul {
+        min-width: 550px;
     }
     
     footer {

@@ -38,9 +38,9 @@
             </div>
             <div class="nav_contacts">
                 <ul>
-                    <li><a class="fab fa-facebook" href="https://www.facebook.com/Osteria-Zaccolla" title="icona facebook"></a></li>
-                    <li><a class="fab fa-instagram" href="https://www.instagram.com/Osteria-Zaccolla" title="icona instagram"></a></li>
-                    <li><a class="fab fa-twitter" href="https://www.twitter.com/Osteria-Zaccolla" title="icona twitter"></a></li>
+                    <li><a class="fab fa-facebook" href="https://www.facebook.com/Osteria-Zaccolla" title="Pagina facebook"></a></li>
+                    <li><a class="fab fa-instagram" href="https://www.instagram.com/Osteria-Zaccolla" title="Pagina instagram"></a></li>
+                    <li><a class="fab fa-twitter" href="https://www.twitter.com/Osteria-Zaccolla" title="Pagina twitter"></a></li>
                 </ul>
                 <p>Piazza Baschetti 23, 47863, Cesena (FC)</p>
             </div>
