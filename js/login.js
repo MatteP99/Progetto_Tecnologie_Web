@@ -9,7 +9,7 @@ $(document).ready(function() {
                 $(this).addClass("invalid");
             }
         });
-        $("i.fas").addClass("fa-times");        
+        $("em.fas").addClass("fa-times");        
         $("input:last").prop("disabled", true);
     });
 
@@ -25,8 +25,8 @@ $(document).ready(function() {
                 $(this).val("");
             }
         });
-        $("i").removeAttr("class");
-        $("i").addClass("fas");
+        $("em").removeAttr("class");
+        $("em").addClass("fas");
         $("input:last").prop("disabled", false);
     });
 
@@ -34,28 +34,28 @@ $(document).ready(function() {
         if(emailRegEx.test($(this).val())) {
             if (!($(this).hasClass("valid"))) {
                 $(this).addClass("valid");
-                $(this).siblings("i").removeClass("fa-times");                
-                $(this).siblings("i").addClass("fa-check");
+                $(this).siblings("em").removeClass("fa-times");                
+                $(this).siblings("em").addClass("fa-check");
             }
         } else {
             if ($(this).hasClass("valid")) {
                 $(this).removeClass("valid");                
-                $(this).siblings("i").removeClass("fa-check");
-                $(this).siblings("i").addClass("fa-times"); 
+                $(this).siblings("em").removeClass("fa-check");
+                $(this).siblings("em").addClass("fa-times"); 
             }
         }
         
         if($(this).val() !== $("#mail_conf").val()) {
             if($("#mail_conf").hasClass("valid")) {
                 $("#mail_conf").removeClass("valid");                
-                $("#mail_conf").siblings("i").removeClass("fa-check");
-                $("#mail_conf").siblings("i").addClass("fa-times"); 
+                $("#mail_conf").siblings("em").removeClass("fa-check");
+                $("#mail_conf").siblings("em").addClass("fa-times"); 
             }
         } else {
             if(!($("#mail_conf").hasClass("valid")) &&  emailRegEx.test($("#mail").val())) {
                 $("#mail_conf").addClass("valid");
-                $("#mail_conf").siblings("i").removeClass("fa-times");                
-                $("#mail_conf").siblings("i").addClass("fa-check");
+                $("#mail_conf").siblings("em").removeClass("fa-times");                
+                $("#mail_conf").siblings("em").addClass("fa-check");
             }
         }
         check_submit();
@@ -65,14 +65,14 @@ $(document).ready(function() {
         if($(this).val() === $("#mail").val() &&  emailRegEx.test($("#mail").val())) {
             if (!($(this).hasClass("valid"))) {
                 $(this).addClass("valid");
-                $(this).siblings("i").removeClass("fa-times");                
-                $(this).siblings("i").addClass("fa-check");
+                $(this).siblings("em").removeClass("fa-times");                
+                $(this).siblings("em").addClass("fa-check");
             }
         } else {
             if ($(this).hasClass("valid")) {
                 $(this).removeClass("valid");                
-                $(this).siblings("i").removeClass("fa-check");
-                $(this).siblings("i").addClass("fa-times"); 
+                $(this).siblings("em").removeClass("fa-check");
+                $(this).siblings("em").addClass("fa-times"); 
             }
         }
         check_submit();
@@ -83,28 +83,28 @@ $(document).ready(function() {
             if(passRegEx.test($(this).val())) {
                 if (!($(this).hasClass("valid"))) {
                     $(this).addClass("valid");
-                    $(this).siblings("i").removeClass("fa-times");                
-                    $(this).siblings("i").addClass("fa-check");
+                    $(this).siblings("em").removeClass("fa-times");                
+                    $(this).siblings("em").addClass("fa-check");
                 }
             } else {
                 if ($(this).hasClass("valid")) {
                     $(this).removeClass("valid");                
-                    $(this).siblings("i").removeClass("fa-check");
-                    $(this).siblings("i").addClass("fa-times"); 
+                    $(this).siblings("em").removeClass("fa-check");
+                    $(this).siblings("em").addClass("fa-times"); 
                 }
             }
             
             if($(this).val() !== $("#password_conf").val()) {
                 if($("#password_conf").hasClass("valid")) {
                     $("#password_conf").removeClass("valid");                
-                    $("#password_conf").siblings("i").removeClass("fa-check");
-                    $("#password_conf").siblings("i").addClass("fa-times"); 
+                    $("#password_conf").siblings("em").removeClass("fa-check");
+                    $("#password_conf").siblings("em").addClass("fa-times"); 
                 }
             } else {
                 if(!($("#password_conf").hasClass("valid")) && passRegEx.test($(this).val())) {
                     $("#password_conf").addClass("valid");
-                    $("#password_conf").siblings("i").removeClass("fa-times");                
-                    $("#password_conf").siblings("i").addClass("fa-check");
+                    $("#password_conf").siblings("em").removeClass("fa-times");                
+                    $("#password_conf").siblings("em").addClass("fa-check");
                 }
             }
             check_submit();
@@ -115,14 +115,14 @@ $(document).ready(function() {
         if($(this).val() === $("#password").val() && passRegEx.test($("#password").val())) {
             if (!($(this).hasClass("valid"))) {
                 $(this).addClass("valid");
-                $(this).siblings("i").removeClass("fa-times");                
-                $(this).siblings("i").addClass("fa-check");
+                $(this).siblings("em").removeClass("fa-times");                
+                $(this).siblings("em").addClass("fa-check");
             }
         } else {
             if ($(this).hasClass("valid")) {
                 $(this).removeClass("valid");                
-                $(this).siblings("i").removeClass("fa-check");
-                $(this).siblings("i").addClass("fa-times");                
+                $(this).siblings("em").removeClass("fa-check");
+                $(this).siblings("em").addClass("fa-times");                
             }
         }
         check_submit();
@@ -130,7 +130,7 @@ $(document).ready(function() {
 });
 
 function check_submit() {
-    if($("i.fa-check").length === $("i.fas").length) {
+    if($("em.fa-check").length === $("em.fas").length) {
         $("input:last").prop("disabled", false);
     } else {
         $("input:last").prop("disabled", true);

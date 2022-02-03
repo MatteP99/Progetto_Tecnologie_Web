@@ -229,6 +229,10 @@ form li:first-child, form li:last-child  {
     float: right;
 }
 
+fieldset {
+    border: 0;
+}
+
 form .signup {
     display: none;
 }
@@ -249,7 +253,7 @@ form .signup {
     outline-color: lightgreen !important;
 }
 
-form > ul > li > * {
+form > ul > li > *, fieldset > * {
     padding: 0 10px;
 }
 

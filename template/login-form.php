@@ -2,10 +2,12 @@
     <h2>Login</h2>
     <ul>
         <li>
-            <input type="radio" id="login" name="accesso" value="Login" checked>
-            <label for="login">Login</label>
-            <input type="radio" id="registrazione" name="accesso" value="Registrazione">
-            <label for="registrazione">Registrazione</label>
+            <fieldset>
+                <input type="radio" id="login" name="accesso" value="Login" checked>
+                <label for="login">Login</label>
+                <input type="radio" id="registrazione" name="accesso" value="Registrazione">
+                <label for="registrazione">Registrazione</label>
+            </fieldset>
         </li>
         <li>
             <label for="username">Username:</label>
@@ -13,22 +15,22 @@
         </li>
         <li class="signup">
             <label for="mail">Mail:</label>
-            <i class="fas"></i>
+            <em class="fas" aria-label="Icona di verifica"></em>
             <input type="email" id="mail" name="mail" />
         </li>
         <li class="signup">
             <label for="mail_conf">Conferma email:</label>
-            <i class="fas"></i>
+            <em class="fas" aria-label="Icona di verifica"></em>
             <input type="email" id="mail_conf" name="mail_conf" />
         </li>
         <li>
             <label for="password">Password:</label>
-            <i class="fas"></i>
+            <em class="fas" aria-label="Icona di verifica"></em>
             <input type="password" id="password" name="password" required />
         </li>
         <li class="signup">
             <label for="password_conf">Conferma password:</label>
-            <i class="fas"></i>
+            <em class="fas" aria-label="Icona di verifica"></em>
             <input type="password" id="password_conf" name="password_conf" />
         </li>
         <li>
