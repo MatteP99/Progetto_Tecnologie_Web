@@ -58,9 +58,8 @@ class DatabaseHelper {
 										VALUES (?, ?, ?, ?, ?, ?)");
 		$statement->bind_param("ssfsii", $foodName, $foodDes, $foodPrice, $foodImg, $foodType, $foodQuantity);
 		$statement->execute();
-		$result = $statement->get_result();
 		
-		return $result->fetch_all(MYSQLI_ASSOC);
+		return $statement->insert_id;
 	}
 	
 	//Function getUser
@@ -82,6 +81,26 @@ class DatabaseHelper {
 		$result = $statement->get_result();
 
 		return $result->fetch_all(MYSQLI_ASSOC);
+    }
+	
+	//Function register
+	public function register($name, $username, $password, $email, $phone, $address) {
+		$statement = $this->db->prepare("INSERT INTO users (name, username, password, email, phone_num, address, email_uni, user_status)
+										VALUES (?, ?, ?, ?, ?, ?, NULL, 'Cliente')");
+		$statement->bind_param("ssssss", $name, $username, $password, $email, $phone, $address);
+		$statement->execute();
+
+		return $statement->insert_id;;
+    }
+	
+	//Function register student
+	public function registerStudent($name, $username, $password, $email, $phone, $address, $unimail) {
+		$statement = $this->db->prepare("INSERT INTO users (name, username, password, email, phone_num, address, email_uni, user_status)
+										VALUES (?, ?, ?, ?, ?, ?, ?, 'Cliente-Studente')");
+		$statement->bind_param("sssssss", $name, $username, $password, $email, $phone, $address, $unimail);
+		$statement->execute();
+
+		return $statement->insert_id;;
     }
 }
 ?> 
