@@ -16,7 +16,7 @@ INSERT INTO types VALUES (9, 'Bevande Alcoliche');
 -- Antipasti
 INSERT INTO food VALUES (1, 'Insalata Mista', 'Insalata di lattuga fresca, sedano, finocchio, carote tagliate a fettine, olio, sale e aceto.', 4.00, 'antipasti/insalata_mista.jpg', 1, 50);
 INSERT INTO food VALUES (2, 'Tagliere Misto', 'Salame DOP IGP di Modena, Prosciutto di Parma, Coppa, Tacchino e Prosciutto Cotto.', 7.20, 'antipasti/tagliere_misto.jpg', 1, 50);
-INSERT INTO food VALUES (3, 'Patatine', 'Patate con buccia cotte al forno.', 3.00, 'antipasti/patatine.jpg', 'antipasti/patatine_out.jpg', 1, 50);
+INSERT INTO food VALUES (3, 'Patatine', 'Patate con buccia cotte al forno.', 3.00, 'antipasti/patatine.jpg', 1, 50);
 INSERT INTO food VALUES (4, 'Gratinati di Verdure', 'Gratinati di pomodoro, melanzane, peperone e cipolla.', 5.50, 'antipasti/gratinati_verdure.jpg', 1, 50);
 INSERT INTO food VALUES (5, 'Caprese', 'Mozzarella fior di latte, olio, basilico, pomodoro e sale.', 6.70, 'antipasti/caprese.jpg', 1, 50);
 INSERT INTO food VALUES (6, 'Verdure Cotte', 'Radicchio, peperoni, carote e zucchine cotte.', 5.10, 'antipasti/verdure_cotte.jpg', 1, 50);
@@ -50,7 +50,7 @@ INSERT INTO food VALUES (29, 'Piada cotto', 'Piada, prosciutto cotto, insalata d
 INSERT INTO food VALUES (30, 'Piada sfiziosa', 'Piada, wurstels, ketchup e maionese.', 5.90, 'piada/piada_sfiziosa.jpg', 5, 50);
 -- Pizze
 INSERT INTO food VALUES (31, 'Pizza Margherita', 'Mozzarella fior di latte, olio, basilico, pomodoro e impasto da 200g.', 4.00, 'pizze/pizza_margherita.jpg', 6, 50);
-INSERT INTO food VALUES (32, 'Pizza Bufala', 'Mozzarella di bufala, olio, basilico, pomodoro e impasto da 200g.', 6.50, 'pizze/pizza_bufala.jpg', 'pizze/pizza_bufala_out.jpg', 6, 50);
+INSERT INTO food VALUES (32, 'Pizza Bufala', 'Mozzarella di bufala, olio, basilico, pomodoro e impasto da 200g.', 6.50, 'pizze/pizza_bufala.jpg', 6, 50);
 INSERT INTO food VALUES (33, 'Pizza Parmigiana', 'Mozzarella fior di latte, olio, basilico, pomodoro, melanzane fresche e impasto da 200g.', 9.00, 'pizze/pizza_parmigiana.jpg', 6, 50);
 INSERT INTO food VALUES (34, 'Pizza Americana', 'Mozzarella fior di latte, olio, basilico, pomodoro, wurstel, patatine fritte e impasto da 200g.', 7.00, 'pizze/pizza_americana.jpg', 6, 50);
 INSERT INTO food VALUES (35, 'Pizza Quattro Formaggi', 'Mozzarella fior di latte, gorgonzola, pecorino, scamorza, olio, basilico, pomodoro e impasto da 200g.', 8.50, 'pizze/pizza_formaggi.jpg', 6, 50);
@@ -58,7 +58,7 @@ INSERT INTO food VALUES (36, 'Pizza Funghi', 'Mozzarella fior di latte, olio, ba
 -- Dolci
 INSERT INTO food VALUES (37, 'Tiramisu\'', 'Uova, zucchero, savoiardi, caffe\' mascarpone.', 6.00, 'dolci/tiramisu.jpg', 7, 50);
 INSERT INTO food VALUES (38, 'Sorbetto al caffe\'', 'Succo di limone, zucchero, albumi, acqua e limoncello.', 7.10, 'dolci/sorbetto_limone.jpg', 7, 50);
-INSERT INTO food VALUES (39, 'Sorbetto al limone', 'Caffe, zucchero e acqua.', 7.00, 'dolci/sorbetto_caffe.jpg', 'dolci/sorbetto_caffe_out.jpg', 7, 50);
+INSERT INTO food VALUES (39, 'Sorbetto al limone', 'Caffe, zucchero e acqua.', 7.00, 'dolci/sorbetto_caffe.jpg', 7, 50);
 INSERT INTO food VALUES (40, 'Mousse di cioccolato', 'Cioccolato fondente, tuorli, miele di acacia, panna e latte.', 7.50, 'dolci/mousse.jpg', 7, 50);
 INSERT INTO food VALUES (41, 'Profitterol', 'Acqua, burro, zucchero, uova, latte, sale e farina.', 6.50, 'dolci/profitterol.jpg', 7, 50);
 INSERT INTO food VALUES (42, 'Mascarpone con frutta', 'Mascarpone, zucchero, tuorli, acqua e frutti di bosco.', 6.20, 'dolci/mascarpone.jpg', 7, 50);
