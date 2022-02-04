@@ -14,24 +14,41 @@
             <input type="text" id="username" name="username" required />
         </li>
         <li class="signup">
+            <label for="name">Nome completo:</label>
+            <input type="text" id="name" name="name"/>
+        </li>
+        <li class="signup">
             <label for="mail">Mail:</label>
             <em class="fas" aria-label="Icona di verifica"></em>
-            <input type="email" id="mail" name="mail" />
+            <input type="email" class="toBeChecked" id="mail" name="mail" />
         </li>
         <li class="signup">
             <label for="mail_conf">Conferma email:</label>
             <em class="fas" aria-label="Icona di verifica"></em>
-            <input type="email" id="mail_conf" name="mail_conf" />
+            <input type="email" class="toBeChecked" id="mail_conf" name="mail_conf" />
+        </li>
+        <li class="signup">
+            <label for="unimail">Mail università:</label>
+            <input type="email" id="unimail" name="unimail" placeholder="Facoltativa"/>
         </li>
         <li>
             <label for="password">Password:</label>
             <em class="fas" aria-label="Icona di verifica"></em>
-            <input type="password" id="password" name="password" required />
+            <input type="password" class="toBeChecked" id="password" name="password" required />
         </li>
         <li class="signup">
             <label for="password_conf">Conferma password:</label>
             <em class="fas" aria-label="Icona di verifica"></em>
-            <input type="password" id="password_conf" name="password_conf" />
+            <input type="password" class="toBeChecked" id="password_conf" name="password_conf" />
+        </li>        
+        <li class="signup">
+            <label for="tel">Numero di telefono:</label>
+            <em class="fas" aria-label="Icona di verifica"></em>
+            <input type="text" class="toBeChecked" id="tel" name="tel" />
+        </li>
+        <li class="signup">
+            <label for="address">Indirizzo completo:</label>
+            <input type="text" id="address" name="address" />
         </li>
         <li>
             <input type="submit" name="submit" value="Invia" />
