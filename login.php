@@ -13,6 +13,9 @@ if(isset($_POST["username"]) && isset($_POST["password"])) {
 
 }
 
+
+$templateParams["type"] = $db->getFoodTypes();
+$templateParams["food"] = $db->getFood();
 $templateParams["title"] = "ZACCOLLA OSTERIA - Login";
 $templateParams["name"] = "login-form.php";
 

@@ -23,14 +23,14 @@ $(document).ready(function() {
 
     //Apro la pagina del carrello
     $("#vcart").click(function() {        
-        $("#cart").fadeIn();
-        $("#cart").css("display", "flex");
+        $(".overlay").fadeIn();
+        $(".overlay").css("display", "flex");
         $(this).fadeOut()
     });
     
     //Chiudo la pagina del carrello
-    $("#cart > div > button:first").click(function() {
-        $("#cart").fadeOut();
+    $(".overlay > div > button:first").click(function() {
+        $(".overlay").fadeOut();
         $("#vcart").fadeIn();
     });
 });
@@ -78,14 +78,14 @@ function addToCartTable(name, price, quantity = 0) {
         if(elemName == name) {
             rowNum = i;
             if (quantity === 0) {           
-                quantity = parseInt($("#cart tbody tr").eq(i).children(":last").text());
+                quantity = parseInt($(".overlay tbody tr").eq(i).children(":last").text());
                 quantity++;
             }
         }
     });
 
     if (quantity === 0 && !flag) {
-        $("#cart tbody").append(`
+        $(".overlay tbody").append(`
             <tr>
                 <td headers="nome">${name}</td>
                 <td headers="prezzo">${price}</td>
@@ -93,9 +93,9 @@ function addToCartTable(name, price, quantity = 0) {
             </tr>
         `);
     } else if (quantity > 0 && !flag) {
-        $("#cart tbody tr").eq(rowNum).children(":last").html(`<button class="fas fa-minus" aria-label="minus"></button> <span class="quantity">${quantity}</span> <button class="fas fa-plus" aria-label="plus"></button>`);
+        $(".overlay tbody tr").eq(rowNum).children(":last").html(`<button class="fas fa-minus" aria-label="minus"></button> <span class="quantity">${quantity}</span> <button class="fas fa-plus" aria-label="plus"></button>`);
     } else {
-        $("#cart tbody").append(`
+        $(".overlay tbody").append(`
             <tr>
                 <td headers="nome">${name}</td>
                 <td headers="prezzo">${price}</td>
@@ -104,16 +104,16 @@ function addToCartTable(name, price, quantity = 0) {
         `);
     }
 
-    rowQuantity = $("#cart tbody tr").length;
+    rowQuantity = $(".overlay tbody tr").length;
 
     if (rowQuantity == 1) {
-        $("#cart table").css("height","20%");
+        $(".overlay table").css("height","20%");
     } else if (rowQuantity == 2) {
-        $("#cart table").css("height","30%");
+        $(".overlay table").css("height","30%");
     } else if (rowQuantity == 3) {
-        $("#cart table").css("height","40%");
+        $(".overlay table").css("height","40%");
     } else {
-        $("#cart table").removeAttr("style");
+        $(".overlay table").removeAttr("style");
     }
 
     $("[aria-label='minus']:last").click(function(e) {

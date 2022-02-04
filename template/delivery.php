@@ -36,7 +36,7 @@
         </li>
     </ul>    
 </section>
-<section id="cart">
+<section class="overlay">
     <div>
         <button type="button" class="close">
             <span>&times;</span>

@@ -13,9 +13,11 @@
         <script src="js/script.js"></script>
         <?php
         if ($templateParams["name"] == "login-form.php") {
-            echo '<script src="js/login.js"></script>';
+            echo '<script src="js/login.js"></script>';;
         } elseif ($templateParams["name"] == "delivery.php") {
             echo '<script src="js/delivery.js"></script>';
+        } elseif ($templateParams["name"] == "login-home.php") {
+            echo '<script src="js/login-home.js"></script>';
         }
         ?>
         <title><?php echo $templateParams["title"]?></title>
@@ -42,10 +44,11 @@
                     <li><a class="fab fa-instagram" href="https://www.instagram.com/Osteria-Zaccolla" title="Pagina instagram"></a></li>
                     <li><a class="fab fa-twitter" href="https://www.twitter.com/Osteria-Zaccolla" title="Pagina twitter"></a></li>
                 </ul>
-                <p>Piazza Baschetti 23, 47863, Cesena (FC)</p>
+                <address>Piazza Baschetti 23, 47863, Cesena (FC)</address>
             </div>
         </nav>
         <header>
+            <h1>Osteria Zaccolla</h1>
             <div class="notifications"></div>
             <img src="upload/slideshow/img1.jpg" alt=""/>
         </header>
@@ -68,7 +71,7 @@
                     </ul>
                 </div>
                 <div>
-                    <p>Piazza Baschetti 23, 47863, Cesena (FC)</p>
+                    <address>Piazza Baschetti 23, 47863, Cesena (FC)</address>
                 </div>
             </div>
         </footer>
