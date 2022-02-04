@@ -19,7 +19,6 @@ name TEXT NOT NULL,
 description TEXT NOT NULL,
 price FLOAT NOT NULL,
 img TEXT NOT NULL,
-img_out TEXT NOT NULL,
 type_food INT(11) UNSIGNED NOT NULL,
 quantity INT(11) NOT NULL,
 
@@ -56,24 +55,13 @@ CREATE TABLE IF NOT EXISTS db_web_project.orders (
 id_order INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
 id_user INT(11) UNSIGNED NOT NULL,
 id_food INT(11) UNSIGNED NOT NULL,
-order_state enum('loading','shipped','delivered') DEFAULT 'loading',
+food_quantity INT(11) UNSIGNED NOT NULL,
+order_state enum('In stato di conferma','Confermato','Inviato') DEFAULT 'In stato di conferma',
 
 PRIMARY KEY (id_order),
 FOREIGN KEY (id_user) REFERENCES users (id_user),
 FOREIGN KEY (id_food) REFERENCES food (id_food)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- Table cart
-CREATE TABLE IF NOT EXISTS db_web_project.cart (
-id_cart INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
-id_user INT(11) UNSIGNED NOT NULL,
-id_food INT(11) UNSIGNED NOT NULL,
-quantity INT(11) NOT NULL,
-  
-PRIMARY KEY (`id_cart`),
-FOREIGN KEY (id_user) REFERENCES users (id_user),
-FOREIGN KEY (id_food) REFERENCES food (id_food)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- Table notify
 CREATE TABLE IF NOT EXISTS db_web_project.notify (
@@ -83,7 +71,7 @@ id_order INT(11) UNSIGNED DEFAULT NULL,
 title TEXT NOT NULL,
 description TEXT NOT NULL,
 data DATETIME NOT NULL DEFAULT current_timestamp(),
-status ENUM('read','not read','not read on screen') NOT NULL DEFAULT 'not read on screen',
+status ENUM('Letto','Non letto','not read on screen') NOT NULL DEFAULT 'not read on screen',
 
 PRIMARY KEY (id_notify),
 FOREIGN KEY (id_user) REFERENCES users (id_user),

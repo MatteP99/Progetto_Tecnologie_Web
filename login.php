@@ -2,22 +2,25 @@
 require_once 'require.php';
 
 if(isset($_POST["username"]) && isset($_POST["password"])) {
-	
-    $check = $db->login($_POST["username"], $_POST["password"]);
-    if($check == 0) {
-        $templateParams["check"] = "L'username o la password inseriti sono errati!";
+    $login_result = $db->login($_POST["username"], $_POST["password"]);
+    if(count($login_result) == 0) {
+        $templateParams["errorlogin"] = "Uno o piu' campi sono errati!";
     } else {
-        $templateParams["check"] = "Il Login e' andato a buon fine.";
-        setUser($check[0]);
+		setUser($login_result[0]);
     }
 
 }
 
-
+if(isUserLoggedIn()){
+    $templateParams["title"] = "Blog TW - Admin";
+    $templateParams["name"] = "login-home.php";
+}
+else{
+    $templateParams["title"] = "ZACCOLLA OSTERIA - Login";
+	$templateParams["name"] = "login-form.php";
+}
 $templateParams["type"] = $db->getFoodTypes();
 $templateParams["food"] = $db->getFood();
-$templateParams["title"] = "ZACCOLLA OSTERIA - Login";
-$templateParams["name"] = "login-form.php";
 
 require("template/base.php");
 ?>
