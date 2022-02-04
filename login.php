@@ -8,19 +8,17 @@ if(isset($_POST["username"]) && isset($_POST["password"])) {
     } else {
 		setUser($login_result[0]);
     }
-
 }
 
 if(isUserLoggedIn()){
-    $templateParams["title"] = "Blog TW - Admin";
-    $templateParams["name"] = "login-home.php";
+    $templateParams["title"] = "ZACCOLLA OSTERIA - Login Home";
+	$templateParams["name"] = "login-home.php";
+	$templateParams["user_data"] = $db->getUser($_SESSION["id_user"]);
 }
 else{
     $templateParams["title"] = "ZACCOLLA OSTERIA - Login";
 	$templateParams["name"] = "login-form.php";
 }
-$templateParams["type"] = $db->getFoodTypes();
-$templateParams["food"] = $db->getFood();
 
 require("template/base.php");
 ?>

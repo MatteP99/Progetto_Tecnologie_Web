@@ -63,9 +63,19 @@ class DatabaseHelper {
 		return $result->fetch_all(MYSQLI_ASSOC);
 	}
 	
+	//Function getUser
+	public function getUser($idUser) {
+		$statement = $this->db->prepare("SELECT users.* FROM users WHERE id_user = ?");
+		$statement->bind_param("i", $idUser);
+		$statement->execute();
+		$result = $statement->get_result();
+		
+		return $result->fetch_all(MYSQLI_ASSOC);
+	}
+	
 	//Function login
 	public function login($username, $password) {
-		$statement = $this->db->prepare("SELECT users.id_user, users.username, users.password FROM users 
+		$statement = $this->db->prepare("SELECT users.id_user, users.username, users.password, users.user_status FROM users 
 										WHERE users.username = ? AND users.password = ?");
 		$statement->bind_param("ss", $username, $password);
 		$statement->execute();
