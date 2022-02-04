@@ -5,6 +5,10 @@ function isActive($pagename){
     }
 }
 
+function isUserLoggedIn(){
+    return !empty($_SESSION['id_user']);
+}
+
 function setUser($user){
     $_SESSION["id_user"] = $user["id_user"];
     $_SESSION["username"] = $user["username"];
