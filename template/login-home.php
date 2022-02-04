@@ -35,6 +35,7 @@
         <button type="button" class="close">
             <span>&times;</span>
         </button>
+        <h2>Aggiungi elemento</h2>
         <form action="#" method="POST">
             <ul>
                 <li>
@@ -52,9 +53,9 @@
                 <li>
                     <label for="image">Immagine:</label>
                     <div>
-                        <img src="" alt="Immagine attuale" />
+                        <img src="dummy.png" alt="Immagine da caricare" />
                         <input type="file" id="image" name="image" />
-                    <div>
+                    </div>
                 </li>
                 <li>
                     <input type="submit" name="submit" value="Invia" />
