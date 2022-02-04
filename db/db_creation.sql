@@ -19,7 +19,6 @@ name TEXT NOT NULL,
 description TEXT NOT NULL,
 price FLOAT NOT NULL,
 img TEXT NOT NULL,
-img_out TEXT NOT NULL,
 type_food INT(11) UNSIGNED NOT NULL,
 quantity INT(11) NOT NULL,
 
