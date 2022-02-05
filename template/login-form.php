@@ -4,8 +4,10 @@
         <li>
 			<?php if(isset($templateParams["error_login"])): ?>
 			<p><?php echo $templateParams["error_login"]; ?></p>
-			<?php elseif(isset($templateParams["error_register"])): ?>
-			<p><?php echo $templateParams["error_register"]; ?></p>
+			<?php elseif(isset($templateParams["error_registration_name"])): ?>
+			<p><?php echo $templateParams["error_registration_name"]; ?></p>
+			<?php elseif(isset($templateParams["error_registration_mail"])): ?>
+			<p><?php echo $templateParams["error_registration_mail"]; ?></p>
 			<?php endif; ?>
             <fieldset>
                 <input type="radio" id="login" name="accesso" value="Login" checked>
@@ -34,7 +36,7 @@
         </li>
         <li class="signup">
             <label for="unimail">Mail università:</label>
-            <input type="email" id="unimail" name="unimail" placeholder="Facoltativa"/>
+            <input type="email" id="unimail" name="unimail" value="" placeholder="Facoltativa"/>
         </li>
         <li>
             <label for="password">Password:</label>
