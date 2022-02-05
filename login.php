@@ -8,8 +8,7 @@ if(isset($_POST["username"]) && isset($_POST["password"]) && $_POST["accesso"] =
     } else {
 		setUser($login_result[0]);
     }
-}//Registration 
-else if($_POST["accesso"] == 'Registrazione') {
+} else if(isset($_POST["accesso"]) && $_POST["accesso"] == 'Registrazione') {
 	$check_users = $db->getUserFromName($_POST["username"]);
 	//Check if the username already exist
 	if(count($check_users) == 0) {
