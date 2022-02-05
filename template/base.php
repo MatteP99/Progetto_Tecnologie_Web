@@ -16,8 +16,8 @@
             echo '<script src="js/login.js"></script>';;
         } elseif ($templateParams["name"] == "delivery.php") {
             echo '<script src="js/delivery.js"></script>';
-        } elseif ($templateParams["name"] == "login-home.php") {
-            echo '<script src="js/login-home.js"></script>';
+        } elseif ($templateParams["name"] == "delivery-admin.php") {
+            echo '<script src="js/delivery-admin.js"></script>';
         }
         ?>
         <title><?php echo $templateParams["title"]?></title>
