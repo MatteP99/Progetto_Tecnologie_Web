@@ -66,8 +66,10 @@
             </li>
             <li>
                 <label for="campus">Sede:</label>
-                <select id="campus">
-                    <option value="PHP QUI">PHP QUI</option>
+                <select id="campus" name="campus">
+					<?php foreach($templateParams["university"] as $university): ?>
+                    <option value="<?php echo $university["id_uni"]."uni"?>"><?php echo $university["name"]?></option>
+					<?php endforeach; ?>
                 </select>
             </li>
         </ul>

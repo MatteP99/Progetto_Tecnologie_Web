@@ -29,6 +29,25 @@ class DatabaseHelper {
 		return $result->fetch_all(MYSQLI_ASSOC);
 	}
 	
+	//Function get university
+	public function getUni() {
+		$statement = $this->db->prepare("SELECT university.* FROM university");
+		$statement->execute();
+		$result = $statement->get_result();
+		
+		return $result->fetch_all(MYSQLI_ASSOC);
+	}
+	
+	//Function get users student mail
+	public function getStudentMail($uniMail) {
+		$statement = $this->db->prepare("SELECT users.email_uni FROM users WHERE users.email_uni = ?");
+		$statement->bind_param("s", $uniMail);
+		$statement->execute();
+		$result = $statement->get_result();
+		
+		return $result->fetch_all(MYSQLI_ASSOC);
+	}
+	
 	//------Functions for admin------
 	//Function modifyFood
 	public function modifyFood($idFood, $foodName, $foodDes, $foodPrice, $foodImg, $foodType, $foodQuantity) {
