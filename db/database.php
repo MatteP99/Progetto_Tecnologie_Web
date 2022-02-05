@@ -58,6 +58,15 @@ class DatabaseHelper {
 										VALUES (?, ?, ?, ?, ?, ?)");
 		$statement->bind_param("ssfsii", $foodName, $foodDes, $foodPrice, $foodImg, $foodType, $foodQuantity);
 		$statement->execute();
+		
+		return $statement->insert_id;
+	}
+	
+	//Function getUser
+	public function getUser($idUser) {
+		$statement = $this->db->prepare("SELECT users.* FROM users WHERE id_user = ?");
+		$statement->bind_param("i", $idUser);
+		$statement->execute();
 		$result = $statement->get_result();
 		
 		return $result->fetch_all(MYSQLI_ASSOC);
@@ -65,13 +74,33 @@ class DatabaseHelper {
 	
 	//Function login
 	public function login($username, $password) {
-		$statement = $this->db->prepare("SELECT users.id_user, users.username, users.password FROM users 
+		$statement = $this->db->prepare("SELECT users.id_user, users.username, users.password, users.user_status FROM users 
 										WHERE users.username = ? AND users.password = ?");
 		$statement->bind_param("ss", $username, $password);
 		$statement->execute();
 		$result = $statement->get_result();
 
 		return $result->fetch_all(MYSQLI_ASSOC);
+    }
+	
+	//Function register
+	public function register($name, $username, $password, $email, $phone, $address) {
+		$statement = $this->db->prepare("INSERT INTO users (name, username, password, email, phone_num, address, email_uni, user_status)
+										VALUES (?, ?, ?, ?, ?, ?, NULL, 'Cliente')");
+		$statement->bind_param("ssssss", $name, $username, $password, $email, $phone, $address);
+		$statement->execute();
+
+		return $statement->insert_id;;
+    }
+	
+	//Function register student
+	public function registerStudent($name, $username, $password, $email, $phone, $address, $unimail) {
+		$statement = $this->db->prepare("INSERT INTO users (name, username, password, email, phone_num, address, email_uni, user_status)
+										VALUES (?, ?, ?, ?, ?, ?, ?, 'Cliente-Studente')");
+		$statement->bind_param("sssssss", $name, $username, $password, $email, $phone, $address, $unimail);
+		$statement->execute();
+
+		return $statement->insert_id;;
     }
 }
 ?> 

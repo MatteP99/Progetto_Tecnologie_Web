@@ -2,8 +2,10 @@
     <h2>Login</h2>
     <ul>
         <li>
-			<?php if(isset($templateParams["errorlogin"])): ?>
-			<p><?php echo $templateParams["errorlogin"]; ?></p>
+			<?php if(isset($templateParams["error_login"])): ?>
+			<p><?php echo $templateParams["error_login"]; ?></p>
+			<?php elseif(isset($templateParams["error_register"])): ?>
+			<p><?php echo $templateParams["error_register"]; ?></p>
 			<?php endif; ?>
             <fieldset>
                 <input type="radio" id="login" name="accesso" value="Login" checked>

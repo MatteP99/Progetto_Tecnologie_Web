@@ -19,7 +19,7 @@
                     <p><?php echo $food["description"]?></p>
                     <button class="addItemToCart">Aggiungi al Carrello</button>
                 <?php else: ?>
-                    <img src="<?php echo UPLOAD_DIR.$food["img_out"];?>" alt="<?php echo $food["name"]."non disponibile";?>" />
+                    <img src="upload/out_of_stock.jpg" alt="<?php echo $food["name"]."non disponibile";?>" />
                     <h4><?php echo $food["name"]?></h4>
                     <h5>€ <?php echo $food["price"]?></h5>
                     <p><?php echo $food["description"]?></p>
