@@ -32,6 +32,8 @@ $(document).ready(function() {
         $("input:last").prop("disabled", false);        
         $("#name").attr("required", false);
         $("#address").attr("required", false);
+        $("form.login > fieldset li:not(:first-child)").attr("required", false);
+        $("form.login > fieldset li:not(:first-child)").slideUp();
     });
 
     $("#mail").keyup(function() {
@@ -147,6 +149,17 @@ $(document).ready(function() {
             }
         }
         check_submit();
+    });
+
+    $("#student").click(function() {
+        let stdFields = $("form.login > fieldset li:not(:first-child)");
+        if($(this).is(":checked")) {
+            stdFields.slideDown();
+            stdFields.attr("required", true);
+        } else {
+            stdFields.slideUp();            
+            stdFields.attr("required", false);
+        }
     });
 });
 

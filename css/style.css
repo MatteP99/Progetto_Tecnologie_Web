@@ -214,6 +214,10 @@ form {
     gap: 50px;
 }
 
+form.login {
+    gap: 15px
+}
+
 form ul {
     padding-left: 0;
     text-align: left;
@@ -228,20 +232,37 @@ form li {
     margin: 20px 30px;
 }
 
+
+
+form ul > li > *, ul fieldset > * {
+    padding: 0 10px;
+}
+
+form > ul > li > i {
+    padding: 0;
+}
+
 .overlay form li {
     margin: 60px 30px;
 }
 
-form li:first-child, form li:last-child  {
+form.login > ul > li:first-child {
     text-align: center;
-    padding: 30px 0;
+}
+
+form.login > ul > li > fieldset {
+    padding: 10px;
+}
+
+form.login > fieldset li:not(:first-child) {
+    display: none;
 }
 
 .overlay form li:nth-child(2) {
     height: 54px;
 }
 
-.overlay form li:first-child, .payment form li:first-child {
+.payment form li:last-child {
     text-align: left;
     padding: 0;
 }
@@ -252,7 +273,9 @@ form li:first-child, form li:last-child  {
 }
 
 .overlay form li:last-child {
+    text-align: center;
     margin: 0;
+    padding: 40px 0;
 }
 
 .overlay li div {
@@ -271,10 +294,14 @@ form li:first-child, form li:last-child  {
     max-height: 150px
 }
 
-input:not([type="radio"], [type="submit"], [type="file"]) {
+input:not([type="radio"], [type="submit"], [type="file"]), select {
     width: 200px;
     padding: 0;
     float: right;
+}
+
+select {
+    width: 204px;
 }
 
 .overlay [type="text"] {
@@ -325,14 +352,6 @@ form .signup {
 
 .valid:focus-visible {
     outline-color: lightgreen !important;
-}
-
-form > ul > li > *, fieldset > * {
-    padding: 0 10px;
-}
-
-form > ul > li > i {
-    padding: 0;
 }
 
 legend {

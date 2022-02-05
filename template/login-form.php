@@ -1,4 +1,4 @@
-<form action="#" method="POST">
+<form action="#" method="POST" class="login">
     <h2>Login</h2>
     <ul>
         <li>
@@ -32,10 +32,6 @@
             <em class="fas" aria-label="Icona di verifica"></em>
             <input type="email" class="toBeChecked" id="mail_conf" name="mail_conf" />
         </li>
-        <li class="signup">
-            <label for="unimail">Mail università:</label>
-            <input type="email" id="unimail" name="unimail" placeholder="Facoltativa"/>
-        </li>
         <li>
             <label for="password">Password:</label>
             <em class="fas" aria-label="Icona di verifica"></em>
@@ -55,8 +51,24 @@
             <label for="address">Indirizzo completo:</label>
             <input type="text" id="address" name="address" />
         </li>
-        <li>
-            <input type="submit" name="submit" value="Invia" />
-        </li>
     </ul>
+    <fieldset class="signup">
+        <ul>
+            <li>
+                <label for="student">Sei uno studente?</label>
+                <input type="checkbox" id="student" name="student"/>
+            </li>
+            <li>
+                <label for="unimail">Mail università:</label>
+                <input type="email" id="unimail" name="unimail"/>
+            </li>
+            <li>
+                <label for="campus">Sede:</label>
+                <select id="campus">
+                    <option value="PHP QUI">PHP QUI</option>
+                </select>
+            </li>
+        </ul>
+    </fieldset>
+    <input type="submit" name="submit" value="Invia" />
 </form>

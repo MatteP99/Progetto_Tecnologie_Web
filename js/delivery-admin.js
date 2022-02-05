@@ -9,12 +9,12 @@ $(document).ready(function() {
         $(".overlay img").attr("alt","Immagine da caricare");
     });
 
-    $(".modifyItem").click(function() {        
+    $(".modifyItem").click(function() {
         $(".overlay").fadeIn();
         $(".overlay").css("display", "flex");
         $("#name").val($(this).parent().siblings("h4").text());
         $("#description").val($(this).parent().siblings("p:last").text());
-        $("#price").val($(this).parent().siblings("h5").text());
+        $("#price").val($(this).parent().siblings("h5").text().replace("€","").trim());
         $(".overlay img").attr("alt", $(this).parent().siblings("h4").text());
         $(".overlay img").attr("src", $(this).parent().siblings("img").attr("src"));
         $(".overlay h2").text("Modifica elemento");

@@ -28,7 +28,7 @@
                     <label for="cap">CAP:</label>
                     <input required id="cap" type="tel" pattern="[0-9]{5}" maxlength="5" placeholder="xxxxx" name="cap"/>
                 </li>
-            <ul> 
+            </ul> 
         </fieldset>
         <fieldset>
             <legend>Carta di credito o prepagata</legend>
@@ -49,7 +49,7 @@
                     <label for="CVV">CVV:</label>
                     <input required id="CVV" type="tel"  pattern="[0-9]{3}" maxlength="3" placeholder="xxx"/>
                 </li>
-            <ul> 
+            </ul> 
         </fieldset>
         <input type="submit" name="submit" value="Acquista"/>
     </form>    
