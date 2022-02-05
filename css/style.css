@@ -205,6 +205,10 @@ main > section, form {
     gap: 100px;    
 }
 
+section.payment {
+    gap: 70px;
+}
+
 form {
     align-items: center;
     gap: 50px;
@@ -237,7 +241,7 @@ form li:first-child, form li:last-child  {
     height: 54px;
 }
 
-.overlay form li:first-child {
+.overlay form li:first-child, .payment form li:first-child {
     text-align: left;
     padding: 0;
 }
@@ -267,7 +271,7 @@ form li:first-child, form li:last-child  {
     max-height: 150px
 }
 
-[type="text"], [type="password"], [type="email"] {
+input:not([type="radio"], [type="submit"], [type="file"]) {
     width: 200px;
     padding: 0;
     float: right;
@@ -277,7 +281,7 @@ form li:first-child, form li:last-child  {
     width: 250px;
 }
 
-[type="file"] {
+.overlay [type="file"] {
     width: 254px;
     padding-left: 34px;
 }
@@ -296,6 +300,11 @@ textarea {
 
 fieldset {
     border: 0;
+}
+
+.payment fieldset {
+    border: 1px solid;
+    border-radius: 25px;
 }
 
 form .signup {
@@ -324,6 +333,10 @@ form > ul > li > *, fieldset > * {
 
 form > ul > li > i {
     padding: 0;
+}
+
+legend {
+    font-weight: bold;
 }
 
 main > section > div {
@@ -385,7 +398,7 @@ h5 {
     object-fit: cover;
 }
 
-.delivery button, .overlay button {
+.delivery button, .overlay a {
     color: #BD5B00;
     background-color: white;
     border-radius: 6px;
@@ -395,12 +408,12 @@ h5 {
     font-weight: 600;
 }
 
-.delivery button:hover, .overlay button:hover {
+.delivery button:hover, .overlay a:hover {
     color:white;
     background-color: #FFC29A;
 }
 
-.overlay button:last-child {
+.overlay a {
     padding: 1%;
 }
 

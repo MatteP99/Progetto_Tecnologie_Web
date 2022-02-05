@@ -47,7 +47,7 @@
         <li class="signup">
             <label for="tel">Numero di telefono:</label>
             <em class="fas" aria-label="Icona di verifica"></em>
-            <input type="text" class="toBeChecked" id="tel" name="tel" />
+            <input type="tel" class="toBeChecked" id="tel" name="tel" />
         </li>
         <li class="signup">
             <label for="address">Indirizzo completo:</label>

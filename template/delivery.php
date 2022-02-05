@@ -53,6 +53,6 @@
             <tbody>
             </tbody>
         </table>
-        <button>Acquista</button>
+        <a <?php isActive("payment.php");?> href="payment.php">Acquista</a>
     </div>
 </section>
