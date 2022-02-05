@@ -1,6 +1,6 @@
 <?php
 require_once 'require.php';
-
+//Login
 if(isset($_POST["username"]) && isset($_POST["password"]) && $_POST["accesso"] == 'Login') {
     $login_result = $db->login($_POST["username"], $_POST["password"]);
     if(count($login_result) == 0) {
@@ -8,10 +8,13 @@ if(isset($_POST["username"]) && isset($_POST["password"]) && $_POST["accesso"] =
     } else {
 		setUser($login_result[0]);
     }
-} else if($_POST["accesso"] == 'Registrazione') {
+}//Registration 
+else if($_POST["accesso"] == 'Registrazione') {
 	$check_users = $db->getUserFromName($_POST["username"]);
+	//Check if the username already exist
 	if(count($check_users) == 0) {
 		$check_users = $db->getUserFromMail($_POST["mail"]);
+		//Check if the mail already exist
 		if(count($check_users) == 0) {
 			if($_POST["unimail"] != '') {
 				$db->registerStudent($_POST["name"], $_POST["username"], $_POST["password"], $_POST["mail"], $_POST["tel"], $_POST["address"], $_POST["unimail"]);

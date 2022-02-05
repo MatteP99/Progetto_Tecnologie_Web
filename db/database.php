@@ -47,9 +47,8 @@ class DatabaseHelper {
 		$statement = $this->db->prepare("DELETE FROM food WHERE food.id_food = ?");
 		$statement->bind_param("i", $idFood);
 		$statement->execute();
-		$result = $statement->get_result();
-		
-		return $result->fetch_all(MYSQLI_ASSOC);
+
+		return $statement->insert_id;
 	}
 	
 	//Function addFood
