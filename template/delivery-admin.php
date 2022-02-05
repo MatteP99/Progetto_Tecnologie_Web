@@ -17,7 +17,9 @@
                     <p><?php echo $food["description"]?></p>
                     <div class="edit">
                         <button class="modifyItem">Modifica</button>
-                        <button class="delete">Rimuovi</button>
+						<form action="delivery.php" method="post">
+							<button class="delete" name="<?php echo $food["id_food"]."delete" ?>">Rimuovi</button>
+						</form>
                     </div>
                 </li>
             <?php endif; ?>

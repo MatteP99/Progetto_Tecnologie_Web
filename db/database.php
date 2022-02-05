@@ -47,9 +47,8 @@ class DatabaseHelper {
 		$statement = $this->db->prepare("DELETE FROM food WHERE food.id_food = ?");
 		$statement->bind_param("i", $idFood);
 		$statement->execute();
-		$result = $statement->get_result();
-		
-		return $result->fetch_all(MYSQLI_ASSOC);
+
+		return $statement->insert_id;
 	}
 	
 	//Function addFood
@@ -62,10 +61,31 @@ class DatabaseHelper {
 		return $statement->insert_id;
 	}
 	
-	//Function getUser
+	//-----Functions for Login and Registration-----
+	//Function getUser from Id
 	public function getUser($idUser) {
-		$statement = $this->db->prepare("SELECT users.* FROM users WHERE id_user = ?");
+		$statement = $this->db->prepare("SELECT users.* FROM users WHERE users.id_user = ?");
 		$statement->bind_param("i", $idUser);
+		$statement->execute();
+		$result = $statement->get_result();
+		
+		return $result->fetch_all(MYSQLI_ASSOC);
+	}
+	
+	//Function getUser from username
+	public function getUserFromName($usernameUser) {
+		$statement = $this->db->prepare("SELECT users.username FROM users WHERE users.username = ?");
+		$statement->bind_param("s", $usernameUser);
+		$statement->execute();
+		$result = $statement->get_result();
+		
+		return $result->fetch_all(MYSQLI_ASSOC);
+	}
+	
+	//Function getUser from username
+	public function getUserFromMail($mailUser) {
+		$statement = $this->db->prepare("SELECT users.email FROM users WHERE users.email = ?");
+		$statement->bind_param("s", $mailUser);
 		$statement->execute();
 		$result = $statement->get_result();
 		
@@ -90,7 +110,7 @@ class DatabaseHelper {
 		$statement->bind_param("ssssss", $name, $username, $password, $email, $phone, $address);
 		$statement->execute();
 
-		return $statement->insert_id;;
+		return $statement->insert_id;
     }
 	
 	//Function register student
@@ -100,7 +120,7 @@ class DatabaseHelper {
 		$statement->bind_param("sssssss", $name, $username, $password, $email, $phone, $address, $unimail);
 		$statement->execute();
 
-		return $statement->insert_id;;
+		return $statement->insert_id;
     }
 }
 ?> 

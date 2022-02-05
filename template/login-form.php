@@ -4,8 +4,10 @@
         <li>
 			<?php if(isset($templateParams["error_login"])): ?>
 			<p><?php echo $templateParams["error_login"]; ?></p>
-			<?php elseif(isset($templateParams["error_register"])): ?>
-			<p><?php echo $templateParams["error_register"]; ?></p>
+			<?php elseif(isset($templateParams["error_registration_name"])): ?>
+			<p><?php echo $templateParams["error_registration_name"]; ?></p>
+			<?php elseif(isset($templateParams["error_registration_mail"])): ?>
+			<p><?php echo $templateParams["error_registration_mail"]; ?></p>
 			<?php endif; ?>
             <fieldset>
                 <input type="radio" id="login" name="accesso" value="Login" checked>

@@ -1,6 +1,17 @@
 <?php
 require_once 'require.php';
 
+$templateParams["type"] = $db->getFoodTypes();
+$templateParams["food"] = $db->getFood();
+//
+foreach ($templateParams["food"] as $food) {
+	if(isset($_POST[$food["id_food"]."delete"])) {
+		$db->deleteFood($food["id_food"]);
+		header("location:delivery.php");
+	}
+}
+
+
 if(isUserLoggedIn()){
     if(isAdmin()) {
 		$templateParams["title"] = "ZACCOLLA OSTERIA - Delivery Admin";
@@ -14,8 +25,7 @@ if(isUserLoggedIn()){
 	$templateParams["name"] = "delivery.php";
 }
 
-$templateParams["type"] = $db->getFoodTypes();
-$templateParams["food"] = $db->getFood();
+
 
 require("template/base.php");
 ?>
