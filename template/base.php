@@ -35,7 +35,17 @@
                     <li><a <?php isActive("home.php");?> href="index.php">HOME</a></li>
                     <li><a <?php isActive("delivery.php");?> href="delivery.php">DELIVERY</a></li>
                     <li><a <?php isActive("contacts.php");?> href="contacts.php">CONTATTI</a></li>
-                    <li><a <?php isActive("login-form.php");?> href="login.php">LOGIN</a></li>
+                    <li>
+                        <a <?php isActive("login-form.php");?> href="login.php">
+                            <?php 
+                            if(isUserLoggedIn()) {
+                                echo "AREA PERSONALE";
+                            } else {
+                                echo "LOGIN";
+                            }
+                            ?>
+                        </a>
+                    </li>
                 </ul>
             </div>
             <div class="nav_contacts">

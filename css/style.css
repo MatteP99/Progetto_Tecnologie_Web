@@ -92,7 +92,7 @@ nav ul {
 }
 
 .nav_links li {
-    padding: 0.5rem;
+    padding: 0.5rem 0;
     border-bottom: 1px solid #C54E00;
     margin: 0 20%;
 }
@@ -198,7 +198,7 @@ main > section header {
     font-size: 1.5rem;
 }
 
-main > section, form {
+main > section , form {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -207,6 +207,31 @@ main > section, form {
 
 section.payment {
     gap: 70px;
+}
+
+section#map {
+    gap: 50px;
+    margin-bottom: 70px;
+}
+
+section#contactus {
+    gap: 10px;
+    background-color: #ce4a00;
+    color: white;
+    border-radius: 36px;
+    font-family: 'Roboto Condensed', Arial, Helvetica, sans-serif;
+    margin: 0 10vw;
+}
+
+#contactus h2 {
+    margin-top: 40px;
+}
+
+iframe {
+    border: 0;
+    height: 450px;
+    filter: drop-shadow(2px 4px 6px black);
+    border-radius: 5px;
 }
 
 form {
@@ -232,8 +257,6 @@ form li {
     margin: 20px 30px;
 }
 
-
-
 form ul > li > *, ul fieldset > * {
     padding: 0 10px;
 }
@@ -244,6 +267,13 @@ form > ul > li > i {
 
 .overlay form li {
     margin: 60px 30px;
+}
+
+#contactus form li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
 }
 
 form.login > ul > li:first-child {
@@ -272,7 +302,7 @@ form.login > fieldset li:not(:first-child) {
     max-height: 150px;
 }
 
-.overlay form li:last-child {
+.overlay form li:last-child, #contactus form li:last-child {
     text-align: center;
     margin: 0;
     padding: 40px 0;
@@ -298,6 +328,33 @@ input:not([type="radio"], [type="submit"], [type="file"]), select {
     width: 200px;
     padding: 0;
     float: right;
+}
+
+#contactus textarea {
+    float: none;
+    width: 300px;
+    height: 150px;
+    border: 0;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+#contactus textarea:focus-visible {
+    outline: 0;
+}
+
+#contactus input:not([type="submit"]) {
+    float: none;
+    width: 250px;
+}
+
+#contactus [type="submit"] {    
+    background-color: #ce4a00;
+    color: white;
+    border-radius: 4px;
+    border: 2px solid white;
+    cursor: pointer;
+    padding: 5px;
 }
 
 select {
@@ -760,6 +817,10 @@ footer > div:last-child li {
     main {
         margin-left: 15%;
         padding: 7% 4%;
+    }
+
+    section#contactus {
+        margin: 0 20vw;
     }
 
     form ul {
