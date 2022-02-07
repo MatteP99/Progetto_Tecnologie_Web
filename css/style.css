@@ -509,6 +509,10 @@ h5 {
     width: 100%;
 }
 
+.edit button {
+    padding: 0.6vw;
+}
+
 .img_main_left_home > img {
     float: left;
     width: 32%;
