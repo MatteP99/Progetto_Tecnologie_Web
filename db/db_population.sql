@@ -78,9 +78,10 @@ INSERT INTO food VALUES (53, 'Vino bianco', 'Bottiglia in vetro di Reggiano da 1
 INSERT INTO food VALUES (54, 'Vino rosato', 'Bottiglia in vetro di Lambrusco da 1L.', 33.00, 'alcoliche/lambrusco.jpg', 9, 20);
 
 -- Population table university
-INSERT INTO university VALUES (1, 'UniBo - Psicologia', 'Viale Europa, 115');
-INSERT INTO university VALUES (2, 'UniBo - Alma Mater Studiorum', 'Via Cesare Pavese, 50');
-INSERT INTO university VALUES (3, 'UniBo - Neuroscienze Cognitie', 'Viale Rasi e Spinelli, 176');
+INSERT INTO university VALUES (1, '---', '---');
+INSERT INTO university VALUES (2, 'UniBo - Psicologia', 'Viale Europa, 115');
+INSERT INTO university VALUES (3, 'UniBo - Alma Mater Studiorum', 'Via Cesare Pavese, 50');
+INSERT INTO university VALUES (4, 'UniBo - Neuroscienze Cognitie', 'Viale Rasi e Spinelli, 176');
 
 -- Population table users
 INSERT INTO users VALUES (1, 'admin', 'administrator', 'admin', 'admin@zacolla.it', '331-7848795', '', NULL, 'Admin');
