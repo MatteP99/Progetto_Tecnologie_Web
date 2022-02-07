@@ -1,3 +1,20 @@
+h1 {
+    display: none;
+}
+
+h3 {
+    font-size: 30px;
+}
+
+h4 {
+    font-size: 22px;
+}
+
+h5 {
+    font-size: 1rem;
+    font-family: cursive;
+}
+
 ul {
     list-style-type: none;
 }
@@ -24,14 +41,6 @@ nav {
     justify-content: space-around;
     z-index: 900;
     text-align: center;
-}
-
-.menu_open {
-    height: 100%;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap:5%;
 }
 
 nav > div:first-child {
@@ -63,6 +72,29 @@ nav img {
     height: 80%;
 }
 
+.nav_links li:last-child {
+    border-bottom: 0;
+}
+
+nav ul {
+    padding-left: 0;
+    text-align: center;
+}
+
+.nav_links li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #C54E00;
+    margin: 0 20%;
+}
+
+.menu_open {
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap:5%;
+}
+
 .menu_open > .nav_logo {
     display: flex;
     justify-content: center;
@@ -78,23 +110,8 @@ nav img {
     height: auto;
 }
 
-.nav_links li:last-child {
-    border-bottom: 0;
-}
-
-nav ul {
-    padding-left: 0;
-    text-align: center;
-}
-
 .menu_open ul {
     font-size: xx-large;
-}
-
-.nav_links li {
-    padding: 0.5rem 0;
-    border-bottom: 1px solid #C54E00;
-    margin: 0 20%;
 }
 
 .notifications {
@@ -227,6 +244,40 @@ section#contactus {
     margin-top: 40px;
 }
 
+#contactus form li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+#contactus textarea {
+    float: none;
+    width: 300px;
+    height: 150px;
+    border: 0;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+#contactus textarea:focus-visible {
+    outline: 0;
+}
+
+#contactus input:not([type="submit"]) {
+    float: none;
+    width: 250px;
+}
+
+#contactus [type="submit"] {    
+    background-color: #ce4a00;
+    color: white;
+    border-radius: 4px;
+    border: 2px solid white;
+    cursor: pointer;
+    padding: 5px;
+}
+
 iframe {
     border: 0;
     height: 450px;
@@ -249,10 +300,6 @@ form ul {
     min-width: 470px;
 }
 
-h1 {
-    display: none;
-}
-
 form li {
     margin: 20px 30px;
 }
@@ -267,13 +314,6 @@ form > ul > li > i {
 
 .overlay form li {
     margin: 60px 30px;
-}
-
-#contactus form li {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
 }
 
 form.login > ul > li:first-child {
@@ -328,33 +368,6 @@ input:not([type="radio"], [type="submit"], [type="file"]), select {
     width: 200px;
     padding: 0;
     float: right;
-}
-
-#contactus textarea {
-    float: none;
-    width: 300px;
-    height: 150px;
-    border: 0;
-    border-radius: 5px;
-    padding: 10px;
-}
-
-#contactus textarea:focus-visible {
-    outline: 0;
-}
-
-#contactus input:not([type="submit"]) {
-    float: none;
-    width: 250px;
-}
-
-#contactus [type="submit"] {    
-    background-color: #ce4a00;
-    color: white;
-    border-radius: 4px;
-    border: 2px solid white;
-    cursor: pointer;
-    padding: 5px;
 }
 
 select {
@@ -423,19 +436,6 @@ main > section > div {
 
 main > section > ul {
     padding-left: 0;
-}
-
-h3 {
-    font-size: 30px;
-}
-
-h4 {
-    font-size: 22px;
-}
-
-h5 {
-    font-size: 1rem;
-    font-family: cursive;
 }
 
 .delivery > ul ul {
@@ -802,7 +802,8 @@ footer > div:last-child li {
     }
 
     .delivery > ul ul {
-        justify-content: space-between;
+        justify-content: flex-start;
+        gap: 3.8vw;
     }
 
     .delivery > ul ul > li {
