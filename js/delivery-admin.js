@@ -12,9 +12,10 @@ $(document).ready(function() {
     $(".modifyItem").click(function() {
         $(".overlay").fadeIn();
         $(".overlay").css("display", "flex");
-        $("#name").val($(this).parent().siblings("h4").text());
-        $("#description").val($(this).parent().siblings("p:last").text());
-        $("#price").val($(this).parent().siblings("h5").text().replace("€","").trim());
+        $("#m_name").val($(this).parent().siblings("h4").text());
+        $("#m_description").val($(this).parent().siblings("p:last").text());
+        $("#m_price").val($(this).parent().siblings("h5").text().replace("€","").trim());
+        $("#m_id").val($(this).parent().siblings("p:first").text());
         $(".overlay img").attr("alt", $(this).parent().siblings("h4").text());
         $(".overlay img").attr("src", $(this).parent().siblings("img").attr("src"));
         $(".overlay h2").text("Modifica elemento");
