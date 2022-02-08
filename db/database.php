@@ -52,13 +52,10 @@ class DatabaseHelper {
 	//Function modifyFood
 	public function modifyFood($idFood, $foodName, $foodDes, $foodPrice, $foodImg, $foodType, $foodQuantity) {
 		$statement = $this->db->prepare("UPDATE food
-										SET food.name = ?, food.description = ?, food.price = ?, food.img = ?, food.type = ?, food.quantity = ?
+										SET food.name = ?, food.description = ?, food.price = ?, food.img = ?, food.type_food = ?, food.quantity = ?
 										WHERE food.id_food = ?");
-		$statement->bind_param("issfsii", $idFood, $foodName, $foodDes, $foodPrice, $foodImg, $foodType, $foodQuantity);
+		$statement->bind_param("ssdsiii", $foodName, $foodDes, $foodPrice, $foodImg, $foodType, $foodQuantity, $idFood);
 		$statement->execute();
-		$result = $statement->get_result();
-		
-		return $result->fetch_all(MYSQLI_ASSOC);
 	}
 	
 	//Function deleteFood
@@ -66,18 +63,14 @@ class DatabaseHelper {
 		$statement = $this->db->prepare("DELETE FROM food WHERE food.id_food = ?");
 		$statement->bind_param("i", $idFood);
 		$statement->execute();
-
-		return $statement->insert_id;
 	}
 	
 	//Function addFood
 	public function addFood($foodName, $foodDes, $foodPrice, $foodImg, $foodType, $foodQuantity) {
-		$statement = $this->db->prepare("INSERT INTO food (name, description, price, img, type_fodd, quantity)
+		$statement = $this->db->prepare("INSERT INTO food (name, description, price, img, type_food, quantity)
 										VALUES (?, ?, ?, ?, ?, ?)");
-		$statement->bind_param("ssfsii", $foodName, $foodDes, $foodPrice, $foodImg, $foodType, $foodQuantity);
+		$statement->bind_param("ssdsii", $foodName, $foodDes, $foodPrice, $foodImg, $foodType, $foodQuantity);
 		$statement->execute();
-		
-		return $statement->insert_id;
 	}
 	
 	//-----Functions for Login and Registration-----
@@ -128,8 +121,6 @@ class DatabaseHelper {
 										VALUES (?, ?, ?, ?, ?, ?, NULL, 'Cliente')");
 		$statement->bind_param("ssssss", $name, $username, $password, $email, $phone, $address);
 		$statement->execute();
-
-		return $statement->insert_id;
     }
 	
 	//Function register student
@@ -138,8 +129,6 @@ class DatabaseHelper {
 										VALUES (?, ?, ?, ?, ?, ?, ?, 'Cliente-Studente')");
 		$statement->bind_param("sssssss", $name, $username, $password, $email, $phone, $address, $unimail);
 		$statement->execute();
-
-		return $statement->insert_id;
     }
 }
 ?> 

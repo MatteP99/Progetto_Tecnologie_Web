@@ -16,20 +16,10 @@ function isAdmin(){
     return $_SESSION["user_status"] == 'Admin';
 }
 
-
-
-
-
+//Function if the file is Active or Not
 function isActive($pagename){
-    if(basename($_SERVER['PHP_SELF'])==$pagename){
+    if(basename($_SERVER['PHP_SELF']) == $pagename){
         echo " class='active' ";
     }
 }
-
-function unsetParamIfPresent($param) {
-    if(isset($_SESSION[$param])){
-        unset($_SESSION[$param]);
-    }
-}
-
 ?>

@@ -2,33 +2,48 @@
     <h2>Conclusione ordine</h2>    
     <form action="#" method="POST" name="pagamento">
         <fieldset>
-            <legend>Indirizzo di spedizione</legend>
-            <ul>
-                <li>
-                    <label for="nome">Nome:</label>
-                    <input required type="text" id="nome" name="nome"/>
-                </li>
-                <li>
-                    <label for="cognome">Cognome:</label>
-                    <input required type="text" id="cognome" name="cognome"/>
-                </li>
-                <li>  
-                    <label for="indirizzo">Indirizzo:</label>
-                    <input required type="text" id="indirizzo" name="indirizzo" placeholder="Via, civico"/>
-                </li>
-                <li>                 
-                    <label for="città">Città:</label>
-                    <input required type="text" id="città" name="città" />
-                </li>
-                <li>
-                    <label for="provincia">Provincia:</label>
-                    <input required type="text" id="provincia" pattern="[A-Z]{2}" name="provincia" maxlength="2" placeholder="XX"/>
-                </li>
-                <li>                
-                    <label for="cap">CAP:</label>
-                    <input required id="cap" type="tel" pattern="[0-9]{5}" maxlength="5" placeholder="xxxxx" name="cap"/>
-                </li>
-            </ul> 
+			<legend>Indirizzo di spedizione</legend>
+			<?php if(isset($templateParams["user_logged"])): 
+					foreach($templateParams["user_data"] as $user): ?>
+					<ul>
+						<li>
+							<label for="nome">Nome e Cognome:</label>
+							<input required type="text" id="nome" name="nome" value="<?php echo $user["name"]?> "/>
+						</li>
+						<li>  
+							<label for="indirizzo">Indirizzo:</label>
+							<input required type="text" id="indirizzo" name="indirizzo" placeholder="Via, civico" value="<?php echo $user["address"]?>" />
+						</li>
+						<li>                 
+							<label for="numero">Numero:</label>
+							<input required type="text" id="numero" name="numero" value="<?php echo $user["phone_num"]?>" />
+						</li>
+						<li>                 
+							<label for="mail">Mail Personale:</label>
+							<input required type="text" id="mail" name="mail" value="<?php echo $user["email"]?> " />
+						</li>
+					</ul> 
+					<?php endforeach;
+			else: ?>
+					<ul>
+						<li>
+							<label for="nome">Nome e Cognome:</label>
+							<input required type="text" id="nome" name="nome" />
+						</li>
+						<li>  
+							<label for="indirizzo">Indirizzo:</label>
+							<input required type="text" id="indirizzo" name="indirizzo" placeholder="Via, civico" />
+						</li>
+						<li>                 
+							<label for="numero">Numero:</label>
+							<input required type="text" id="numero" name="numero" />
+						</li>
+						<li>                 
+							<label for="mail">Mail Personale:</label>
+							<input required type="text" id="mail" name="mail" />
+						</li>
+					</ul> 
+			<?php endif; ?>
         </fieldset>
         <fieldset>
             <legend>Carta di credito o prepagata</legend>
