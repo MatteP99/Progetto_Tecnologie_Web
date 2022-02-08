@@ -53,6 +53,18 @@
                     <label for="price">Prezzo:</label>
                     <input type="text" id="m_price" name="m_price" />
                 </li>
+				<li >
+                    <label for="quantity">Disponibili:</label>
+                    <input type="text" id="m_quantity" name="m_quantity" />
+                </li>
+				<li>
+					<label for="type">Tipologia:</label>
+					<select id="m_type" name="m_type">
+						<?php foreach($templateParams["type"] as $type): ?>
+						<option value="<?php echo $type["id_type"]?>"><?php echo $type["name"]?></option>
+						<?php endforeach; ?>
+					</select>
+				</li>
                 <li>
                     <label for="image">Immagine:</label>
                     <div>

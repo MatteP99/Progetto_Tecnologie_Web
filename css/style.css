@@ -322,7 +322,11 @@ form > ul > li > i {
 }
 
 .overlay form li {
-    margin: 60px 30px;
+    margin: 50px 30px;
+}
+
+.overlay form li:nth-last-child(2) {
+    padding-bottom: 120px;
 }
 
 form.login > ul > li:first-child {
@@ -346,11 +350,6 @@ form.login > fieldset li:not(:first-child) {
     padding: 0;
 }
 
-.overlay form li:nth-child(4) {
-    height: 15vw;
-    max-height: 150px;
-}
-
 .overlay form li:last-child, #contactus form li:last-child {
     text-align: center;
     margin: 0;
@@ -371,6 +370,11 @@ form.login > fieldset li:not(:first-child) {
     height: 15vw;
     max-width: 150px;
     max-height: 150px
+}
+
+.overlay select {
+    width: 254px;
+    text-align: center;
 }
 
 input:not([type="radio"], [type="submit"], [type="file"]), select {
