@@ -117,6 +117,36 @@ $(document).ready(function() {
         }
     });
 
+    $("#a_password").keyup(function() {
+        if(passRegEx.test($(this).val())) {
+            if (!($(this).hasClass("valid"))) {
+                $(this).addClass("valid");
+                $(this).siblings("em").removeClass("fa-times");                
+                $(this).siblings("em").addClass("fa-check");
+            }
+        } else {
+            if ($(this).hasClass("valid")) {
+                $(this).removeClass("valid");                
+                $(this).siblings("em").removeClass("fa-check");
+                $(this).siblings("em").addClass("fa-times"); 
+            }
+        }
+        
+        if($(this).val() !== $("#a_password_conf").val()) {
+            if($("#a_password_conf").hasClass("valid")) {
+                $("#a_password_conf").removeClass("valid");                
+                $("#a_password_conf").siblings("em").removeClass("fa-check");
+                $("#a_password_conf").siblings("em").addClass("fa-times"); 
+            }
+        } else {
+            if(!($("#a_password_conf").hasClass("valid")) && passRegEx.test($(this).val())) {
+                $("#a_password_conf").addClass("valid");
+                $("#a_password_conf").siblings("em").removeClass("fa-times");                
+                $("#a_password_conf").siblings("em").addClass("fa-check");
+            }
+        }
+    });
+
     $("#password_conf").keyup(function() {
         if($(this).val() === $("#password").val() && passRegEx.test($("#password").val())) {
             if (!($(this).hasClass("valid"))) {
@@ -134,7 +164,24 @@ $(document).ready(function() {
         check_submit();
     });
 
-    $("#tel").keyup(function() {
+    $("#a_password_conf").keyup(function() {
+        if($(this).val() === $("#a_password").val() && passRegEx.test($("#a_password").val())) {
+            if (!($(this).hasClass("valid"))) {
+                $(this).addClass("valid");
+                $(this).siblings("em").removeClass("fa-times");                
+                $(this).siblings("em").addClass("fa-check");
+            }
+        } else {
+            if ($(this).hasClass("valid")) {
+                $(this).removeClass("valid");                
+                $(this).siblings("em").removeClass("fa-check");
+                $(this).siblings("em").addClass("fa-times");                
+            }
+        }
+        check_submit();
+    });
+
+    $(".tel").keyup(function() {
         if(telRegEx.test($(this).val())) {
             if (!($(this).hasClass("valid"))) {
                 $(this).addClass("valid");
@@ -159,6 +206,22 @@ $(document).ready(function() {
         } else {
             stdFields.slideUp();            
             stdFields.attr("required", false);
+        }
+    });
+
+    $("#a_data").click(function() {
+        if($(this).is(":checked")) {
+            $(".signup").slideDown();
+            $("input").each(function() {
+                if (!($(this).hasClass("invalid")) && $(this).hasClass("toBeChecked")) {
+                    $(this).addClass("invalid");
+                }
+            });
+            $("em.fas:not(:last)").addClass("fa-times");
+        } else {            
+            $(".signup").slideUp(function() {
+                $("form").trigger("reset");
+            });
         }
     });
 });

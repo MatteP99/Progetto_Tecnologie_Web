@@ -231,6 +231,10 @@ section#map {
     margin-bottom: 70px;
 }
 
+section#orders {
+    margin-bottom: 100px;
+}
+
 section#contactus {
     gap: 10px;
     background-color: #ce4a00;
@@ -238,6 +242,11 @@ section#contactus {
     border-radius: 36px;
     font-family: 'Roboto Condensed', Arial, Helvetica, sans-serif;
     margin: 0 10vw;
+}
+
+section#p_data {
+    gap: 50px;
+    margin-bottom: 100px;
 }
 
 #contactus h2 {
@@ -374,6 +383,10 @@ select {
     width: 204px;
 }
 
+#m_id {
+    display: none;
+}
+
 .overlay [type="text"] {
     width: 250px;
 }
@@ -474,7 +487,7 @@ main > section > ul {
     object-fit: cover;
 }
 
-.delivery button, .overlay a {
+button, .overlay a, #orders + a, [type="submit"] {
     color: #BD5B00;
     background-color: white;
     border-radius: 6px;
@@ -484,13 +497,22 @@ main > section > ul {
     font-weight: 600;
 }
 
-.delivery button:hover, .overlay a:hover {
+button:hover, .overlay a:hover, #orders + a:hover, [type="submit"]:hover {
     color:white;
     background-color: #FFC29A;
 }
 
-.overlay a {
+.overlay a, #orders + a, [type="submit"] {
     padding: 1%;
+}
+
+#orders th, #orders td {
+    width: 25%;
+}
+
+#p_data > form li:last-child {
+    text-align: center;
+    padding: 10px 0;
 }
 
 #vcart {

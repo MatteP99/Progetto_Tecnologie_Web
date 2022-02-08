@@ -12,7 +12,7 @@
             crossorigin="anonymous"></script>
         <script src="js/script.js"></script>
         <?php
-        if ($templateParams["name"] == "login-form.php") {
+        if ($templateParams["name"] == "login-form.php" || $templateParams["name"] == "login-home.php") {
             echo '<script src="js/login.js"></script>';;
         } elseif ($templateParams["name"] == "delivery.php") {
             echo '<script src="js/delivery.js"></script>';
