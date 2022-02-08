@@ -374,6 +374,10 @@ select {
     width: 204px;
 }
 
+#m_id {
+    display: none;
+}
+
 .overlay [type="text"] {
     width: 250px;
 }
