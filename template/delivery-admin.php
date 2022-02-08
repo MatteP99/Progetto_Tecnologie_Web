@@ -15,6 +15,7 @@
                     <h4><?php echo $food["name"]?></h4>
                     <h5>€ <?php echo $food["price"]?></h5>
                     <p><?php echo $food["description"]?></p>
+					<h6>Quantita': <?php echo $food["quantity"]?></h6>
                     <div class="edit">
 						<button class="modifyItem" name="<?php echo $food["id_food"]."modify" ?>" id="<?php echo $food["id_food"]."modify" ?>">Modifica</button>
 						<form action="#" method="post">
@@ -39,7 +40,7 @@
         </button>
         <h2>Aggiungi elemento</h2>
         <form action="#" method="POST" enctype="multipart/form-data">
-			<input type="text" id="m_id" name="m_id" />
+			<input type="text" id="m_id" name="m_id" value=""/>
             <ul>
                 <li>
                     <label for="name">Nome:</label>

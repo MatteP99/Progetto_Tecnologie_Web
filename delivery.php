@@ -7,27 +7,34 @@ $templateParams["food"] = $db->getFood();
 foreach ($templateParams["food"] as $food) {
 	if(isset($_POST[$food["id_food"]."delete"])) {
 		$db->deleteFood($food["id_food"]);
-	} //Modify item
-	else if ($_POST[$food["id_food"]."modify"])) {
-		$fileName = basename($_FILES["image"]["name"]);
-		if($_FILES["image"] == ) {
-			
-			$db->modifyFood($food["id_food"], $_POST["name"], $_POST["description"], $_POST["price"], "/".$fileName, $_POST["type"], $_POST["quantity"])
-		} else {
-			$db->modifyFood($food["id_food"], $_POST["name"], $_POST["description"], $_POST["price"], "/".$fileName, $_POST["type"], $_POST["quantity"])
+		header("location:delivery.php");
+	}
+}
+//Modify Item 
+if(isset($_POST["m_submit"]) && $_POST["m_id"] != "") {
+	if(isset($_FILE["m_image"])) {
+		$fileName = basename($_FILES["m_image"]["name"]);
+		$db->modifyFood($_POST["m_id"], $_POST["m_name"], $_POST["m_description"], $_POST["m_price"], $fileName, $_POST["m_type"], $_POST["m_quantity"]);
+		header("location:delivery.php");
+	} else {
+		foreach ($templateParams["food"] as $food) {
+			if($food["id_food"] == $_POST["m_id"]) {
+				$db->modifyFood($_POST["m_id"], $_POST["m_name"], $_POST["m_description"], $_POST["m_price"], $food["img"], $_POST["m_type"], $_POST["m_quantity"]);
+				header("location:delivery.php");
+			}
 		}
 	}
-}
-//Add item
-if(isset($_POST["submit"]) /*?*/) {
-	if(isset($_FILES["image"])) {
-		$fileName = basename($_FILES["image"]["name"]);
-		$db->addFood($_POST["name"], $_POST["description"], $_POST["price"], "/".$fileName, $_POST["type"], $_POST["quantity"]);
+}//Add Item 
+else if(isset($_POST["m_submit"]) && $_POST["m_id"] == "") {
+	if(isset($_FILE["m_image"])){
+		$fileName = basename($_FILES["m_image"]["name"]);
+		$db->addFood($_POST["m_name"], $_POST["m_description"], $_POST["m_price"], $fileName, $_POST["m_type"], $_POST["m_quantity"]);
+		header("location:delivery.php");
 	} else {
-		$db->addFood($_POST["name"], $_POST["description"], $_POST["price"], "", $_POST["type"], $_POST["quantity"]);
+		$db->addFood($_POST["m_name"], $_POST["m_description"], $_POST["m_price"], "", $_POST["m_type"], $_POST["m_quantity"]);
+		header("location:delivery.php");
 	}
 }
-header("location:delivery.php");
 
 
 if(isUserLoggedIn()){
