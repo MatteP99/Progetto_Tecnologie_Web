@@ -29,7 +29,7 @@ if(isset($_POST["m_submit"]) && $_POST["m_id"] != "") {
 else if(isset($_POST["m_submit"]) && $_POST["m_id"] == "") {
 	$fileName = basename($_FILES["m_image"]["name"]);
 	if($fileName != "dummy.png"){
-		$db->addFood($_POST["m_name"], $_POST["m_description"], $_POST["m_price"], "/".$fileName, $_POST["m_type"], $_POST["m_quantity"]);
+		$db->addFood($_POST["m_name"], $_POST["m_description"], $_POST["m_price"], $fileName, $_POST["m_type"], $_POST["m_quantity"]);
 		header("location:delivery.php");
 	} else {
 		$db->addFood($_POST["m_name"], $_POST["m_description"], $_POST["m_price"], "", $_POST["m_type"], $_POST["m_quantity"]);
