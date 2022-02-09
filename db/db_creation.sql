@@ -45,9 +45,11 @@ email TEXT NOT NULL,
 phone_num TEXT NOT NULL,
 address TEXT NOT NULL,
 email_uni TEXT,
+id_uni INT(11) UNSIGNED NOT NULL,
 user_status ENUM('Cliente-Studente','Cliente', 'Admin') NOT NULL,
 
-PRIMARY KEY (id_user)
+PRIMARY KEY (id_user),
+FOREIGN KEY (id_uni) REFERENCES university (id_uni)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- Table orders

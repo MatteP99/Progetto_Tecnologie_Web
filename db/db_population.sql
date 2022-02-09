@@ -84,4 +84,4 @@ INSERT INTO university VALUES (3, 'UniBo - Alma Mater Studiorum', 'Via Cesare Pa
 INSERT INTO university VALUES (4, 'UniBo - Neuroscienze Cognitie', 'Viale Rasi e Spinelli, 176');
 
 -- Population table users
-INSERT INTO users VALUES (1, 'admin', 'administrator', 'admin', 'admin@zacolla.it', '331-7848795', '', NULL, 'Admin');
+INSERT INTO users VALUES (1, 'admin', 'administrator', 'admin', 'admin@zacolla.it', '331-7848795', '', NULL, 1, 'Admin');

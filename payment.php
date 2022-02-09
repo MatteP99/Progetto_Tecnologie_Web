@@ -23,13 +23,19 @@ if(isset($_POST["submit"])) {
 		$totalPrice = $totalPrice + ((double)$price[0]["price"] * $arrayQuantity[$i]);
 		$db->insertListFood($lastOrder, $arrayFood[$i], $arrayQuantity[$i]);
 	}
+	if($_SESSION["user_status"] == "Cliente-Studente") {
+		$totalPrice = $totalPrice - ($totalPrice * 0.2);
+	}
 	$db->insertTotalPrice($lastOrder, $totalPrice);
-	setcookie($_COOKIE, time()-1000, 1);
+	setcookie("cart", time()-3600);
 	header("location:login.php");
 }
 //Check if user is logged
 if(isUserLoggedIn()){
 	$templateParams["user_data"] = $db->getUser($_SESSION["id_user"]);
+	if($_SESSION["user_status"] == "Cliente-Studente") {
+		$templateParams["user_university"] = $db->getUniUser($_SESSION["id_user"]);
+	}
 	$templateParams["user_logged"] = "Yes";
 }
 

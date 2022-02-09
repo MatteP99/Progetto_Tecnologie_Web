@@ -68,6 +68,19 @@ class DatabaseHelper {
 		return $result->fetch_all(MYSQLI_ASSOC);
 	}
 	
+	//Function get university from user
+	public function getUniUser($idUser) {
+		$statement = $this->db->prepare("SELECT university.address FROM users 
+										INNER JOIN university
+										ON users.id_uni = university.id_uni
+										WHERE users.id_user = ?");
+		$statement->bind_param("i", $idUser);
+		$statement->execute();
+		$result = $statement->get_result();
+		
+		return $result->fetch_all(MYSQLI_ASSOC);
+	}
+	
 	//Function get users student mail
 	public function getStudentMail($uniMail) {
 		$statement = $this->db->prepare("SELECT users.email_uni FROM users WHERE users.email_uni = ?");
@@ -91,7 +104,7 @@ class DatabaseHelper {
 	
 	//Function get user order list food
 	public function getUserOrdersList($idUser) {
-		$statement = $this->db->prepare("SELECT food.name, list_food.food_quantity FROM orders
+		$statement = $this->db->prepare("SELECT orders.id_order, food.name, list_food.food_quantity FROM orders
 										INNER JOIN list_food
 										ON orders.id_order = list_food.id_order
 										INNER JOIN food
@@ -188,16 +201,16 @@ class DatabaseHelper {
 	//Function register
 	public function register($name, $username, $password, $email, $phone, $address) {
 		$statement = $this->db->prepare("INSERT INTO users (name, username, password, email, phone_num, address, email_uni, user_status)
-										VALUES (?, ?, ?, ?, ?, ?, NULL, 'Cliente')");
+										VALUES (?, ?, ?, ?, ?, ?, NULL, '1', 'Cliente')");
 		$statement->bind_param("ssssss", $name, $username, $password, $email, $phone, $address);
 		$statement->execute();
     }
 	
 	//Function register student
-	public function registerStudent($name, $username, $password, $email, $phone, $address, $unimail) {
-		$statement = $this->db->prepare("INSERT INTO users (name, username, password, email, phone_num, address, email_uni, user_status)
-										VALUES (?, ?, ?, ?, ?, ?, ?, 'Cliente-Studente')");
-		$statement->bind_param("sssssss", $name, $username, $password, $email, $phone, $address, $unimail);
+	public function registerStudent($name, $username, $password, $email, $phone, $address, $unimail, $campus) {
+		$statement = $this->db->prepare("INSERT INTO users (name, username, password, email, phone_num, address, email_uni, id_uni, user_status)
+										VALUES (?, ?, ?, ?, ?, ?, ?, ?, 'Cliente-Studente')");
+		$statement->bind_param("sssssssi", $name, $username, $password, $email, $phone, $address, $unimail, $campus);
 		$statement->execute();
     }
 }

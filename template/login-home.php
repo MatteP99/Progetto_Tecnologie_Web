@@ -46,7 +46,9 @@
 			<tr>
 				<th><?php echo $orders["id_order"]?></th>
 				<th><?php foreach($templateParams["user_orders_list"] as $list): 
+							if($list["id_order"] == $orders["id_order"]):
 							echo $list["name"]." x".$list["food_quantity"]."<br/>";
+							endif;
 							endforeach; ?></th>
 				<th><?php echo $orders["food_total_price"]?></th>
 				<th><?php echo $orders["order_state"]?></th>

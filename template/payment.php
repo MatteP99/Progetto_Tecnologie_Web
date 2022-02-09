@@ -10,10 +10,17 @@
 							<label for="nome">Nome e Cognome:</label>
 							<input required type="text" id="nome" name="nome" value="<?php echo $user["name"]?> "/>
 						</li>
+						<?php if(!isset($templateParams["user_university"])): ?>
 						<li>  
 							<label for="indirizzo">Indirizzo:</label>
 							<input required type="text" id="indirizzo" name="indirizzo" placeholder="Via, civico" value="<?php echo $user["address"]?>" />
 						</li>
+						<?php else: ?>
+						<li>  
+							<label for="indirizzo">Indirizzo universitario:</label>
+							<input disabled required type="text" id="indirizzo" name="indirizzo" placeholder="Via, civico" value="<?php echo $templateParams["user_university"][0]["address"]?>" />
+						</li>
+						<?php endif; ?>
 						<li>                 
 							<label for="numero">Numero:</label>
 							<input required type="text" id="numero" name="numero" value="<?php echo $user["phone_num"]?>" />

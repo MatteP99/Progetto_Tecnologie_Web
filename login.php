@@ -20,10 +20,11 @@ else if(isset($_POST["accesso"]) && $_POST["accesso"] == 'Registrazione') {
 			if(isset($_POST["student"]) && isset($_POST["unimail"]) && isset($_POST["campus"]) && $_POST["campus"] != "1uni") {
 				$check_student = $db->getStudentMail($_POST["unimail"]);
 				//Check if the student mail already exist
-				if(count($check_student) == 0) {
+				if(!count($check_student) == 0) {
 					$templateParams["error_registration_mail_student"] = "La mail da studente inserita e' gia' esistente!";
 				} else {
-					$db->registerStudent($_POST["name"], $_POST["username"], $_POST["password"], $_POST["mail"], $_POST["tel"], $_POST["address"], $_POST["unimail"]);
+					$campus = str_replace(array('u', 'n', 'i'), '', (string)$_POST["campus"]);
+					$db->registerStudent($_POST["name"], $_POST["username"], $_POST["password"], $_POST["mail"], $_POST["tel"], $_POST["address"], $_POST["unimail"], (int)$campus);
 				}
 			} else {
 				$db->register($_POST["name"], $_POST["username"], $_POST["password"], $_POST["mail"], $_POST["tel"], $_POST["address"]);
