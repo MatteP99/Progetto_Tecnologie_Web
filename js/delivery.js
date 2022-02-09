@@ -11,21 +11,31 @@ $(document).ready(function() {
         addToCartTable(name, price, cartObj.cart_ids[elem]);
     }
 
+    if($(".overlay tbody tr").length > 0 ) {
+        computePrice();
+        $("#vcart").fadeIn();
+    }
+
     //Bottoni per aggiungere elementi al carellello
     $(".addItemToCart").click(function(event) {
+        if($(".overlay tbody tr").length == 0 ) {
+            $("#vcart").fadeIn();
+            $(".overlay a").fadeIn();
+        }
         event.preventDefault();
         let id = $(this).siblings("p:first").text();
         addToCart(parseInt(id));
         let name = $(this).siblings("h4").text();
         addToCartTable(name, $(this).siblings("h5").text());
-        sendNotification(name,"Aggiunto al carrello!", 1000);
+        sendNotification(name,"Aggiunto al carrello!", 2000);        
+        computePrice();
     });
 
     //Apro la pagina del carrello
     $("#vcart").click(function() {        
         $(".overlay").fadeIn();
         $(".overlay").css("display", "flex");
-        $(this).fadeOut()
+        $(this).fadeOut();
     });
     
     //Chiudo la pagina del carrello
@@ -103,17 +113,17 @@ function addToCartTable(name, price, quantity = 0) {
             <tr>
                 <td headers="nome">${name}</td>
                 <td headers="prezzo">${price}</td>
-                <td headers="quantita"><button class="fas fa-minus" aria-label="minus"></button> <span class="quantity">1</span> <button class="fas fa-plus" aria-label="plus"></button></td>
+                <td headers="quantita"><button class="fas fa-minus" aria-label="rimuovi un elemento"></button> <span class="quantity">1</span> <button class="fas fa-plus" aria-label="aggiungi un elemento"></button></td>
             </tr>
         `);
     } else if (quantity > 0 && !flag) {
-        $(".overlay tbody tr").eq(rowNum).children(":last").html(`<button class="fas fa-minus" aria-label="minus"></button> <span class="quantity">${quantity}</span> <button class="fas fa-plus" aria-label="plus"></button>`);
+        $(".overlay tbody tr").eq(rowNum).children(":last").html(`<button class="fas fa-minus" aria-label="rimuovi un elemento"></button> <span class="quantity">${quantity}</span> <button class="fas fa-plus" aria-label="aggiungi un elemento"></button>`);
     } else {
         $(".overlay tbody").append(`
             <tr>
                 <td headers="nome">${name}</td>
                 <td headers="prezzo">${price}</td>
-                <td headers="quantita"><button class="fas fa-minus" aria-label="minus"></button> <span class="quantity">${quantity}</span> <button class="fas fa-plus" aria-label="plus"></button></td>
+                <td headers="quantita"><button class="fas fa-minus" aria-label="rimuovi un elemento"></button> <span class="quantity">${quantity}</span> <button class="fas fa-plus" aria-label="aggiungi un elemento"></button></td>
             </tr>
         `);
     }
@@ -130,27 +140,44 @@ function addToCartTable(name, price, quantity = 0) {
         $(".overlay table").removeAttr("style");
     }
 
-    $("[aria-label='minus']:last").click(function(e) {
+    $("[aria-label='rimuovi un elemento']:last").click(function(e) {
         e.preventDefault()
         let name = $(this).parent().siblings(":first").html();
         let id = $(`h4:contains(${name})`).siblings("p:first").text();
         removeFromCart(id);
         cartObj = JSON.parse(getCookie("cart"));
+
+        
         if (cartObj.cart_ids[id] > 0) {
             $(this).siblings(".quantity").html(`${cartObj.cart_ids[id]}`);
         } else {
+            if ($(".overlay tbody tr").length === 1) {
+                $(".overlay").fadeOut();
+            }
             $(this).parent().parent().remove();
         }
+        
+        computePrice();
     });
 
-    $("[aria-label='plus']:last").click(function(e) {
+    $("[aria-label='aggiungi un elemento']:last").click(function(e) {
         e.preventDefault()
         let name = $(this).parent().siblings(":first").html();
         let id = $(`h4:contains(${name})`).siblings("p:first").text();
         addToCart(id);
         cartObj = JSON.parse(getCookie("cart"));
         $(this).siblings(".quantity").html(`${cartObj.cart_ids[id]}`);
+        computePrice();
     });
+}
+
+function computePrice() {
+    let sum = 0;
+    $(".overlay td:nth-child(2)").each(function() {
+        let mul = parseInt($(this).siblings("td:last").find("span").text());
+        sum += parseFloat($(this).text().replace("€","").trim()) * mul;
+    });
+    $(".overlay p").text("Prezzo totale: € " + sum);
 }
 
 function getCookie(cname) {

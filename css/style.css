@@ -519,7 +519,7 @@ button, .overlay a, #orders + a, [type="submit"] {
 }
 
 #orders th, #orders td {
-    width: 25%;
+    width: 20%;
 }
 
 #p_data > form li:last-child {
@@ -534,6 +534,7 @@ button, .overlay a, #orders + a, [type="submit"] {
     border-radius: 50%;
     padding: 14px;
     font-size: 24px;
+    display: none;
 }
 
 .edit {
