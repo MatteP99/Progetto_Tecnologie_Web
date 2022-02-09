@@ -247,6 +247,10 @@ section#p_data {
     margin-bottom: 100px;
 }
 
+section > header > h2 {
+    font-size: larger;
+}
+
 #contactus h2 {
     margin-top: 40px;
 }
@@ -510,6 +514,10 @@ button, .overlay a, #orders + a, [type="submit"] {
     padding: 1%;
 }
 
+#orders table {
+    border-spacing: 0;
+}
+
 #orders th, #orders td {
     width: 25%;
 }
@@ -541,7 +549,7 @@ button, .overlay a, #orders + a, [type="submit"] {
 
 .img_main_left_home > img {
     float: left;
-    width: 32%;
+    width: 35%;
     margin: 0 4% 4%;
     border-radius: 10px;
 }
@@ -833,6 +841,14 @@ footer > div:last-child li {
     main {
         margin-left: 20%;
         padding: 7% 4%;
+    }
+
+    section > header > h2 {
+        font-size: revert;
+    }
+    
+    h2 {
+        font-size: xx-large;
     }
     
     footer {
