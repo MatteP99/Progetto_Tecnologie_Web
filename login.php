@@ -42,6 +42,8 @@ if(isUserLoggedIn()){
     $templateParams["title"] = "ZACCOLLA OSTERIA - Login Home";
 	$templateParams["name"] = "login-home.php";
 	$templateParams["user_data"] = $db->getUser($_SESSION["id_user"]);
+	$templateParams["user_orders"] = $db->getUserOrders($_SESSION["id_user"]);
+	$templateParams["user_orders_list"] = $db->getUserOrdersList($_SESSION["id_user"]);
 }
 else{
     $templateParams["title"] = "ZACCOLLA OSTERIA - Login";

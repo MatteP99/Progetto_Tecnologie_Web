@@ -40,7 +40,19 @@
                 <th id="ord_itms">Cibi acquistati</th>
                 <th id="ord_price">Prezzo totale</th>
                 <th id="ord_stat">Stato dell'ordine</th>
+				<th id="ord_date">Data ordine</th>
             </tr>
+			<?php foreach($templateParams["user_orders"] as $orders): ?>
+			<tr>
+				<th><?php echo $orders["id_order"]?></th>
+				<th><?php foreach($templateParams["user_orders_list"] as $list): 
+							echo $list["name"]." x".$list["food_quantity"]."<br/>";
+							endforeach; ?></th>
+				<th><?php echo $orders["food_total_price"]?></th>
+				<th><?php echo $orders["order_state"]?></th>
+				<th><?php echo $orders["data"]?></th>
+			</tr>
+			<?php endforeach; ?>
         </thead>
         <tbody>
         </tbody>

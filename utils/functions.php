@@ -22,4 +22,16 @@ function isActive($pagename){
         echo " class='active' ";
     }
 }
+
+function unsetCookie($cookie) {
+	if (isset($cookie)) {
+	$cookies = explode(';', $cookie);
+	foreach($cookies as $c) {
+		$parts = explode('=', $c);
+		$name = trim($parts[0]);
+		setcookie($name, '', time()-1000);
+		setcookie($name, '', time()-1000, '/');
+	}
+}
+}
 ?>
