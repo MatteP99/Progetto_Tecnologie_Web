@@ -24,6 +24,7 @@ $(document).ready(function () {
     $(".icon").click(() => {
         let nav = $("nav");
         if (!nav.hasClass("menu_open")) {            
+            $(".icon").css("color","white");
             $(".nav_logo").fadeOut(() => {                
                 nav.animate({height: "100%", opacity: "0.975"}, () => {
                     $(".nav_logo").fadeIn();
@@ -41,6 +42,7 @@ $(document).ready(function () {
                     $(".nav_links").removeAttr("style");
                     $(".nav_logo").fadeIn(() => {                        
                         $(".nav_logo").removeAttr("style");  
+                        $(".icon").removeAttr("style");  
                     });
                 });
             });
