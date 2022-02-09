@@ -38,8 +38,10 @@ $(document).ready(function() {
         if($(this).siblings("ul").css("display") === "none") {
             $(this).siblings("ul").css("display","flex");            
             $(this).siblings("ul").children().children(":not(p:first-child)").slideDown();
+            $(this).animate({margin: "30px 0"});
         } else {
             let h3 = $(this);
+            h3.animate({margin: "30px 17vw"});
             h3.siblings("ul").children().children(":not(p:first-child)").slideUp(function() {
                 h3.siblings("ul").css("display","none");
             });

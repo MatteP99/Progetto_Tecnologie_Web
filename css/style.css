@@ -3,13 +3,18 @@ h1 {
 }
 
 h3 {
+    border: 1px solid #C24A00;
+    background-color: #FFF8F3;
     font-size: 30px;
-    color:#BD5B00;
+    color: #C24A00;
+    padding: 15px 0;
+    margin: 30px 17vw;
     cursor: pointer;
 }
 
 h3:hover {
     font-weight: 900;
+
 }
 
 h4 {
