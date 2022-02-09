@@ -33,6 +33,18 @@ $(document).ready(function() {
         $(".overlay").fadeOut();
         $("#vcart").fadeIn();
     });
+
+    $("h3").click(function() {
+        if($(this).siblings("ul").css("display") === "none") {
+            $(this).siblings("ul").css("display","flex");            
+            $(this).siblings("ul").children().children(":not(p:first-child)").slideDown();
+        } else {
+            let h3 = $(this);
+            h3.siblings("ul").children().children(":not(p:first-child)").slideUp(function() {
+                h3.siblings("ul").css("display","none");
+            });
+        }
+    })
 });
 
 function addToCart(id) {

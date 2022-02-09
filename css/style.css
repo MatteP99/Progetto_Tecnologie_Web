@@ -4,6 +4,12 @@ h1 {
 
 h3 {
     font-size: 30px;
+    color:#BD5B00;
+    cursor: pointer;
+}
+
+h3:hover {
+    font-weight: 900;
 }
 
 h4 {
@@ -456,7 +462,7 @@ main > section > ul {
 }
 
 .delivery > ul ul {
-    display: flex;
+    display: none;
     justify-content: space-evenly;
     padding-left: 0;
     flex-wrap: wrap;
@@ -475,6 +481,7 @@ main > section > ul {
 
 .delivery > ul ul > li * {
     margin: 0;
+    display: none;
 }
 
 .delivery > ul ul > li > p {

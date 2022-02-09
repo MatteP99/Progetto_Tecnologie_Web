@@ -1,4 +1,11 @@
 $(document).ready(function() {
+    $("h3 + ul").css("display","flex");
+    $("h3").hover(function() {
+        $(this).css("font-weight","bold");
+    });
+    $(".delivery > ul ul > li *").css("display", "inherit");
+    $(".delivery > ul ul > li p:first-child").css("display", "none");
+    
     $(".overlay > div > button:first").click(function() {
         $(".overlay").fadeOut(function() {            
             $(".overlay h2").text("Aggiungi elemento");
