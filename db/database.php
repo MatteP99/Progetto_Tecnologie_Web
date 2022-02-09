@@ -117,6 +117,15 @@ class DatabaseHelper {
 		return $result->fetch_all(MYSQLI_ASSOC);
 	}
 	
+	//Function change user datas
+	public function changeUserData($userId, $userPass, $userNum, $userAddress) {
+		$statement = $this->db->prepare("UPDATE users
+										SET users.password = ?, users.phone_num = ?, users.address = ?
+										WHERE users.id_user = ?");
+		$statement->bind_param("sssi", $userPass, $userNum, $userAddress, $userId);
+		$statement->execute();
+	}
+	
 	//------Functions payment------
 	//Create a new order
 	public function createOrder($idUser) {

@@ -58,7 +58,7 @@ id_order INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
 id_user INT(11) UNSIGNED NOT NULL,
 food_total_price FLOAT UNSIGNED NOT NULL,
 data DATETIME NOT NULL DEFAULT current_timestamp(),
-order_state enum('In stato di conferma','Confermato','Inviato') DEFAULT 'In stato di conferma',
+order_state enum('In stato di conferma','Confermato','Annullato','Annullato dal cliente','Inviato') DEFAULT 'In stato di conferma',
 
 PRIMARY KEY (id_order),
 FOREIGN KEY (id_user) REFERENCES users (id_user)

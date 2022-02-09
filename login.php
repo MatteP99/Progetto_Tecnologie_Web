@@ -38,13 +38,22 @@ else if(isset($_POST["accesso"]) && $_POST["accesso"] == 'Registrazione') {
 	$register_result = $db->login($_POST["username"], $_POST["password"]);
 	setUser($register_result[0]);
 }
+//Change personal data
+if(isset($_POST["m_submit"]) && isset($_POST["a_data"])) {
+	$db->changeUserData($_SESSION["id_user"], $_POST["a_password"], $_POST["a_tel"], $_POST["a_address"]);
+}
 
 if(isUserLoggedIn()){
-    $templateParams["title"] = "ZACCOLLA OSTERIA - Login Home";
-	$templateParams["name"] = "login-home.php";
-	$templateParams["user_data"] = $db->getUser($_SESSION["id_user"]);
-	$templateParams["user_orders"] = $db->getUserOrders($_SESSION["id_user"]);
-	$templateParams["user_orders_list"] = $db->getUserOrdersList($_SESSION["id_user"]);
+	if(isAdmin()) {
+		$templateParams["title"] = "ZACCOLLA OSTERIA - Area Personale Admin";
+		$templateParams["name"] = "login-home-admin.php";
+	} else {
+		$templateParams["title"] = "ZACCOLLA OSTERIA - Area Personale";
+		$templateParams["name"] = "login-home.php";
+		$templateParams["user_data"] = $db->getUser($_SESSION["id_user"]);
+		$templateParams["user_orders"] = $db->getUserOrders($_SESSION["id_user"]);
+		$templateParams["user_orders_list"] = $db->getUserOrdersList($_SESSION["id_user"]);
+	}
 }
 else{
     $templateParams["title"] = "ZACCOLLA OSTERIA - Login";
