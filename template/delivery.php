@@ -53,6 +53,7 @@
             <tbody>
             </tbody>
         </table>
+        <p></p>
         <a <?php isActive("payment.php");?> href="payment.php">Acquista</a>
     </div>
 </section>
