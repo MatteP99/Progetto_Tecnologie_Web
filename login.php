@@ -47,6 +47,7 @@ if(isUserLoggedIn()){
 	if(isAdmin()) {
 		$templateParams["title"] = "ZACCOLLA OSTERIA - Area Personale Admin";
 		$templateParams["name"] = "login-home-admin.php";
+		$templateParams["user_data"] = $db->getUser($_SESSION["id_user"]);
 	} else {
 		$templateParams["title"] = "ZACCOLLA OSTERIA - Area Personale";
 		$templateParams["name"] = "login-home.php";

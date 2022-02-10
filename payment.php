@@ -37,10 +37,11 @@ if(isUserLoggedIn()){
 		$templateParams["user_university"] = $db->getUniUser($_SESSION["id_user"]);
 	}
 	$templateParams["user_logged"] = "Yes";
+	$templateParams["title"] = "ZACCOLLA OSTERIA - Pagamento";
+	$templateParams["name"] = "payment.php";
+} else {
+	header("location:login.php");
 }
-
-$templateParams["title"] = "ZACCOLLA OSTERIA - Pagamento";
-$templateParams["name"] = "payment.php";
 
 require("template/base.php");
 ?>
