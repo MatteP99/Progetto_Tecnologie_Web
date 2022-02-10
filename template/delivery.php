@@ -32,7 +32,7 @@
         </li>
         <?php endforeach; ?>
         <li>
-            <button id="vcart" class="fas fa-shopping-cart" aria-label="visualizza carrello"></button>
+            <button class="fas fa-shopping-cart voverlay" aria-label="visualizza carrello"></button>
         </li>
     </ul>    
 </section>

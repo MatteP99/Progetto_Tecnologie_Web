@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    $(".voverlay").css("display","block");
     $("h3 + ul").css("display","flex");
     $("h3").hover(function() {
         $(this).css("font-weight","bold");
@@ -10,7 +11,7 @@ $(document).ready(function() {
         $(".overlay").fadeOut(function() {            
             $(".overlay h2").text("Aggiungi elemento");
         });
-        $("#vcart").fadeIn();
+        $(".voverlay").fadeIn();
         $(".overlay form").trigger("reset");
         $(".overlay img").attr("src","dummy.png");
         $(".overlay img").attr("alt","Immagine da caricare");
@@ -40,7 +41,7 @@ $(document).ready(function() {
         $(".overlay img").attr('src', URL.createObjectURL(event.target.files[0]));
     });
 
-    $("#vcart").click(function() {        
+    $(".voverlay").click(function() {        
         $(".overlay").fadeIn();
         $(".overlay").css("display", "flex");
         $(this).fadeOut()

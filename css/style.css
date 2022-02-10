@@ -415,7 +415,7 @@ textarea {
     resize: none;
 }
 
-#vcart.fa-plus {
+button.voverlay.fa-plus {
     padding:14px 15px
 }
 
@@ -527,7 +527,7 @@ button, .overlay a, #orders + a, [type="submit"] {
     padding: 10px 0;
 }
 
-#vcart {
+button.voverlay {
     position: fixed;
     bottom: 50px;
     right: 50px;
