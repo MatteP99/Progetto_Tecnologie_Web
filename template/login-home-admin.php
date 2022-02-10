@@ -19,9 +19,31 @@
 				<th><?php echo $notify["data"]?></th>
 				<th><?php echo $notify["notify_state"]?></th>
 				<?php if(isset($notify["id_food"])): ?>
-					<th><input type="submit" name="<?php echo $notify["id_notify"]?>confirm" value="Conferma lettura" /></th>
-				<?php else: ?>
-					<th><input type="submit" name="<?php echo $notify["id_notify"]?>confirm" value="Conferma ordine" /><input type="submit" name="<?php echo $notify["id_notify"]?>cancel" value="Cancella ordine" /></th>
+						<?php if($notify["notify_state"] != "Letto"): ?>
+							<form action="#" method="POST">
+								<th><input type="submit" name="<?php echo $notify["id_notify"]?>confirm" value="Conferma lettura" /></th>
+							</form>
+						<?php else: ?>
+						<th><input disabled type="submit" name="<?php echo $notify["id_notify"]?>confirm" value="Conferma lettura" /></th>
+						<?php endif; ?>
+				<?php elseif($notify["order_type"] == "Effettuato"): ?>
+						<?php if($notify["notify_state"] != "Letto"): ?>
+						<form action="#" method="POST">
+							<th><input type="submit" name="<?php echo $notify["id_notify"]?>confirm_order" value="Conferma ordine" />
+							<input type="submit" name="<?php echo $notify["id_notify"]?>cancel_order" value="Cancella ordine" /></th>
+						</form>
+						<?php else: ?>
+						<th><input disabled type="submit" name="<?php echo $notify["id_notify"]?>confirm_order" value="Conferma ordine" />
+							<input disabled type="submit" name="<?php echo $notify["id_notify"]?>cancel_order" value="Cancella ordine" /></th>
+						<?php endif; ?>
+				<?php elseif($notify["order_type"] == "Annullato"): ?>
+						<?php if($notify["notify_state"] != "Letto"): ?>
+						<form action="#" method="POST">
+							<th><input type="submit" name="<?php echo $notify["id_notify"]?>confirm_c_order" value="Conferma lettura" /></th>
+						</form>
+						<?php else: ?>
+						<th><input disabled type="submit" name="<?php echo $notify["id_notify"]?>confirm_c_order" value="Conferma lettura" /></th>
+						<?php endif; ?>
 				<?php endif; ?>
 			</tr>
 			<?php endforeach; ?>

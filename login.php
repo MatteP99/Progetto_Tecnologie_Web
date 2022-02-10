@@ -35,8 +35,13 @@ else if(isset($_POST["accesso"]) && $_POST["accesso"] == 'Registrazione') {
 	} else {
 		$templateParams["error_registration_name"] = "Il nome inserito e' gia' esistente!";
 	}
-	$register_result = $db->login($_POST["username"], $_POST["password"]);
-	setUser($register_result[0]);
+	if(!isset($templateParams["error_registration_mail"]) 
+		&& !isset($templateParams["error_registration_name"]) 
+		&& !isset($templateParams["error_registration_mail_student"])) {
+		$register_result = $db->login($_POST["username"], $_POST["password"]);
+		setUser($register_result[0]);
+	}
+	
 }
 //Change personal data
 if(isset($_POST["m_submit"]) && isset($_POST["a_data"])) {
@@ -67,8 +72,29 @@ else{
 if(isset($templateParams["user_orders"])) {
 	foreach($templateParams["user_orders"] as $orders) {
 		if(isset($_POST[$orders["id_order"]."cancel"])) {
-			$db->changeOrderStatus($orders["id_order"]);
+			$db->changeOrderStatus($orders["id_order"], "Annullato dal Cliente");
 			$db->notifyAdminOrderCancelled($orders["id_order"]);
+			header("location:login.php");
+		}
+	}
+}
+//Buttons admin
+if(isset($templateParams["admin_notify"])) {
+	foreach($templateParams["admin_notify"] as $notify) {
+		if(isset($_POST[$notify["id_notify"]."confirm"])) {
+			$db->readNotify($notify["id_notify"]);
+			header("location:login.php");
+		} else if(isset($_POST[$notify["id_notify"]."cancel_order"])) {
+			$db->changeOrderStatus($notify["id_order"], "Annullato");
+			$db->readNotify($notify["id_notify"]);
+			header("location:login.php");
+		} else if(isset($_POST[$notify["id_notify"]."confirm_order"])) {
+			$db->changeOrderStatus($notify["id_order"], "Confermato");
+			$db->readNotify($notify["id_notify"]);
+			header("location:login.php");
+		} else if(isset($_POST[$notify["id_notify"]."confirm_c_order"])) {
+			$db->readNotify($notify["id_notify"]);
+			header("location:login.php");
 		}
 	}
 }
