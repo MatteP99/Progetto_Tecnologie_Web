@@ -44,7 +44,7 @@ password TEXT NOT NULL,
 email TEXT NOT NULL,
 phone_num TEXT NOT NULL,
 address TEXT NOT NULL,
-email_uni TEXT,
+email_uni TEXT DEFAULT NULL,
 id_uni INT(11) UNSIGNED NOT NULL,
 user_status ENUM('Cliente-Studente','Cliente', 'Admin') NOT NULL,
 
@@ -72,5 +72,20 @@ id_food INT(11) UNSIGNED NOT NULL,
 food_quantity INT(11) UNSIGNED NOT NULL,
 
 PRIMARY KEY (id_item),
+FOREIGN KEY (id_order) REFERENCES orders (id_order)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- Table notify
+CREATE TABLE IF NOT EXISTS db_web_project.notify (
+id_notify INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+id_food INT(11) UNSIGNED DEFAULT NULL,
+id_order INT(11) UNSIGNED DEFAULT NULL,
+order_type enum('Effettuato','Annullato') DEFAULT NULL,
+description TEXT NOT NULL,
+data DATETIME NOT NULL DEFAULT current_timestamp(),
+notify_state enum('Letto','Non letto') DEFAULT 'Non Letto',
+
+PRIMARY KEY (id_notify),
+FOREIGN KEY (id_food) REFERENCES food (id_food),
 FOREIGN KEY (id_order) REFERENCES orders (id_order)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

@@ -1,7 +1,7 @@
 <section class="delivery">
     <header>
         <h2>SCEGLI I TUOI PIATTI</h2>
-        <p>Servizio online per ordinare i tuoi piatti. Ricordati che gli ordini non possono essere modificati! Se sei intollerante o allergico a qualcosa, ordina chiamandoci al numero: 331-7848795!</p>
+        <p>Servizio online per ordinare i tuoi piatti. Ricordati che gli ordini non possono essere modificati! Se sei intollerante o allergico a qualcosa, ordina chiamandoci al numero: 331-7848795</p>
     </header>
     <ul>
 	    <?php foreach ($templateParams["type"] as $type):?>

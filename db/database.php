@@ -126,6 +126,35 @@ class DatabaseHelper {
 		$statement->execute();
 	}
 	
+	//Function remove quantity on food
+	public function removeQuantityFood($idFood, $quantity) {
+		$statement = $this->db->prepare("UPDATE food
+										SET food.quantity = ?
+										WHERE food.id_food = ?");
+		$statement->bind_param("ii", $quantity, $idFood);
+		$statement->execute();
+	}
+	
+	//Function get quantity of a food
+	public function getFoodQuantity($idFood) {
+		$statement = $this->db->prepare("SELECT food.quantity FROM food WHERE food.id_food = ?");
+		$statement->bind_param("i", $idFood);
+		$statement->execute();
+		$result = $statement->get_result();
+
+		return $result->fetch_all(MYSQLI_ASSOC);
+	}
+	
+	//Function get order by id
+	public function getOrder($idOrder) {
+		$statement = $this->db->prepare("SELECT orders.* FROM orders WHERE orders.id_order = ?");
+		$statement->bind_param("i", $idOrder);
+		$statement->execute();
+		$result = $statement->get_result();
+
+		return $result->fetch_all(MYSQLI_ASSOC);
+	}
+	
 	//------Functions payment------
 	//Create a new order
 	public function createOrder($idUser) {
@@ -170,6 +199,25 @@ class DatabaseHelper {
 		$statement->execute();
 	}
 	
+	//Function get food name
+	public function getFoodName($idFood) {
+		$statement = $this->db->prepare("SELECT food.name FROM food WHERE food.id_food = ?");
+		$statement->bind_param("i", $idFood);
+		$statement->execute();
+		$result = $statement->get_result();
+		
+		return $result->fetch_all(MYSQLI_ASSOC);
+	}
+	
+	//Function change order status
+	public function changeOrderStatus($idOrder, $status) {
+		$statement = $this->db->prepare("UPDATE orders
+										SET orders.order_state = ?
+										WHERE orders.id_order = ?");
+		$statement->bind_param("si", $status, $idOrder);
+		$statement->execute();
+	}
+	
 	//------Functions for admin------
 	//Function modifyFood
 	public function modifyFood($idFood, $foodName, $foodDes, $foodPrice, $foodImg, $foodType, $foodQuantity) {
@@ -195,6 +243,56 @@ class DatabaseHelper {
 		$statement->execute();
 	}
 	
+	//Function create notify admin quantity 0
+	public function createNotifyAdminQuantityFood($idFood) {
+		$statement = $this->db->prepare("INSERT INTO notify (id_food, description)
+										VALUES (?, 'Il seguente cibo ha finito la propria scorta in magazzino.')");
+		$statement->bind_param("i", $idFood);
+		$statement->execute();
+	}
+	
+	//Function create notify admin quantity low
+	public function createNotifyAdminLowQuantityFood($idFood) {
+		$statement = $this->db->prepare("INSERT INTO notify (id_food, description)
+										VALUES (?, 'Il seguente cibo, sta finendo le scorte in magazzino.')");
+		$statement->bind_param("i", $idFood);
+		$statement->execute();
+	}
+	
+	//Function create notify admin order
+	public function createNotifyAdminOrder($idOrder) {
+		$statement = $this->db->prepare("INSERT INTO notify (id_order, order_type, description)
+										VALUES (?, 'Effettuato', 'Il seguente ordine e\' stato effettuato.')"); //AAAAAAAAAAAA
+		$statement->bind_param("i", $idOrder);
+		$statement->execute();
+	}
+	
+	//Function get notifies
+	public function getNotify() {
+		$statement = $this->db->prepare("SELECT notify.* FROM notify");
+		$statement->execute();
+		$result = $statement->get_result();
+
+		return $result->fetch_all(MYSQLI_ASSOC);
+	}
+	
+	//Function create notify admin order cancelled by user
+	public function notifyAdminOrderCancelled($idOrder) {
+		$statement = $this->db->prepare("INSERT INTO notify (id_order, order_type, description)
+										VALUES (?, 'Annullato', 'Il seguente ordine e\' stato annullato.')");
+		$statement->bind_param("i", $idOrder);
+		$statement->execute();
+	}
+	
+	//Function read notify
+	public function readNotify($idNotify) {
+		$statement = $this->db->prepare("UPDATE notify
+										SET notify.notify_state = 'Letto'
+										WHERE notify.id_notify = ?");
+		$statement->bind_param("i", $idNotify);
+		$statement->execute();
+	}
+	
 	//-----Functions for Login and Registration-----
 	//Function login
 	public function login($username, $password) {
@@ -209,8 +307,8 @@ class DatabaseHelper {
 	
 	//Function register
 	public function register($name, $username, $password, $email, $phone, $address) {
-		$statement = $this->db->prepare("INSERT INTO users (name, username, password, email, phone_num, address, email_uni, user_status)
-										VALUES (?, ?, ?, ?, ?, ?, NULL, '1', 'Cliente')");
+		$statement = $this->db->prepare("INSERT INTO users (name, username, password, email, phone_num, address, id_uni, user_status)
+										VALUES (?, ?, ?, ?, ?, ?, '1', 'Cliente')");
 		$statement->bind_param("ssssss", $name, $username, $password, $email, $phone, $address);
 		$statement->execute();
     }

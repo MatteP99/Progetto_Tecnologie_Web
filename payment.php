@@ -21,7 +21,19 @@ if(isset($_POST["submit"])) {
 	for($i = 0; $i < count($arrayFood); $i++) {
 		$price = $db->getFoodPrice($arrayFood[$i]);
 		$totalPrice = $totalPrice + ((double)$price[0]["price"] * $arrayQuantity[$i]);
+		
+		$quantity_food = $db->getFoodQuantity($arrayFood[$i]);
+		$final_quantity = $quantity_food[0]["quantity"] - $arrayQuantity[$i];
+		
+		$db->removeQuantityFood($arrayFood[$i], $final_quantity);
 		$db->insertListFood($lastOrder, $arrayFood[$i], $arrayQuantity[$i]);
+		$check_food = $db->getFoodQuantity($arrayFood[$i]);
+		if($check_food[0]["quantity"] == 0) {
+			$db->createNotifyAdminQuantityFood($arrayFood[$i]);
+		} else if ($check_food[0]["quantity"] <= 5) {
+			$db->createNotifyAdminLowQuantityFood($arrayFood[$i]);
+		}
+		$db->createNotifyAdminOrder($lastOrder);
 	}
 	if($_SESSION["user_status"] == "Cliente-Studente") {
 		$totalPrice = $totalPrice - ($totalPrice * 0.2);
@@ -38,10 +50,11 @@ if(isUserLoggedIn()){
 		$templateParams["user_university"] = $db->getUniUser($_SESSION["id_user"]);
 	}
 	$templateParams["user_logged"] = "Yes";
+	$templateParams["title"] = "ZACCOLLA OSTERIA - Pagamento";
+	$templateParams["name"] = "payment.php";
+} else {
+	header("location:login.php");
 }
-
-$templateParams["title"] = "ZACCOLLA OSTERIA - Pagamento";
-$templateParams["name"] = "payment.php";
 
 require("template/base.php");
 ?>

@@ -60,6 +60,9 @@
                 <label for="student">Sei uno studente?</label>
                 <input type="checkbox" id="student" name="student"/>
             </li>
+			<li>
+				<p>NOTA!! Se sei uno studente di una delle seguenti facolta', avrai diritto ad uno sconto del 20% per ogni ordine, ma non potrai cambiare l'indirizzo di spedizione!</p>
+			</li>
             <li>
                 <label for="unimail">Mail università:</label>
                 <input type="email" id="unimail" name="unimail"/>
