@@ -289,8 +289,8 @@ class DatabaseHelper {
 	
 	//Function register
 	public function register($name, $username, $password, $email, $phone, $address) {
-		$statement = $this->db->prepare("INSERT INTO users (name, username, password, email, phone_num, address, email_uni, user_status)
-										VALUES (?, ?, ?, ?, ?, ?, NULL, '1', 'Cliente')");
+		$statement = $this->db->prepare("INSERT INTO users (name, username, password, email, phone_num, address, id_uni, user_status)
+										VALUES (?, ?, ?, ?, ?, ?, '1', 'Cliente')");
 		$statement->bind_param("ssssss", $name, $username, $password, $email, $phone, $address);
 		$statement->execute();
     }
