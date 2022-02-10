@@ -405,6 +405,10 @@ input:not([type="radio"], [type="submit"], [type="file"]), select {
     float: right;
 }
 
+input#a_data {
+    width: revert;
+}
+
 select {
     width: 41.5%;
 }
@@ -530,7 +534,7 @@ button, .overlay a, #orders + a, [type="submit"] {
 }
 
 #orders th, #orders td {
-    width: 20%;
+    width: 16.66%;
 }
 
 #p_data > form li:last-child {
@@ -760,7 +764,11 @@ footer > div:last-child li {
 
     .overlay select {
         width: 254px;
-    }    
+    }
+    
+    input#a_data {
+        width: 40%;
+    }
 
     .overlay form li:nth-last-child(2) {
         padding-bottom: 120px;

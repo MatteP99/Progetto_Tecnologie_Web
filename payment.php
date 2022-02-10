@@ -27,8 +27,9 @@ if(isset($_POST["submit"])) {
 		$totalPrice = $totalPrice - ($totalPrice * 0.2);
 	}
 	$db->insertTotalPrice($lastOrder, $totalPrice);
-	setcookie("cart", time()-3600);
-	header("location:login.php");
+    unset($_COOKIE['cart']); 
+    setcookie('cart', null, -1, '/');
+    header("location:login.php");
 }
 //Check if user is logged
 if(isUserLoggedIn()){

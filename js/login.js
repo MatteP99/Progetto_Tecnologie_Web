@@ -36,7 +36,7 @@ $(document).ready(function() {
         $("form.login > fieldset li:not(:first-child)").slideUp();
     });
 
-    $("#mail").keyup(function() {
+    $("#mail").on("change keyup", function() {
         if(emailRegEx.test($(this).val())) {
             if (!($(this).hasClass("valid"))) {
                 $(this).addClass("valid");
@@ -71,7 +71,7 @@ $(document).ready(function() {
         check_submit();
     });
 
-    $("#mail_conf").keyup(function() {
+    $("#mail_conf").on("change keyup", function() {
         if($(this).val() === $("#mail").val() &&  emailRegEx.test($("#mail").val())) {
             if (!($(this).hasClass("valid"))) {
                 $(this).addClass("valid");
@@ -90,7 +90,7 @@ $(document).ready(function() {
         check_submit();
     });
 
-    $("#password").keyup(function() {
+    $("#password").on("change keyup", function() {
         if($("#registrazione").is(":checked")) {
             if(passRegEx.test($(this).val())) {
                 if (!($(this).hasClass("valid"))) {
@@ -127,7 +127,7 @@ $(document).ready(function() {
         }
     });
 
-    $("#a_password").keyup(function() {
+    $("#a_password").on("change keyup", function() {
         if(passRegEx.test($(this).val())) {
             if (!($(this).hasClass("valid"))) {
                 $(this).addClass("valid");
@@ -161,7 +161,7 @@ $(document).ready(function() {
         }
     });
 
-    $("#password_conf").keyup(function() {
+    $("#password_conf").on("change keyup", function() {
         if($(this).val() === $("#password").val() && passRegEx.test($("#password").val())) {
             if (!($(this).hasClass("valid"))) {
                 $(this).addClass("valid");
@@ -180,7 +180,7 @@ $(document).ready(function() {
         check_submit();
     });
 
-    $("#a_password_conf").keyup(function() {
+    $("#a_password_conf").on("change keyup", function() {
         if($(this).val() === $("#a_password").val() && passRegEx.test($("#a_password").val())) {
             if (!($(this).hasClass("valid"))) {
                 $(this).addClass("valid");
@@ -199,7 +199,7 @@ $(document).ready(function() {
         check_submit();
     });
 
-    $(".tel").keyup(function() {
+    $(".tel").on("change keyup", function() {
         if(telRegEx.test($(this).val())) {
             if (!($(this).hasClass("valid"))) {
                 $(this).addClass("valid");

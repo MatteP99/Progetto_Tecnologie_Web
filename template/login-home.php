@@ -8,17 +8,17 @@
             </li>
             <li class="signup">
                 <label for="a_password">Nuova Password:</label>
-                <em class="fas" aria-label="Icona di verifica"></em>
+                <em class="fas" aria-label="Icona di controllo: requisiti non soddisfatti"></em>
                 <input type="password" class="toBeChecked pass" id="a_password" name="a_password" required />
             </li>
             <li class="signup">
                 <label for="a_password_conf">Conferma password:</label>
-                <em class="fas" aria-label="Icona di verifica"></em>
+                <em class="fas" aria-label="Icona di controllo: requisiti non soddisfatti"></em>
                 <input type="password" class="toBeChecked check_pass" id="a_password_conf" name="a_password_conf" />
             </li>        
             <li class="signup">
                 <label for="a_tel">Numero di telefono:</label>
-                <em class="fas fa-check" aria-label="Icona di verifica"></em>
+                <em class="fas fa-check" aria-label="Icona di controllo: requisiti soddisfatti"></em>
                 <input type="tel" class="toBeChecked valid tel" id="a_tel" name="a_tel" value="<?php echo $templateParams["user_data"][0]["phone_num"] ?>"/>
             </li>
             <li class="signup">
