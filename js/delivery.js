@@ -13,13 +13,13 @@ $(document).ready(function() {
 
     if($(".overlay tbody tr").length > 0 ) {
         computePrice();
-        $("#vcart").fadeIn();
+        $(".voverlay").fadeIn();
     }
 
     //Bottoni per aggiungere elementi al carellello
     $(".addItemToCart").click(function(event) {
         if($(".overlay tbody tr").length == 0 ) {
-            $("#vcart").fadeIn();
+            $(".voverlay").fadeIn();
             $(".overlay a").fadeIn();
         }
         event.preventDefault();
@@ -32,7 +32,7 @@ $(document).ready(function() {
     });
 
     //Apro la pagina del carrello
-    $("#vcart").click(function() {        
+    $(".voverlay").click(function() {        
         $(".overlay").fadeIn();
         $(".overlay").css("display", "flex");
         $(this).fadeOut();
@@ -41,7 +41,7 @@ $(document).ready(function() {
     //Chiudo la pagina del carrello
     $(".overlay > div > button:first").click(function() {
         $(".overlay").fadeOut();
-        $("#vcart").fadeIn();
+        $(".voverlay").fadeIn();
     });
 
     $("h3").click(function() {
@@ -177,7 +177,7 @@ function computePrice() {
         let mul = parseInt($(this).siblings("td:last").find("span").text());
         sum += parseFloat($(this).text().replace("€","").trim()) * mul;
     });
-    $(".overlay p").text("Prezzo totale: € " + sum);
+    $(".overlay tfoot td").text("Prezzo totale: € " + sum);
 }
 
 function getCookie(cname) {

@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    $(".voverlay").css("display","block");
     $("h3 + ul").css("display","flex");
     $("h3").hover(function() {
         $(this).css("font-weight","bold");
@@ -10,7 +11,7 @@ $(document).ready(function() {
         $(".overlay").fadeOut(function() {            
             $(".overlay h2").text("Aggiungi elemento");
         });
-        $("#vcart").fadeIn();
+        $(".voverlay").fadeIn();
         $(".overlay form").trigger("reset");
         $(".overlay img").attr("src","dummy.png");
         $(".overlay img").attr("alt","Immagine da caricare");
@@ -30,7 +31,7 @@ $(document).ready(function() {
         $("#m_price").val($(this).parent().siblings("h5").text().replace("€","").trim());
 		$("#m_quantity").val($(this).parent().siblings("h6").text().replace("Quantita': ","").trim());
         $("#m_id").val($(this).parent().siblings("p:first").text());
-        
+        $(".voverlay").fadeOut();
         $(".overlay img").attr("alt", $(this).parent().siblings("h4").text());
         $(".overlay img").attr("src", $(this).parent().siblings("img").attr("src"));
         $(".overlay h2").text("Modifica elemento");
@@ -40,7 +41,7 @@ $(document).ready(function() {
         $(".overlay img").attr('src', URL.createObjectURL(event.target.files[0]));
     });
 
-    $("#vcart").click(function() {        
+    $(".voverlay").click(function() {        
         $(".overlay").fadeIn();
         $(".overlay").css("display", "flex");
         $(this).fadeOut()

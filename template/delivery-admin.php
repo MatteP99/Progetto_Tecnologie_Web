@@ -29,7 +29,7 @@
         </li>
         <?php endforeach; ?>        
         <li>
-            <button id="vcart" class="fas fa-plus" aria-label="Aggiungi elemento"></button>
+            <button class="fas fa-plus voverlay" aria-label="Aggiungi elemento"></button>
         </li>
     </ul>    
 </section>
