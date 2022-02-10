@@ -55,7 +55,7 @@ $(document).ready(function() {
         } else {
             let h3 = $(this);
             h3.animate({margin: "30px 17vw"});
-            h3.siblings("ul").children().children(":not(p:first-child)").slideUp(function() {
+            h3.siblings("ul").children().children(":not(.itemId, .itemQuantity)").slideUp(function() {
                 h3.siblings("ul").css("display","none");
             });
         }
