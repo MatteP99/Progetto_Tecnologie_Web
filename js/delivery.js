@@ -8,7 +8,9 @@ $(document).ready(function() {
         let elemHTML = $(`.itemId:contains('${elem}'):first`);
         let name = elemHTML.siblings("h4").text();
         let price = elemHTML.siblings("h5").text();
+        elemHTML.siblings(".itemQuantity").text(50 - parseInt(cartObj.cart_ids[elem]));
         addToCartTable(name, price, cartObj.cart_ids[elem]);
+        checkQuantity(name, 0);
     }
 
     if($(".overlay tbody tr").length > 0 ) {
@@ -27,6 +29,7 @@ $(document).ready(function() {
         addToCart(parseInt(id));
         let name = $(this).siblings("h4").text();
         addToCartTable(name, $(this).siblings("h5").text());
+        checkQuantity(name);
         sendNotification(name,"Aggiunto al carrello!", 2000);        
         computePrice();
     });
@@ -47,12 +50,12 @@ $(document).ready(function() {
     $("h3").click(function() {
         if($(this).siblings("ul").css("display") === "none") {
             $(this).siblings("ul").css("display","flex");            
-            $(this).siblings("ul").children().children(":not(p:first-child)").slideDown();
+            $(this).siblings("ul").children().children(":not(.itemId, .itemQuantity)").slideDown();
             $(this).animate({margin: "30px 0"});
         } else {
             let h3 = $(this);
             h3.animate({margin: "30px 17vw"});
-            h3.siblings("ul").children().children(":not(p:first-child)").slideUp(function() {
+            h3.siblings("ul").children().children(":not(.itemId, .itemQuantity)").slideUp(function() {
                 h3.siblings("ul").css("display","none");
             });
         }
@@ -158,6 +161,7 @@ function addToCartTable(name, price, quantity = 0) {
         }
         
         computePrice();
+        checkQuantity(name, -1);
     });
 
     $("[aria-label='aggiungi un elemento']:last").click(function(e) {
@@ -168,6 +172,7 @@ function addToCartTable(name, price, quantity = 0) {
         cartObj = JSON.parse(getCookie("cart"));
         $(this).siblings(".quantity").html(`${cartObj.cart_ids[id]}`);
         computePrice();
+        checkQuantity(name);
     });
 }
 
@@ -178,6 +183,23 @@ function computePrice() {
         sum += parseFloat($(this).text().replace("€","").trim()) * mul;
     });
     $(".overlay tfoot td").text("Prezzo totale: € " + sum);
+}
+
+function checkQuantity(itemName, val = 1) {
+    let item = $(`h4:contains(${itemName})`);
+    let itemQuantity = parseInt(item.siblings(".itemQuantity").text());
+    if(itemQuantity === 1 && val === 1) {
+        $(`[headers='nome']:contains('${itemName}')`).siblings(":last").children(".fa-plus").attr("disabled", true);
+        item.siblings(".addItemToCart").attr("disabled", true);
+    } else if (itemQuantity === 0 && val === -1) {        
+        $(`[headers='nome']:contains('${itemName}')`).siblings(":last").children(".fa-plus").attr("disabled", false);
+        item.siblings(".addItemToCart").attr("disabled", false);
+    } else if (val === 0) {
+        $(`[headers='nome']:contains('${itemName}')`).siblings(":last").children(".fa-plus").attr("disabled", true);
+        item.siblings(".addItemToCart").attr("disabled", true);
+    }
+    itemQuantity -= val;
+    item.siblings(".itemQuantity").text(itemQuantity);
 }
 
 function getCookie(cname) {

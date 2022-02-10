@@ -30,6 +30,16 @@ a {
     text-decoration: none;
 }
 
+button:disabled {
+    color: revert;
+    background-color: revert;
+    cursor: revert;
+}
+
+table {
+    border-spacing: 0;
+}
+
 nav {    
     background-color: #FFC29A;
     display: flex;
@@ -495,7 +505,7 @@ main > section > ul {
     margin-bottom: 10px;
 }
 
-.delivery > ul ul > li > p:first-child {
+.itemId, .itemQuantity {
     display: none;
 }
 
@@ -517,10 +527,6 @@ button, .overlay a, #orders + a, [type="submit"] {
 
 .overlay a, #orders + a, [type="submit"] {
     padding: 1%;
-}
-
-#orders table {
-    border-spacing: 0;
 }
 
 #orders th, #orders td {
@@ -635,7 +641,6 @@ figcaption {
 
 .overlay table {
     width: 80%;
-    border-spacing: 0px;
     height: 60%;
 }
 
@@ -796,7 +801,10 @@ footer > div:last-child li {
         background-color: #FFC29A;
     }
 
-
+    button:disabled:hover {
+        color: revert;
+        background-color: revert;
+    }
     
     nav {
         font-size: large;
