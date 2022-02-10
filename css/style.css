@@ -780,11 +780,16 @@ footer > div:last-child li {
     h3:hover {
         font-weight: 900;
 
-    }    
+    }        
+
+    .nav_contacts a:hover {
+        animation: trasparenza 1.5s linear 0s infinite;
+        font-weight: normal;
+    }  
 
     footer a:hover {
-        color: #ffa063d1;
-    }    
+        animation: trasparenza 1.5s linear 0s infinite;
+    }
 
     button:hover:not(.close), .overlay a:hover, #orders + a:hover, [type="submit"]:hover {
         color:white;
@@ -926,4 +931,10 @@ footer > div:last-child li {
         margin-left: 15%;
         width: 85%;
     }
+}
+
+@keyframes trasparenza {
+    0% {opacity: 1;}
+    50% {opacity: 0.2;}
+    100% {opacity: 1;}
 }
