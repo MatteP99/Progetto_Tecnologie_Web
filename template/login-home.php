@@ -41,6 +41,7 @@
                 <th id="ord_price">Prezzo totale</th>
                 <th id="ord_stat">Stato dell'ordine</th>
 				<th id="ord_date">Data ordine</th>
+				<th id="ord_date">Gestione ordine</th>
             </tr>
 			<?php foreach($templateParams["user_orders"] as $orders): ?>
 			<tr>
@@ -53,6 +54,13 @@
 				<th><?php echo $orders["food_total_price"]?></th>
 				<th><?php echo $orders["order_state"]?></th>
 				<th><?php echo $orders["data"]?></th>
+				<?php if($orders["order_state"] == "In stato di conferma"): ?>
+				<form action="#" method="POST">
+					<th><input type="submit" name="<?php echo $orders["id_order"]?>cancel" value="Cancella ordine" /></th>
+				</form>
+				<?php else: ?>
+					<th><input disabled type="submit" name="<?php echo $orders["id_order"]?>cancel" value="Cancella ordine" /></th>
+				<?php endif; ?>
 			</tr>
 			<?php endforeach; ?>
         </thead>

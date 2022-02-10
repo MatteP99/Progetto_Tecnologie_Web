@@ -48,6 +48,7 @@ if(isUserLoggedIn()){
 		$templateParams["title"] = "ZACCOLLA OSTERIA - Area Personale Admin";
 		$templateParams["name"] = "login-home-admin.php";
 		$templateParams["user_data"] = $db->getUser($_SESSION["id_user"]);
+		$templateParams["admin_notify"] = $db->getNotify();
 	} else {
 		$templateParams["title"] = "ZACCOLLA OSTERIA - Area Personale";
 		$templateParams["name"] = "login-home.php";
@@ -61,6 +62,17 @@ else{
 	$templateParams["name"] = "login-form.php";
 	$templateParams["university"] = $db->getUni();
 }
+
+//Buttons user
+if(isset($templateParams["user_orders"])) {
+	foreach($templateParams["user_orders"] as $orders) {
+		if(isset($_POST[$orders["id_order"]."cancel"])) {
+			$db->changeOrderStatus($orders["id_order"]);
+			$db->notifyAdminOrderCancelled($orders["id_order"]);
+		}
+	}
+}
+
 
 require("template/base.php");
 ?>

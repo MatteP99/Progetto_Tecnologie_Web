@@ -126,6 +126,25 @@ class DatabaseHelper {
 		$statement->execute();
 	}
 	
+	//Function remove quantity on food
+	public function removeQuantityFood($idFood, $quantity) {
+		$statement = $this->db->prepare("UPDATE food
+										SET food.quantity = food.quantity - ?
+										WHERE food.id_food = ?");
+		$statement->bind_param("ii", $quantity, $idUser);
+		$statement->execute();
+	}
+	
+	//Function get quantity of a food
+	public function getFoodQuantity($idFood) {
+		$statement = $this->db->prepare("SELECT food.quantity WHERE food.id_food = ?");
+		$statement->bind_param("i", $idFood);
+		$statement->execute();
+		$result = $statement->get_result();
+
+		return $result->fetch_all(MYSQLI_ASSOC);
+	}
+	
 	//------Functions payment------
 	//Create a new order
 	public function createOrder($idUser) {
@@ -170,6 +189,25 @@ class DatabaseHelper {
 		$statement->execute();
 	}
 	
+	//Function get food name
+	public function getFoodName($idFood) {
+		$statement = $this->db->prepare("SELECT food.name FROM food WHERE food.id_food = ?");
+		$statement->bind_param("i", $idFood);
+		$statement->execute();
+		$result = $statement->get_result();
+		
+		return $result->fetch_all(MYSQLI_ASSOC);
+	}
+	
+	//Function change order status
+	public function changeOrderStatus($idOrder) {
+		$statement = $this->db->prepare("UPDATE orders
+										SET orders.order_state = 'Annullato dal cliente'
+										WHERE orders.id_order = ?");
+		$statement->bind_param("i", $idOrder);
+		$statement->execute();
+	}
+	
 	//------Functions for admin------
 	//Function modifyFood
 	public function modifyFood($idFood, $foodName, $foodDes, $foodPrice, $foodImg, $foodType, $foodQuantity) {
@@ -192,6 +230,48 @@ class DatabaseHelper {
 		$statement = $this->db->prepare("INSERT INTO food (name, description, price, img, type_food, quantity)
 										VALUES (?, ?, ?, ?, ?, ?)");
 		$statement->bind_param("ssdsii", $foodName, $foodDes, $foodPrice, $foodImg, $foodType, $foodQuantity);
+		$statement->execute();
+	}
+	
+	//Function create notify admin quantity 0
+	public function createNotifyAdminQuantityFood($idFood, $nameFood) {
+		$statement = $this->db->prepare("INSERT INTO notify (id_food, description)
+										VALUES (?, 'Il seguente cibo: ?, ha finito la propria scorta in magazzino.')");
+		$statement->bind_param("is", $idFood, $nameFood);
+		$statement->execute();
+	}
+	
+	//Function create notify admin quantity low
+	public function createNotifyAdminLowQuantityFood($idFood, $nameFood) {
+		$statement = $this->db->prepare("INSERT INTO notify (id_food, description)
+										VALUES (?, 'Il seguente cibo: ?, sta finendo le scorte in magazzino.')");
+		$statement->bind_param("is", $idFood, $nameFood);
+		$statement->execute();
+	}
+	
+	//Function create notify admin order
+	public function createNotifyAdminOrder($idOrder) {
+		$statement = $this->db->prepare("INSERT INTO notify (id_order, description)
+										VALUES (?, 'Il seguente ordine e\' stato effettuato: ')"); //AAAAAAAAAAAA
+		$statement->bind_param("i", $idOrder);
+		$statement->execute();
+	}
+	
+	//Function get notifies
+	public function getNotify() {
+		$statement = $this->db->prepare("SELECT notify.id_notify, notify.description, notify.data, notify.notify_state
+										FROM notify");
+		$statement->execute();
+		$result = $statement->get_result();
+
+		return $result->fetch_all(MYSQLI_ASSOC);
+	}
+	
+	//Function create notify admin order cancelled by user
+	public function notifyAdminOrderCancelled($idOrder) {
+		$statement = $this->db->prepare("INSERT INTO notify (id_order, description)
+										VALUES (?, 'Il seguente ordine e\' stato annullato.')");
+		$statement->bind_param("i", $idOrder);
 		$statement->execute();
 	}
 	

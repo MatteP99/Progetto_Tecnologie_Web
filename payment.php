@@ -21,7 +21,17 @@ if(isset($_POST["submit"])) {
 	for($i = 0; $i < count($arrayFood); $i++) {
 		$price = $db->getFoodPrice($arrayFood[$i]);
 		$totalPrice = $totalPrice + ((double)$price[0]["price"] * $arrayQuantity[$i]);
+		$db->removeQuantityFood($arrayFood[$i], $arrayQuantity[$i]);
 		$db->insertListFood($lastOrder, $arrayFood[$i], $arrayQuantity[$i]);
+		$check_food = $db->getFoodQuantity($arrayFood[$i]);
+		if($check_food[0]["quantity"] == 0) {
+			$food_name = $db->getFoodName($arrayFood[$i]);
+			$db->createNotifyAdminQuantityFood($arrayFood[$i], $food_name[0]["name"]);
+		} else if ($check_food[0]["quantity"] <= 5) {
+			$food_name = $db->getFoodName($arrayFood[$i]);
+			$db->createNotifyAdminLowQuantityFood($arrayFood[$i], $food_name[0]["name"]);
+		}
+		$db->createNotifyAdminOrder($lastOrder);
 	}
 	if($_SESSION["user_status"] == "Cliente-Studente") {
 		$totalPrice = $totalPrice - ($totalPrice * 0.2);
