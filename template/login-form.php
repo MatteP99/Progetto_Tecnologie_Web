@@ -18,7 +18,7 @@
         </li>
         <li>
             <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required />
+            <input type="text" id="username" name="username" autocomplete="username" required />
         </li>
         <li class="signup">
             <label for="name">Nome completo:</label>
@@ -26,27 +26,27 @@
         </li>
         <li class="signup">
             <label for="mail">Mail:</label>
-            <em class="fas" aria-label="Icona di verifica"></em>
+            <em class="fas" aria-label="Icona di controllo: requisiti non soddisfatti"></em>
             <input type="email" class="toBeChecked" id="mail" name="mail" />
         </li>
         <li class="signup">
             <label for="mail_conf">Conferma email:</label>
-            <em class="fas" aria-label="Icona di verifica"></em>
+            <em class="fas" aria-label="Icona di controllo: requisiti non soddisfatti"></em>
             <input type="email" class="toBeChecked" id="mail_conf" name="mail_conf" />
         </li>
         <li>
             <label for="password">Password:</label>
-            <em class="fas" aria-label="Icona di verifica"></em>
-            <input type="password" class="toBeChecked" id="password" name="password" required />
+            <em class="fas" aria-label="Icona di controllo: requisiti non soddisfatti"></em>
+            <input type="password" autocomplete="new-password" class="toBeChecked" id="password" name="password" required />
         </li>
         <li class="signup">
             <label for="password_conf">Conferma password:</label>
-            <em class="fas" aria-label="Icona di verifica"></em>
-            <input type="password" class="toBeChecked" id="password_conf" name="password_conf" />
+            <em class="fas" aria-label="Icona di controllo: requisiti non soddisfatti"></em>
+            <input type="password" class="toBeChecked" autocomplete="new-password" id="password_conf" name="password_conf" />
         </li>        
         <li class="signup">
             <label for="tel">Numero di telefono:</label>
-            <em class="fas" aria-label="Icona di verifica"></em>
+            <em class="fas" aria-label="Icona di controllo: requisiti non soddisfatti"></em>
             <input type="tel" class="toBeChecked tel" id="tel" name="tel" />
         </li>
         <li class="signup">

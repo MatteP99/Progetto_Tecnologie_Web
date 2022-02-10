@@ -188,15 +188,12 @@ function computePrice() {
 function checkQuantity(itemName, val = 1) {
     let item = $(`h4:contains(${itemName})`);
     let itemQuantity = parseInt(item.siblings(".itemQuantity").text());
-    if(itemQuantity === 1 && val === 1) {
+    if((itemQuantity === 1 && val === 1) || (val === 0 && itemQuantity === 0)) {
         $(`[headers='nome']:contains('${itemName}')`).siblings(":last").children(".fa-plus").attr("disabled", true);
         item.siblings(".addItemToCart").attr("disabled", true);
-    } else if (itemQuantity === 0 && val === -1) {        
+    } else if (itemQuantity === 0 && val === -1)  {        
         $(`[headers='nome']:contains('${itemName}')`).siblings(":last").children(".fa-plus").attr("disabled", false);
         item.siblings(".addItemToCart").attr("disabled", false);
-    } else if (val === 0) {
-        $(`[headers='nome']:contains('${itemName}')`).siblings(":last").children(".fa-plus").attr("disabled", true);
-        item.siblings(".addItemToCart").attr("disabled", true);
     }
     itemQuantity -= val;
     item.siblings(".itemQuantity").text(itemQuantity);
