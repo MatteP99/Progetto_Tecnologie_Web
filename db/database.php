@@ -129,9 +129,9 @@ class DatabaseHelper {
 	//Function remove quantity on food
 	public function removeQuantityFood($idFood, $quantity) {
 		$statement = $this->db->prepare("UPDATE food
-										SET food.quantity = food.quantity - ?
+										SET food.quantity = ?
 										WHERE food.id_food = ?");
-		$statement->bind_param("ii", $quantity, $idUser);
+		$statement->bind_param("ii", $quantity, $idFood);
 		$statement->execute();
 	}
 	
@@ -244,18 +244,18 @@ class DatabaseHelper {
 	}
 	
 	//Function create notify admin quantity 0
-	public function createNotifyAdminQuantityFood($idFood, $nameFood) {
+	public function createNotifyAdminQuantityFood($idFood) {
 		$statement = $this->db->prepare("INSERT INTO notify (id_food, description)
-										VALUES (?, 'Il seguente cibo: ?, ha finito la propria scorta in magazzino.')");
-		$statement->bind_param("is", $idFood, $nameFood);
+										VALUES (?, 'Il seguente cibo ha finito la propria scorta in magazzino.')");
+		$statement->bind_param("i", $idFood);
 		$statement->execute();
 	}
 	
 	//Function create notify admin quantity low
-	public function createNotifyAdminLowQuantityFood($idFood, $nameFood) {
+	public function createNotifyAdminLowQuantityFood($idFood) {
 		$statement = $this->db->prepare("INSERT INTO notify (id_food, description)
 										VALUES (?, 'Il seguente cibo, sta finendo le scorte in magazzino.')");
-		$statement->bind_param("is", $idFood, $nameFood);
+		$statement->bind_param("i", $idFood);
 		$statement->execute();
 	}
 	

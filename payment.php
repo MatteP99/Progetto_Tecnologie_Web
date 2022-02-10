@@ -21,15 +21,17 @@ if(isset($_POST["submit"])) {
 	for($i = 0; $i < count($arrayFood); $i++) {
 		$price = $db->getFoodPrice($arrayFood[$i]);
 		$totalPrice = $totalPrice + ((double)$price[0]["price"] * $arrayQuantity[$i]);
-		$db->removeQuantityFood($arrayFood[$i], $arrayQuantity[$i]);
+		
+		$quantity_food = $db->getFoodQuantity($arrayFood[$i]);
+		$final_quantity = $quantity_food[0]["quantity"] - $arrayQuantity[$i];
+		
+		$db->removeQuantityFood($arrayFood[$i], $final_quantity);
 		$db->insertListFood($lastOrder, $arrayFood[$i], $arrayQuantity[$i]);
 		$check_food = $db->getFoodQuantity($arrayFood[$i]);
 		if($check_food[0]["quantity"] == 0) {
-			$food_name = $db->getFoodName($arrayFood[$i]);
-			$db->createNotifyAdminQuantityFood($arrayFood[$i], $food_name[0]["name"]);
+			$db->createNotifyAdminQuantityFood($arrayFood[$i]);
 		} else if ($check_food[0]["quantity"] <= 5) {
-			$food_name = $db->getFoodName($arrayFood[$i]);
-			$db->createNotifyAdminLowQuantityFood($arrayFood[$i], $food_name[0]["name"]);
+			$db->createNotifyAdminLowQuantityFood($arrayFood[$i]);
 		}
 		$db->createNotifyAdminOrder($lastOrder);
 	}
