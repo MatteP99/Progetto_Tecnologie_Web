@@ -31,7 +31,7 @@ $(document).ready(function() {
         $("#m_price").val($(this).parent().siblings("h5").text().replace("€","").trim());
 		$("#m_quantity").val($(this).parent().siblings("h6").text().replace("Quantita': ","").trim());
         $("#m_id").val($(this).parent().siblings("p:first").text());
-        
+        $(".voverlay").fadeOut();
         $(".overlay img").attr("alt", $(this).parent().siblings("h4").text());
         $(".overlay img").attr("src", $(this).parent().siblings("img").attr("src"));
         $(".overlay h2").text("Modifica elemento");

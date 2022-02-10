@@ -52,8 +52,10 @@
             </thead>
             <tbody>
             </tbody>
+            <tfoot>
+                <tr><td colspan="3" ></td></tr>
+            </tfoot>
         </table>
-        <p></p>
         <a <?php isActive("payment.php");?> href="payment.php">Acquista</a>
     </div>
 </section>

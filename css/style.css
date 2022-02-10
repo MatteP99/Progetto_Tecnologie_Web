@@ -121,6 +121,7 @@ nav ul {
 }
 
 .toast-container {
+    justify-content: center;
     opacity: 0.7;
     font-family: sans-serif;
     margin-bottom: 0.8rem;
@@ -141,29 +142,25 @@ nav ul {
     border-radius: 5px;
     background-color: white;
     display: inline-block;
-    min-width: 80%;
-    max-width: 90%;
     text-align: center;
     padding: 4px 1em;
     box-shadow: 4px 4px 5px darkgray;
 }
 
 .toast-header {
-    border-bottom: 0;
     color: darkslategray;
-    height: 0.3rem;
-    padding-top: 0.6rem;
+    display: flex;
+    gap: 30px;
+    justify-content: space-between;
 }
 
 .toast-header > strong {
-    float: left;
-    margin-top: 5px;
+    margin-top: 15px;
+    font-size: 3vw;
 }
 
 .toast-header small {
-    padding-left: 2rem;
-    font-size: 1rem;    
-    vertical-align: text-top;
+    font-size: 2vw;
     color: #6c757d;
 }
 
@@ -171,15 +168,18 @@ nav ul {
     border: 0;
     background-color: inherit;
     font-size: 2rem;
-    color: #c2c2c2;
-}
-
-.toast-header button:hover {
     color: black;
+    padding: 0;
 }
 
 .minc {
-    float: right;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+button.close {
+    margin-left: 5px;
 }
 
 .toast-body {
@@ -187,6 +187,11 @@ nav ul {
     text-align: left;
     color: black;
     padding: 2px;
+}
+
+.toast-body > p {
+    margin: 0 0 10px 0;
+    font-size: 3vw;
 }
 
 body {
@@ -660,6 +665,11 @@ tr:nth-child(even) {
     background-color: #f8f9fa;
 }
 
+tfoot td {
+    padding-top: 20px;
+    font-weight: 900;
+}
+
 footer {    
     padding: 1% 0;
     background-color: #FFF8F3;
@@ -706,14 +716,12 @@ footer > div:last-child li {
 
 @media screen and (min-width:768px) {
 
+    .toast-header > strong {
+        font-size: 1.2rem;
+    }
     
     .toast-container {
         font-size: 1.1rem;
-    }
-    
-    .toast {
-        min-width: 35%;
-        max-width: 40%;
     }
     
     .toast-header small {
@@ -722,6 +730,10 @@ footer > div:last-child li {
     
     .toast-header button {
         font-size: 1.5rem;
+    }
+
+    .toast-body > p {
+        font-size: revert;
     }
 
     section#contactus {
@@ -774,10 +786,12 @@ footer > div:last-child li {
         color: #ffa063d1;
     }    
 
-    button:hover, .overlay a:hover, #orders + a:hover, [type="submit"]:hover {
+    button:hover:not(.close), .overlay a:hover, #orders + a:hover, [type="submit"]:hover {
         color:white;
         background-color: #FFC29A;
     }
+
+
     
     nav {
         font-size: large;
@@ -867,11 +881,6 @@ footer > div:last-child li {
     
     .notifications {
         width: 85%;
-    }
-    
-    .toast {
-        min-width: 16%;
-        max-width: 24%;
     }
     
     main > section > header {

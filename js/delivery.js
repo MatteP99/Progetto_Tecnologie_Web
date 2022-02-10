@@ -177,7 +177,7 @@ function computePrice() {
         let mul = parseInt($(this).siblings("td:last").find("span").text());
         sum += parseFloat($(this).text().replace("€","").trim()) * mul;
     });
-    $(".overlay p").text("Prezzo totale: € " + sum);
+    $(".overlay tfoot td").text("Prezzo totale: € " + sum);
 }
 
 function getCookie(cname) {
