@@ -42,12 +42,14 @@ $(document).ready(function() {
                 $(this).addClass("valid");
                 $(this).siblings("em").removeClass("fa-times");                
                 $(this).siblings("em").addClass("fa-check");
+                $(this).siblings("em").attr("aria-label","Icona di controllo: requisiti soddisfatti");
             }
         } else {
             if ($(this).hasClass("valid")) {
                 $(this).removeClass("valid");                
                 $(this).siblings("em").removeClass("fa-check");
                 $(this).siblings("em").addClass("fa-times"); 
+                $(this).siblings("em").attr("aria-label","Icona di controllo: requisiti non soddisfatti");
             }
         }
         
@@ -56,12 +58,14 @@ $(document).ready(function() {
                 $("#mail_conf").removeClass("valid");                
                 $("#mail_conf").siblings("em").removeClass("fa-check");
                 $("#mail_conf").siblings("em").addClass("fa-times"); 
+                $("#mail_conf").siblings("em").attr("aria-label","Icona di controllo: requisiti non soddisfatti");
             }
         } else {
             if(!($("#mail_conf").hasClass("valid")) &&  emailRegEx.test($("#mail").val())) {
                 $("#mail_conf").addClass("valid");
                 $("#mail_conf").siblings("em").removeClass("fa-times");                
                 $("#mail_conf").siblings("em").addClass("fa-check");
+                $("#mail_conf").siblings("em").attr("aria-label","Icona di controllo: requisiti soddisfatti");
             }
         }
         check_submit();
@@ -73,12 +77,14 @@ $(document).ready(function() {
                 $(this).addClass("valid");
                 $(this).siblings("em").removeClass("fa-times");                
                 $(this).siblings("em").addClass("fa-check");
+                $(this).siblings("em").attr("aria-label","Icona di controllo: requisiti soddisfatti");
             }
         } else {
             if ($(this).hasClass("valid")) {
                 $(this).removeClass("valid");                
                 $(this).siblings("em").removeClass("fa-check");
                 $(this).siblings("em").addClass("fa-times"); 
+                $(this).siblings("em").attr("aria-label","Icona di controllo: requisiti non soddisfatti");
             }
         }
         check_submit();
@@ -91,12 +97,14 @@ $(document).ready(function() {
                     $(this).addClass("valid");
                     $(this).siblings("em").removeClass("fa-times");                
                     $(this).siblings("em").addClass("fa-check");
-                }
+                    $(this).siblings("em").attr("aria-label","Icona di controllo: requisiti soddisfatti");
+            }
             } else {
                 if ($(this).hasClass("valid")) {
                     $(this).removeClass("valid");                
                     $(this).siblings("em").removeClass("fa-check");
                     $(this).siblings("em").addClass("fa-times"); 
+                    $(this).siblings("em").attr("aria-label","Icona di controllo: requisiti non soddisfatti");
                 }
             }
             
@@ -105,12 +113,14 @@ $(document).ready(function() {
                     $("#password_conf").removeClass("valid");                
                     $("#password_conf").siblings("em").removeClass("fa-check");
                     $("#password_conf").siblings("em").addClass("fa-times"); 
+                    $("#password_conf").siblings("em").attr("aria-label","Icona di controllo: requisiti non soddisfatti");
                 }
             } else {
                 if(!($("#password_conf").hasClass("valid")) && passRegEx.test($(this).val())) {
                     $("#password_conf").addClass("valid");
                     $("#password_conf").siblings("em").removeClass("fa-times");                
                     $("#password_conf").siblings("em").addClass("fa-check");
+                    $("#password_conf").siblings("em").attr("aria-label","Icona di controllo: requisiti soddisfatti");
                 }
             }
             check_submit();
@@ -123,12 +133,14 @@ $(document).ready(function() {
                 $(this).addClass("valid");
                 $(this).siblings("em").removeClass("fa-times");                
                 $(this).siblings("em").addClass("fa-check");
+                $(this).siblings("em").attr("aria-label","Icona di controllo: requisiti soddisfatti");
             }
         } else {
             if ($(this).hasClass("valid")) {
                 $(this).removeClass("valid");                
                 $(this).siblings("em").removeClass("fa-check");
                 $(this).siblings("em").addClass("fa-times"); 
+                $(this).siblings("em").attr("aria-label","Icona di controllo: requisiti non soddisfatti");
             }
         }
         
@@ -137,12 +149,14 @@ $(document).ready(function() {
                 $("#a_password_conf").removeClass("valid");                
                 $("#a_password_conf").siblings("em").removeClass("fa-check");
                 $("#a_password_conf").siblings("em").addClass("fa-times"); 
+                $("#a_password_conf").siblings("em").attr("aria-label","Icona di controllo: requisiti non soddisfatti");
             }
         } else {
             if(!($("#a_password_conf").hasClass("valid")) && passRegEx.test($(this).val())) {
                 $("#a_password_conf").addClass("valid");
                 $("#a_password_conf").siblings("em").removeClass("fa-times");                
                 $("#a_password_conf").siblings("em").addClass("fa-check");
+                $("#a_password_conf").siblings("em").attr("aria-label","Icona di controllo: requisiti soddisfatti");
             }
         }
     });
@@ -153,12 +167,14 @@ $(document).ready(function() {
                 $(this).addClass("valid");
                 $(this).siblings("em").removeClass("fa-times");                
                 $(this).siblings("em").addClass("fa-check");
+                $(this).siblings("em").attr("aria-label","Icona di controllo: requisiti soddisfatti");
             }
         } else {
             if ($(this).hasClass("valid")) {
                 $(this).removeClass("valid");                
                 $(this).siblings("em").removeClass("fa-check");
                 $(this).siblings("em").addClass("fa-times");                
+                $(this).siblings("em").attr("aria-label","Icona di controllo: requisiti non soddisfatti");
             }
         }
         check_submit();
@@ -170,12 +186,14 @@ $(document).ready(function() {
                 $(this).addClass("valid");
                 $(this).siblings("em").removeClass("fa-times");                
                 $(this).siblings("em").addClass("fa-check");
+                $(this).siblings("em").attr("aria-label","Icona di controllo: requisiti soddisfatti");
             }
         } else {
             if ($(this).hasClass("valid")) {
                 $(this).removeClass("valid");                
                 $(this).siblings("em").removeClass("fa-check");
                 $(this).siblings("em").addClass("fa-times");                
+                $(this).siblings("em").attr("aria-label","Icona di controllo: requisiti non soddisfatti");
             }
         }
         check_submit();
@@ -187,12 +205,14 @@ $(document).ready(function() {
                 $(this).addClass("valid");
                 $(this).siblings("em").removeClass("fa-times");                
                 $(this).siblings("em").addClass("fa-check");
+                $(this).siblings("em").attr("aria-label","Icona di controllo: requisiti soddisfatti");
             }
         } else {
             if ($(this).hasClass("valid")) {
                 $(this).removeClass("valid");                
                 $(this).siblings("em").removeClass("fa-check");
                 $(this).siblings("em").addClass("fa-times"); 
+                $(this).siblings("em").attr("aria-label","Icona di controllo: requisiti non soddisfatti");
             }
         }
         check_submit();
