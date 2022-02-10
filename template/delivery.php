@@ -13,6 +13,7 @@
                 <li>
                     <p class="itemId"><?php echo $food["id_food"] ?></p>
                 <?php if($food["quantity"] > 0): ?>
+                    <p class="itemQuantity"> <?php echo $food["quantity"]?></p>
                     <img src="<?php echo UPLOAD_DIR.$food["img"];?>" alt="<?php echo $food["name"];?>" />
                     <h4><?php echo $food["name"]?></h4>
                     <h5>€ <?php echo $food["price"]?></h5>

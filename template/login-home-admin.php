@@ -1,5 +1,5 @@
 <section id="p_data">
-    <h2>Ciao, <?php echo $templateParams["user_data"][0]["username"] ?></h2>
+    <h2>Salve, amministratore</h2>
     <form action="#" method="POST">
         <ul>
             <li>
@@ -22,14 +22,14 @@
         </ul>
     </form>
 </section>
-<section id="orders">
+<section id="not_tab">
     <h2>Notifiche</h2>
     <table>
         <thead>
             <tr>
-                <th id="ord_num">Tipo notifica</th>
-                <th id="ord_itms">Descrizione</th>
-                <th id="ord_price">Stato</th>
+                <th id="not_type">Tipo notifica</th>
+                <th id="not_desc">Descrizione</th>
+                <th id="not_stat">Stato</th>
             </tr>
         </thead>
         <tbody>
