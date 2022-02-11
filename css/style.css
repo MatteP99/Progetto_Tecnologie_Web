@@ -542,8 +542,23 @@ button, .overlay a, #orders + a, #not_list + a, [type="submit"] {
     display: none
 }
 
+#not_list th:nth-child(1), #not_list td:nth-child(1), #not_list td:nth-child(5), #not_list th:nth-child(5), #not_list td:nth-child(4), #not_list th:nth-child(4) {
+    display: none;
+}
+
+
 #not_list th, #not_list td {
     width: 14.285%;
+    padding: 10px 0;
+}
+
+#not_list input {
+    margin: 5px;
+    padding: 4px;
+}
+
+section#not_list > table {
+    margin-bottom: 40px;
 }
 
 #p_data > form li:last-child {
@@ -787,6 +802,10 @@ footer > div:last-child li {
         display: revert;
     }
 
+    #not_list td:nth-child(4), #not_list th:nth-child(4) {
+        display: revert;
+    }
+
     .overlay form li:nth-last-child(2) {
         padding-bottom: 120px;
     }    
@@ -821,7 +840,7 @@ footer > div:last-child li {
         animation: trasparenza 1.5s linear 0s infinite;
     }
 
-    button:hover:not(.close), .overlay a:hover, #orders + a:hover, #not_list + a, [type="submit"]:hover {
+    button:hover:not(.close), .overlay a:hover, #orders + a:hover, #not_list + a:hover, [type="submit"]:hover {
         color:white;
         background-color: #FFC29A;
     }
@@ -950,6 +969,10 @@ footer > div:last-child li {
 
     section#contactus {
         margin: 0 20vw;
+    }
+
+    #not_list td:first-child, #not_list th:first-child, #not_list th:nth-child(5), #not_list td:nth-child(5) {
+        display: revert;
     }
 
     form ul, fieldset {
