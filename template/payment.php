@@ -22,7 +22,7 @@
 						</li>
 						<?php endif; ?>
 						<li>                 
-							<label for="numero">Numero:</label>
+							<label for="numero">Numero di telefono:</label>
 							<input required type="text" id="numero" name="numero" value="<?php echo $user["phone_num"]?>" />
 						</li>
 						<li>                 
