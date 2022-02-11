@@ -14,6 +14,7 @@ $(document).ready(function() {
         $("input:last").prop("disabled", true);
         $("#name").attr("required", true);
         $("#address").attr("required", true);
+        $("#password").attr("placeholder", "Minimo 8 caratteri alfanumerici");
     });
 
     $("#login").click(function() {
@@ -32,6 +33,7 @@ $(document).ready(function() {
         $("input:last").prop("disabled", false);        
         $("#name").attr("required", false);
         $("#address").attr("required", false);
+        $("#password").removeAttr("placeholder");
         $("form.login > fieldset li:not(:first-child)").attr("required", false);
         $("form.login > fieldset li:not(:first-child)").slideUp();
     });
@@ -180,6 +182,10 @@ $(document).ready(function() {
         check_submit();
     });
 
+    $('#password_conf').bind('cut copy paste', function(event) {
+        event.preventDefault();
+    });
+
     $("#a_password_conf").on("change keyup", function() {
         if($(this).val() === $("#a_password").val() && passRegEx.test($("#a_password").val())) {
             if (!($(this).hasClass("valid"))) {
@@ -197,6 +203,10 @@ $(document).ready(function() {
             }
         }
         check_submit();
+    });
+
+    $('#a_password_conf').bind('cut copy paste', function(event) {
+        event.preventDefault();
     });
 
     $(".tel").on("change keyup", function() {

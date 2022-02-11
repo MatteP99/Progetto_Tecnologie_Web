@@ -1,5 +1,6 @@
 <form action="#" method="POST" class="login">
     <h2>Login</h2>
+    <strong class="signup">Attenzione: i campi con la X non sono corretti!</strong>
     <ul>
         <li>
 			<?php if(isset($templateParams["error_login"])): ?>
@@ -22,7 +23,7 @@
         </li>
         <li class="signup">
             <label for="name">Nome completo:</label>
-            <input type="text" id="name" name="name"/>
+            <input type="text" id="name" name="name" placeholder="Nome Cognome"/>
         </li>
         <li class="signup">
             <label for="mail">Mail:</label>
@@ -50,8 +51,8 @@
             <input type="tel" class="toBeChecked tel" id="tel" name="tel" />
         </li>
         <li class="signup">
-            <label for="address">Indirizzo completo:</label>
-            <input type="text" id="address" name="address" />
+            <label for="address">Indirizzo fatturazione:</label>
+            <input type="text" id="address" name="address" placeholder="Via civico, CAP, Comune, Provincia" />
         </li>
     </ul>
     <fieldset class="signup">
