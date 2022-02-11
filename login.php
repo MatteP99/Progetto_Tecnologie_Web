@@ -73,6 +73,7 @@ else{
 
 //Buttons user
 if(isset($templateParams["user_orders"])) {
+	$order = 0;
 	foreach($templateParams["user_orders"] as $orders) {
 		if(isset($_POST[$orders["id_order"]."cancel"])) {
 			$db->changeOrderStatus($orders["id_order"], "Annullato dal Cliente");
@@ -83,10 +84,11 @@ if(isset($templateParams["user_orders"])) {
 				$final_quantity = $quantity[0]["quantity"] + $food["food_quantity"];
 				$db->restoreQuantity($food["id_food"], $final_quantity);
 			}
-			$db->notifyAdminOrderCancelled($orders["id_order"]);
+			$order = $orders["id_order"];
 			header("location:login.php");
 		}
 	}
+	$db->notifyAdminOrderCancelled($order);
 }
 //Buttons admin
 if(isset($templateParams["admin_notify"])) {

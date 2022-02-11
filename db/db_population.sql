@@ -16,7 +16,7 @@ INSERT INTO types VALUES (9, 'Bevande Alcoliche');
 -- Antipasti
 INSERT INTO food VALUES (1, 'Insalata Mista', 'Insalata di lattuga fresca, sedano, finocchio, carote tagliate a fettine, olio, sale e aceto.', 4.00, 'insalata_mista.jpg', 1, 50);
 INSERT INTO food VALUES (2, 'Tagliere Misto', 'Salame DOP IGP di Modena, Prosciutto di Parma, Coppa, Tacchino e Prosciutto Cotto.', 7.20, 'tagliere_misto.jpg', 1, 50);
-INSERT INTO food VALUES (3, 'Patatine', 'Patate con buccia cotte al forno.', 3.00, 'antipasti/patatine.jpg', 1, 50);
+INSERT INTO food VALUES (3, 'Patatine', 'Patate con buccia cotte al forno.', 3.00, 'patatine.jpg', 1, 50);
 INSERT INTO food VALUES (4, 'Gratinati di Verdure', 'Gratinati di pomodoro, melanzane, peperone e cipolla.', 5.50, 'gratinati_verdure.jpg', 1, 50);
 INSERT INTO food VALUES (5, 'Caprese', 'Mozzarella fior di latte, olio, basilico, pomodoro e sale.', 6.70, 'caprese.jpg', 1, 50);
 INSERT INTO food VALUES (6, 'Verdure Cotte', 'Radicchio, peperoni, carote e zucchine cotte.', 5.10, 'verdure_cotte.jpg', 1, 50);

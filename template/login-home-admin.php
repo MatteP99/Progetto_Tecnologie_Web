@@ -95,7 +95,7 @@
 										<?php endif; ?>
 									<?php endif; ?>
 								<?php endif; ?>
-						<?php endforeach; ?>
+						<?php endforeach; ?>		
 				<?php elseif($notify["order_type"] == "Annullato"): ?>
 						<?php if($notify["notify_state"] != "Letto"): ?>
 							<form action="#" method="POST">
