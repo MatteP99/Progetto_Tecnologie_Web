@@ -2,11 +2,11 @@ $(document).ready(function () {
     let i = 1;
     let src = ["upload/slideshow/img1.jpg","upload/slideshow/img2.jpg","upload/slideshow/img3.jpg"];
     let img = $("body > header > img:first");
-
-    /* $.getJSON("dummy_page.php", function(data) {
-        let formattedData = formatData(data);
-        $("main").append(formattedData);
-    }); */
+    
+    if (getCookie("consent") == "") {
+        sendNotification("Cookie","Questo sito utilizza cookie tecnici per funzionare. Se si continua ad utilizzare il sito il consenso è implicito.");
+        setCookie("consent", 'yes', 1);
+    }
 
     //Utilizzato per aggiornare il tempo delle notifiche
     setInterval(update_time, 1000 * 60);
@@ -50,18 +50,9 @@ $(document).ready(function () {
     });
 });
 
-function formatData(data) {
-  let formattedData = '';
-  for(let i = 0; i < data.length; i++) {
-    let dataItem = '';
-    formattedData.append(dataItem);
-  }
-    return formattedData;
-}
-
 function sendNotification(title, description, millis = 0) {
     let index = $(".toast-container").length;
-    $("body > header .notifications").append(`
+    $("body > header #notifications").append(`
     <div class="toast-container">
         <p>${Date.now()}</p>
         <div class="toast">
@@ -91,7 +82,10 @@ function sendNotification(title, description, millis = 0) {
     });
     if (millis > 0) {
         setTimeout(() => {
-            notification.fadeOut("fast");
+            notification.fadeOut("fast", function() {
+                sleep(300);
+                $(this).remove();
+            })
         }, millis);
     }
 }
@@ -111,3 +105,26 @@ function sleep(milliseconds) {
     currentDate = Date.now();
   } while (currentDate - date < milliseconds);
 }
+
+function getCookie(cname) {
+    let name = cname + "=";
+    let ca = document.cookie.split(';');
+    for(let i = 0; i < ca.length; i++) {
+      let c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
+  }
+  
+  function setCookie(cname, cvalue, exdays) {
+    const d = new Date();
+    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    let expires = "expires="+d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+  }
+  

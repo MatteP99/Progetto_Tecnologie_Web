@@ -35,7 +35,9 @@ $(document).ready(function() {
     });
 
     //Apro la pagina del carrello
-    $(".voverlay").click(function() {        
+    $(".voverlay").click(function() { 
+        let marg = $("main").css("margin-left");    
+        $("#notifications").css({"width":"100%", "margin-left":`-${marg}`});  
         $(".overlay").fadeIn();
         $(".overlay").css("display", "flex");
         $(this).fadeOut();
@@ -45,6 +47,7 @@ $(document).ready(function() {
     $(".overlay > div > button:first").click(function() {
         $(".overlay").fadeOut();
         $(".voverlay").fadeIn();
+        $("#notifications").removeAttr("style");  
     });
 
     $("h3").click(function() {
@@ -156,6 +159,7 @@ function addToCartTable(name, price, quantity = 0) {
         } else {
             if ($(".overlay tbody tr").length === 1) {
                 $(".overlay").fadeOut();
+                $("#notifications").removeAttr("style");  
             }
             $(this).parent().parent().remove();
         }
@@ -191,32 +195,13 @@ function checkQuantity(itemName, val = 1) {
     if((itemQuantity === 1 && val === 1) || (val === 0 && itemQuantity === 0)) {
         $(`[headers='nome']:contains('${itemName}')`).siblings(":last").children(".fa-plus").attr("disabled", true);
         item.siblings(".addItemToCart").attr("disabled", true);
+        if(val === 1) {
+            sendNotification(itemName,"Massima quantità ordinabile raggiunta!", 2000);
+        }
     } else if (itemQuantity === 0 && val === -1)  {        
         $(`[headers='nome']:contains('${itemName}')`).siblings(":last").children(".fa-plus").attr("disabled", false);
         item.siblings(".addItemToCart").attr("disabled", false);
     }
     itemQuantity -= val;
     item.siblings(".itemQuantity").text(itemQuantity);
-}
-
-function getCookie(cname) {
-  let name = cname + "=";
-  let ca = document.cookie.split(';');
-  for(let i = 0; i < ca.length; i++) {
-    let c = ca[i];
-    while (c.charAt(0) == ' ') {
-      c = c.substring(1);
-    }
-    if (c.indexOf(name) == 0) {
-      return c.substring(name.length, c.length);
-    }
-  }
-  return "";
-}
-
-function setCookie(cname, cvalue, exdays) {
-  const d = new Date();
-  d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-  let expires = "expires="+d.toUTCString();
-  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }

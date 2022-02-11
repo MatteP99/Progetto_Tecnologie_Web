@@ -30,7 +30,7 @@ a {
     text-decoration: none;
 }
 
-button:disabled {
+button:disabled, input:disabled {
     color: revert;
     background-color: revert;
     cursor: revert;
@@ -123,7 +123,7 @@ nav ul {
     font-size: xx-large;
 }
 
-.notifications {
+#notifications {
     margin-top: 1rem;
     position: fixed;
     width: 100%;
@@ -822,7 +822,7 @@ footer > div:last-child li {
         background-color: #FFC29A;
     }
 
-    button:disabled:hover {
+    button:disabled:hover, input:disabled:hover {
         color: revert;
         background-color: revert;
     }
@@ -862,7 +862,7 @@ footer > div:last-child li {
         margin: 0 10%;
     }
     
-    .notifications {
+    #notifications {
         width: 80%;
     }
     
@@ -913,7 +913,7 @@ footer > div:last-child li {
         width: 15%;
     }
     
-    .notifications {
+    #notifications {
         width: 85%;
     }
     

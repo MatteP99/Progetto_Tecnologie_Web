@@ -59,7 +59,7 @@
         </nav>
         <header>
             <h1>Osteria Zaccolla</h1>
-            <div class="notifications"></div>
+            <div id="notifications"></div>
             <img src="upload/slideshow/img1.jpg" alt=""/>
         </header>
 		<main>
