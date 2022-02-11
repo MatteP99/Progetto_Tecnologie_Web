@@ -18,7 +18,7 @@
 						<?php else: ?>
 						<li>  
 							<label for="indirizzo">Indirizzo universitario:</label>
-							<input disabled required type="text" id="indirizzo" name="indirizzo" placeholder="Via, civico" value="<?php echo $templateParams["user_university"][0]["address"]?>" />
+							<input disabled required type="text" id="indirizzo" name="indirizzo" placeholder="Via, civico" value="<?php echo $templateParams["user_university"][0]["uni_address"]?>" />
 						</li>
 						<?php endif; ?>
 						<li>                 

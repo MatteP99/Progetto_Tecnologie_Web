@@ -117,6 +117,17 @@ class DatabaseHelper {
 		return $result->fetch_all(MYSQLI_ASSOC);
 	}
 	
+	//Function get user order list food by order
+	public function getUserOrdersListByOrder($idOrder) {
+		$statement = $this->db->prepare("SELECT list_food.food_quantity, list_food.id_food FROM list_food
+										WHERE list_food.id_order = ?");
+		$statement->bind_param("i", $idOrder);
+		$statement->execute();
+		$result = $statement->get_result();
+		
+		return $result->fetch_all(MYSQLI_ASSOC);
+	}
+	
 	//Function get notify all datas
 	public function getNotifyDataOrder() {
 		$statement = $this->db->prepare("SELECT orders.id_order, orders.id_user, orders.order_state, orders.food_total_price, users.username, users.phone_num, users.address, users.id_uni, university.uni_address 
@@ -178,6 +189,15 @@ class DatabaseHelper {
 		$result = $statement->get_result();
 
 		return $result->fetch_all(MYSQLI_ASSOC);
+	}
+	
+	//Function restore food quantity
+	public function restoreQuantity($idFood, $quantity) {
+		$statement = $this->db->prepare("UPDATE food
+										SET food.quantity = ?
+										WHERE food.id_food = ?");
+		$statement->bind_param("ii", $quantity, $idFood);
+		$statement->execute();
 	}
 	
 	//------Functions payment------

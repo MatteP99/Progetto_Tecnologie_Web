@@ -76,6 +76,13 @@ if(isset($templateParams["user_orders"])) {
 	foreach($templateParams["user_orders"] as $orders) {
 		if(isset($_POST[$orders["id_order"]."cancel"])) {
 			$db->changeOrderStatus($orders["id_order"], "Annullato dal Cliente");
+			$list_food = $db->getUserOrdersListByOrder($orders["id_order"]);
+			$final_quantity = 0;
+			foreach($list_food as $food) {
+				$quantity = $db->getFoodQuantity($food["id_food"]);
+				$final_quantity = $quantity[0]["quantity"] + $food["food_quantity"];
+				$db->restoreQuantity($food["id_food"], $final_quantity);
+			}
 			$db->notifyAdminOrderCancelled($orders["id_order"]);
 			header("location:login.php");
 		}
@@ -89,6 +96,13 @@ if(isset($templateParams["admin_notify"])) {
 			header("location:login.php");
 		} else if(isset($_POST[$notify["id_notify"]."cancel_order"])) {
 			$db->changeOrderStatus($notify["id_order"], "Annullato");
+			$list_food = $db->getUserOrdersListByOrder($notify["id_order"]);
+			$final_quantity = 0;
+			foreach($list_food as $food) {
+				$quantity = $db->getFoodQuantity($food["id_food"]);
+				$final_quantity = $quantity[0]["quantity"] + $food["food_quantity"];
+				$db->restoreQuantity($food["id_food"], $final_quantity);
+			}
 			$db->readNotify($notify["id_notify"]);
 			header("location:login.php");
 		} else if(isset($_POST[$notify["id_notify"]."confirm_order"])) {
@@ -97,6 +111,9 @@ if(isset($templateParams["admin_notify"])) {
 			header("location:login.php");
 		} else if(isset($_POST[$notify["id_notify"]."confirm_c_order"])) {
 			$db->readNotify($notify["id_notify"]);
+			header("location:login.php");
+		} else if(isset($_POST[$notify["id_notify"]."send_order"])) {
+			$db->changeOrderStatus($notify["id_order"], "Inviato");
 			header("location:login.php");
 		}
 	}

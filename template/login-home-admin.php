@@ -26,10 +26,11 @@
 								USERNAME: <?php echo $data["username"]."<br/>" ?>
 								TEL: <?php echo $data["phone_num"]."<br/>" ?>
 								<?php if($data["id_uni"] == 1): ?>
-								INDIRIZZO: <?php echo $data["address"]."<br/>" ?></td>
+								INDIRIZZO: <?php echo $data["address"]."<br/>" ?>
 								<?php else: ?>
-								INDIRIZZO: <?php echo $data["uni_address"]."<br/>" ?></td>
+								INDIRIZZO: <?php echo $data["uni_address"]."<br/>" ?>
 								<?php endif; ?>
+							</td>
 						<?php endif; ?>
 					<?php endforeach; ?>
 				<?php else: ?>
@@ -37,7 +38,8 @@
 						<?php if($food_data["id_food"] == $notify["id_food"]): ?>
 							<td>ID: <?php echo $food_data["id_food"]."<br/>" ?>
 								NOME: <?php echo $food_data["name"]."<br/>" ?>
-								QUANTITA': <?php echo $food_data["quantity"]."<br/>" ?></td>
+								QUANTITA': <?php echo $food_data["quantity"]."<br/>" ?>
+							</td>
 						<?php endif; ?>
 					<?php endforeach; ?>
 				<?php endif; ?>
@@ -58,24 +60,45 @@
 				<td><?php echo $notify["notify_state"]?></td>
 				<?php if(isset($notify["id_food"])): ?>
 						<?php if($notify["notify_state"] != "Letto"): ?>
-							<form action="#" metdod="POST">
+							<form action="#" method="POST">
 								<td><input type="submit" name="<?php echo $notify["id_notify"]?>confirm" value="Conferma lettura" /></td>
 							</form>
 						<?php else: ?>
 							<td><input disabled type="submit" name="<?php echo $notify["id_notify"]?>confirm" value="Gia' letto" /></td>
 						<?php endif; ?>
 				<?php elseif($notify["order_type"] == "Effettuato"): ?>
-						<?php if($notify["notify_state"] != "Letto"): ?>
-						<form action="#" metdod="POST">
-							<td><input type="submit" name="<?php echo $notify["id_notify"]?>confirm_order" value="Conferma ordine" />
-							<input type="submit" name="<?php echo $notify["id_notify"]?>cancel_order" value="Cancella ordine" /></td>
-						</form>
-						<?php else: ?>
-							<td><input disabled type="submit" name="<?php echo $notify["id_notify"]?>confirm_order" value="Ordine gia' gestito" /></td>
-						<?php endif; ?>
+						<?php foreach($templateParams["notify_data_order"] as $data): ?>
+								<?php if($data["id_order"] == $notify["id_order"] && $data["order_state"] == "Annullato dal cliente"): ?>
+									<?php if($notify["notify_state"] != "Letto"): ?>
+									<form action="#" method="POST">
+										<td><input type="submit" name="<?php echo $notify["id_notify"]?>confirm" value="Conferma lettura" /></td>
+									</form>
+									<?php else: ?>
+										<td><input disabled type="submit" name="<?php echo $notify["id_notify"]?>confirm" value="Gia' letto" /></td>
+									<?php endif; ?>
+								<?php elseif($data["id_order"] == $notify["id_order"] && $data["order_state"] != "Annullato dal cliente"): ?>
+									<?php if($notify["notify_state"] != "Letto"): ?>
+									<form action="#" method="POST">
+										<td><input type="submit" name="<?php echo $notify["id_notify"]?>confirm_order" value="Conferma ordine" />
+											<input type="submit" name="<?php echo $notify["id_notify"]?>cancel_order" value="Cancella ordine" /></td>
+									</form>
+									<?php else: ?>
+										<?php if($data["order_state"] != "Inviato" && $data["order_state"] != "Annullato"): ?>
+										<form action="#" method="POST">
+											<td><input type="submit" name="<?php echo $notify["id_notify"]?>send_order" value="Spedisci ordine" />
+												<input type="submit" name="<?php echo $notify["id_notify"]?>cancel_order" value="Cancella ordine" /></td>
+										</form>
+										<?php elseif($data["order_state"] == "Inviato"): ?>
+											<td><input disabled type="submit" name="<?php echo $notify["id_notify"]?>confim" value="Ordine gia' in viaggio" /></td>
+										<?php else: ?>
+											<td><input disabled type="submit" name="<?php echo $notify["id_notify"]?>confim" value="Gia' letto" /></td>
+										<?php endif; ?>
+									<?php endif; ?>
+								<?php endif; ?>
+						<?php endforeach; ?>
 				<?php elseif($notify["order_type"] == "Annullato"): ?>
 						<?php if($notify["notify_state"] != "Letto"): ?>
-							<form action="#" metdod="POST">
+							<form action="#" method="POST">
 								<td><input type="submit" name="<?php echo $notify["id_notify"]?>confirm_c_order" value="Conferma lettura" /></td>
 							</form>
 						<?php else: ?>
