@@ -17,9 +17,9 @@
                     <p><?php echo $food["description"]?></p>
 					<h6>Quantita': <?php echo $food["quantity"]?></h6>
                     <div class="edit">
-						<button class="modifyItem" name="<?php echo $food["id_food"]."modify" ?>" id="<?php echo $food["id_food"]."modify" ?>">Modifica</button>
+						<button type="button" class="modifyItem" name="<?php echo $food["id_food"]."modify" ?>" id="<?php echo $food["id_food"]."modify" ?>">Modifica</button>
 						<form action="#" method="post">
-							<button class="delete" name="<?php echo $food["id_food"]."delete" ?>" id="<?php echo $food["id_food"]."delete" ?>">Rimuovi</button>
+							<button type="button" class="delete" name="<?php echo $food["id_food"]."delete" ?>" id="<?php echo $food["id_food"]."delete" ?>">Rimuovi</button>
 						</form>
                     </div>
                 </li>
@@ -29,7 +29,7 @@
         </li>
         <?php endforeach; ?>        
         <li>
-            <button class="fas fa-plus voverlay" aria-label="Aggiungi elemento"></button>
+            <button type="button" class="fas fa-plus voverlay" aria-label="Aggiungi elemento"></button>
         </li>
     </ul>    
 </section>

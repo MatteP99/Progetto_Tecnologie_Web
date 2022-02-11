@@ -18,13 +18,13 @@
                     <h4><?php echo $food["name"]?></h4>
                     <h5>€ <?php echo $food["price"]?></h5>
                     <p><?php echo $food["description"]?></p>
-                    <button class="addItemToCart">Aggiungi al Carrello</button>
+                    <button type="button" class="addItemToCart">Aggiungi al Carrello</button>
                 <?php else: ?>
                     <img src="upload/out_of_stock.jpg" alt="<?php echo $food["name"]."non disponibile";?>" />
                     <h4><?php echo $food["name"]?></h4>
                     <h5>€ <?php echo $food["price"]?></h5>
                     <p><?php echo $food["description"]?></p>
-                    <button disabled>Aggiungi al Carrello</button>
+                    <button type="button" disabled>Aggiungi al Carrello</button>
                 <?php endif; ?>
                 </li>
             <?php endif; ?>
@@ -33,7 +33,7 @@
         </li>
         <?php endforeach; ?>
         <li>
-            <button class="fas fa-shopping-cart voverlay" aria-label="visualizza carrello"></button>
+            <button type="button" class="fas fa-shopping-cart voverlay" aria-label="visualizza carrello"></button>
         </li>
     </ul>    
 </section>
