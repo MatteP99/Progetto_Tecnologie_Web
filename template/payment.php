@@ -42,7 +42,7 @@
 							<input required type="text" id="indirizzo" name="indirizzo" placeholder="Via, civico" />
 						</li>
 						<li>                 
-							<label for="numero">Numero:</label>
+							<label for="numero">Numero di telefono:</label>
 							<input required type="text" id="numero" name="numero" />
 						</li>
 						<li>                 

@@ -519,7 +519,7 @@ main > section > ul {
     object-fit: cover;
 }
 
-button, .overlay a, #orders + a, [type="submit"] {
+button, .overlay a, #orders + a, #not_list + a, [type="submit"] {
     color: #BD5B00;
     background-color: white;
     border-radius: 6px;
@@ -529,7 +529,7 @@ button, .overlay a, #orders + a, [type="submit"] {
     font-weight: 600;
 }
 
-.overlay a, #orders + a, [type="submit"] {
+.overlay a, #orders + a, #not_list + a, [type="submit"] {
     padding: 1%;
 }
 
@@ -540,6 +540,10 @@ button, .overlay a, #orders + a, [type="submit"] {
 
 #orders th:nth-child(5), #orders td:nth-child(2), #orders td:nth-child(5), #orders th:nth-child(2) {
     display: none
+}
+
+#not_list th, #not_list td {
+    width: 14.285%;
 }
 
 #p_data > form li:last-child {
@@ -817,7 +821,7 @@ footer > div:last-child li {
         animation: trasparenza 1.5s linear 0s infinite;
     }
 
-    button:hover:not(.close), .overlay a:hover, #orders + a:hover, [type="submit"]:hover {
+    button:hover:not(.close), .overlay a:hover, #orders + a:hover, #not_list + a, [type="submit"]:hover {
         color:white;
         background-color: #FFC29A;
     }
