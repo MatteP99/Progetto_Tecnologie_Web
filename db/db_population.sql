@@ -64,8 +64,8 @@ INSERT INTO food VALUES (41, 'Profitterol', 'Acqua, burro, zucchero, uova, latte
 INSERT INTO food VALUES (42, 'Mascarpone con frutta', 'Mascarpone, zucchero, tuorli, acqua e frutti di bosco.', 6.20, 'mascarpone.jpg', 7, 50);
 -- Bevande Analcoliche
 INSERT INTO food VALUES (43, 'Acqua', 'Bottiglia d\'acqua in plastica da 550ml.', 1.50, 'acqua.jpg', 8, 50);
-INSERT INTO food VALUES (44, 'The\' alla pesca', 'Lattina di the\' alla pesca da 500ml.', 2.50, 'pesca.jpg', 8, 50);
-INSERT INTO food VALUES (45, 'The\' al limone', 'Lattina di the\' al limone da 500ml.', 2.50, 'limone.jpg', 8, 50);
+INSERT INTO food VALUES (44, 'The alla pesca', 'Lattina di the\' alla pesca da 500ml.', 2.50, 'pesca.jpg', 8, 50);
+INSERT INTO food VALUES (45, 'The al limone', 'Lattina di the\' al limone da 500ml.', 2.50, 'limone.jpg', 8, 50);
 INSERT INTO food VALUES (46, 'Coca-cola', 'Bottiglia in vetro di coca-cola da 550ml.', 2.50, 'coca-cola.jpg', 8, 50);
 INSERT INTO food VALUES (47, 'Fanta', 'Lattina di fanta da 500ml.', 2.50, 'fanta.jpg', 8, 50);
 INSERT INTO food VALUES (48, 'Sprite', 'Lattina di sprite da 500ml.', 2.50, 'sprite.jpg', 8, 50);
