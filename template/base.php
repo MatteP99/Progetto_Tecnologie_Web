@@ -58,7 +58,7 @@
             </div>
         </nav>
         <header>
-            <h1>Osteria Zaccolla</h1>
+            <h1>Zaccolla Osteria</h1>
             <div id="notifications"></div>
             <img src="upload/slideshow/img1.jpg" alt=""/>
         </header>
