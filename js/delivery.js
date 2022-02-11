@@ -119,17 +119,17 @@ function addToCartTable(name, price, quantity = 0) {
             <tr>
                 <td headers="nome">${name}</td>
                 <td headers="prezzo">${price}</td>
-                <td headers="quantita"><button class="fas fa-minus" aria-label="rimuovi un elemento"></button> <span class="quantity">1</span> <button class="fas fa-plus" aria-label="aggiungi un elemento"></button></td>
+                <td headers="quantita"><button type="button" class="fas fa-minus" aria-label="rimuovi un elemento"></button> <span class="quantity">1</span> <button type="button" class="fas fa-plus" aria-label="aggiungi un elemento"></button></td>
             </tr>
         `);
     } else if (quantity > 0 && !flag) {
-        $(".overlay tbody tr").eq(rowNum).children(":last").html(`<button class="fas fa-minus" aria-label="rimuovi un elemento"></button> <span class="quantity">${quantity}</span> <button class="fas fa-plus" aria-label="aggiungi un elemento"></button>`);
+        $(".overlay tbody tr").eq(rowNum).children(":last").html(`<button type="button" class="fas fa-minus" aria-label="rimuovi un elemento"></button> <span class="quantity">${quantity}</span> <button type="button" class="fas fa-plus" aria-label="aggiungi un elemento"></button>`);
     } else {
         $(".overlay tbody").append(`
             <tr>
                 <td headers="nome">${name}</td>
                 <td headers="prezzo">${price}</td>
-                <td headers="quantita"><button class="fas fa-minus" aria-label="rimuovi un elemento"></button> <span class="quantity">${quantity}</span> <button class="fas fa-plus" aria-label="aggiungi un elemento"></button></td>
+                <td headers="quantita"><button type="button" class="fas fa-minus" aria-label="rimuovi un elemento"></button> <span class="quantity">${quantity}</span> <button type="button" class="fas fa-plus" aria-label="aggiungi un elemento"></button></td>
             </tr>
         `);
     }
@@ -186,7 +186,7 @@ function computePrice() {
         let mul = parseInt($(this).siblings("td:last").find("span").text());
         sum += parseFloat($(this).text().replace("€","").trim()) * mul;
     });
-    $(".overlay tfoot td").text("Prezzo totale: € " + sum);
+    $(".overlay tfoot td").text("Prezzo totale: € " + sum.toFixed(2));
 }
 
 function checkQuantity(itemName, val = 1) {
