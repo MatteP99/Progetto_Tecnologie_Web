@@ -54,6 +54,9 @@ if(isUserLoggedIn()){
 		$templateParams["name"] = "login-home-admin.php";
 		$templateParams["user_data"] = $db->getUser($_SESSION["id_user"]);
 		$templateParams["admin_notify"] = $db->getNotify();
+		$templateParams["notify_data_order"] = $db->getNotifyDataOrder();
+		$templateParams["notify_data_order_list"] = $db->getFoodListByOrder();
+		$templateParams["notify_data_food"] = $db->getFood();
 	} else {
 		$templateParams["title"] = "ZACCOLLA OSTERIA - Area Personale";
 		$templateParams["name"] = "login-home.php";

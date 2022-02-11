@@ -58,10 +58,14 @@
                 <td headers="ord_date"><?php echo $orders["data"]?></td>
                 <td headers="ord_gest">
                     <form action="#" method="POST">
-                        <?php if($orders["order_state"] == "In stato di conferma"): ?>
+                        <?php if($orders["order_state"] == "In stato di conferma" || $orders["order_state"] == "Confermato"): ?>
                         <input type="submit" name="<?php echo $orders["id_order"]?>cancel" value="Cancella ordine" />
-                        <?php else: ?>
-                        <input disabled type="submit" name="<?php echo $orders["id_order"]?>cancel" value="Cancella ordine" />
+                        <?php elseif($orders["order_state"] == "Annullato dal cliente"): ?>
+                        <input disabled type="submit" name="<?php echo $orders["id_order"]?>cancel" value="Ordine gia' cancellato." />
+						<?php elseif($orders["order_state"] == "Annullato"): ?>
+                        <input disabled type="submit" name="<?php echo $orders["id_order"]?>cancel" value="Ordine annullato dal ristorante." />
+						<?php else: ?>
+						<input disabled type="submit" name="<?php echo $orders["id_order"]?>cancel" value="Non e' possibile annullare l'ordine ora." />
                         <?php endif; ?>
                     </form>
                 </td>

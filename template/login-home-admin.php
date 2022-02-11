@@ -5,6 +5,8 @@
         <thead>
             <tr>
                 <th id="ord_num">Id notifica</th>
+				<th id="ord_user">Dati</th>
+				<th id="ord_desc">Lista Ordine</th>
                 <th id="ord_desc">Descrizione</th>
 				<th id="ord_date">Data</th>
                 <th id="ord_state">Stato</th>
@@ -15,6 +17,42 @@
 			<?php foreach($templateParams["admin_notify"] as $notify): ?>
 			<tr>
 				<td><?php echo $notify["id_notify"]?></td>
+				<?php if(isset($notify["id_order"])): ?>
+					<?php foreach($templateParams["notify_data_order"] as $data): ?>
+						<?php if($data["id_order"] == $notify["id_order"]): ?>
+							<td>ID ORDINE: <?php echo $data["id_order"]."<br/>" ?>
+								STATO DELL'ORDINE: <?php echo $data["order_state"]."<br/>"."<br/>" ?>
+								ID UTENTE: <?php echo $data["id_user"]."<br/>" ?>
+								USERNAME: <?php echo $data["username"]."<br/>" ?>
+								TEL: <?php echo $data["phone_num"]."<br/>" ?>
+								<?php if($data["id_uni"] == 1): ?>
+								INDIRIZZO: <?php echo $data["address"]."<br/>" ?></td>
+								<?php else: ?>
+								INDIRIZZO: <?php echo $data["uni_address"]."<br/>" ?></td>
+								<?php endif; ?>
+						<?php endif; ?>
+					<?php endforeach; ?>
+				<?php else: ?>
+					<?php foreach($templateParams["notify_data_food"] as $food_data): ?>
+						<?php if($food_data["id_food"] == $notify["id_food"]): ?>
+							<td>ID: <?php echo $food_data["id_food"]."<br/>" ?>
+								NOME: <?php echo $food_data["name"]."<br/>" ?>
+								QUANTITA': <?php echo $food_data["quantity"]."<br/>" ?></td>
+						<?php endif; ?>
+					<?php endforeach; ?>
+				<?php endif; ?>
+				<?php if(isset($notify["id_order"])): ?>
+				<td>
+					<?php foreach($templateParams["notify_data_order_list"] as $list): ?>
+						<?php if($list["id_order"] == $notify["id_order"]): ?>
+							NOME CIBO: <?php echo $list["name"]."<br/>"?>
+							QUANTITA': <?php echo $list["food_quantity"]?>
+						<?php endif; ?>
+					<?php endforeach; ?>
+				</td>
+				<?php else: ?>
+					<td>/</td>
+				<?php endif; ?>
 				<td><?php echo $notify["description"]?></td>
 				<td><?php echo $notify["data"]?></td>
 				<td><?php echo $notify["notify_state"]?></td>
@@ -24,7 +62,7 @@
 								<td><input type="submit" name="<?php echo $notify["id_notify"]?>confirm" value="Conferma lettura" /></td>
 							</form>
 						<?php else: ?>
-						<td><input disabled type="submit" name="<?php echo $notify["id_notify"]?>confirm" value="Conferma lettura" /></td>
+							<td><input disabled type="submit" name="<?php echo $notify["id_notify"]?>confirm" value="Gia' letto" /></td>
 						<?php endif; ?>
 				<?php elseif($notify["order_type"] == "Effettuato"): ?>
 						<?php if($notify["notify_state"] != "Letto"): ?>
@@ -33,16 +71,15 @@
 							<input type="submit" name="<?php echo $notify["id_notify"]?>cancel_order" value="Cancella ordine" /></td>
 						</form>
 						<?php else: ?>
-						<td><input disabled type="submit" name="<?php echo $notify["id_notify"]?>confirm_order" value="Conferma ordine" />
-							<input disabled type="submit" name="<?php echo $notify["id_notify"]?>cancel_order" value="Cancella ordine" /></td>
+							<td><input disabled type="submit" name="<?php echo $notify["id_notify"]?>confirm_order" value="Ordine gia' gestito" /></td>
 						<?php endif; ?>
 				<?php elseif($notify["order_type"] == "Annullato"): ?>
 						<?php if($notify["notify_state"] != "Letto"): ?>
-						<form action="#" metdod="POST">
-							<td><input type="submit" name="<?php echo $notify["id_notify"]?>confirm_c_order" value="Conferma lettura" /></td>
-						</form>
+							<form action="#" metdod="POST">
+								<td><input type="submit" name="<?php echo $notify["id_notify"]?>confirm_c_order" value="Conferma lettura" /></td>
+							</form>
 						<?php else: ?>
-						<td><input disabled type="submit" name="<?php echo $notify["id_notify"]?>confirm_c_order" value="Conferma lettura" /></td>
+							<td><input disabled type="submit" name="<?php echo $notify["id_notify"]?>confirm_c_order" value="Gia' letto" /></td>
 						<?php endif; ?>
 				<?php endif; ?>
 			</tr>

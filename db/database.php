@@ -70,7 +70,7 @@ class DatabaseHelper {
 	
 	//Function get university from user
 	public function getUniUser($idUser) {
-		$statement = $this->db->prepare("SELECT university.address FROM users 
+		$statement = $this->db->prepare("SELECT university.uni_address FROM users 
 										INNER JOIN university
 										ON users.id_uni = university.id_uni
 										WHERE users.id_user = ?");
@@ -111,6 +111,31 @@ class DatabaseHelper {
 										ON list_food.id_food = food.id_food
 										WHERE orders.id_user = ?");
 		$statement->bind_param("i", $idUser);
+		$statement->execute();
+		$result = $statement->get_result();
+		
+		return $result->fetch_all(MYSQLI_ASSOC);
+	}
+	
+	//Function get notify all datas
+	public function getNotifyDataOrder() {
+		$statement = $this->db->prepare("SELECT orders.id_order, orders.id_user, orders.order_state, orders.food_total_price, users.username, users.phone_num, users.address, users.id_uni, university.uni_address 
+										FROM orders
+										INNER JOIN users
+										ON orders.id_user = users.id_user
+										INNER JOIN university
+										ON users.id_uni = university.id_uni");
+		$statement->execute();
+		$result = $statement->get_result();
+		
+		return $result->fetch_all(MYSQLI_ASSOC);
+	}
+	
+	//Function list of food by order id
+	public function getFoodListByOrder() {
+		$statement = $this->db->prepare("SELECT list_food.food_quantity, list_food.id_order, list_food.id_food, food.name FROM list_food
+										INNER JOIN food
+										ON list_food.id_food = food.id_food");
 		$statement->execute();
 		$result = $statement->get_result();
 		

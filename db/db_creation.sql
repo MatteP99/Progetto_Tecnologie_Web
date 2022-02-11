@@ -30,7 +30,7 @@ FOREIGN KEY (type_food) REFERENCES types (id_type)
 CREATE TABLE IF NOT EXISTS db_web_project.university (
 id_uni INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
 name TEXT NOT NULL,
-address TEXT NOT NULL,
+uni_address TEXT NOT NULL,
 
  PRIMARY KEY (id_uni)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
