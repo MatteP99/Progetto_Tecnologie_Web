@@ -49,9 +49,9 @@ if(isset($_POST["submit"])) {
 		$db->removeQuantityFood($arrayFood[$i], $final_quantity);
 		$db->insertListFood($lastOrder, $arrayFood[$i], $arrayQuantity[$i]);
 		$check_food = $db->getFoodQuantity($arrayFood[$i]);
-		if($check_food == 0) {
+		if($check_food[0]["quantity"] == 0) {
 			$db->createNotifyAdminQuantityFood($arrayFood[$i]);
-		} else if ($check_food <= 5) {
+		} else if ($check_food[0]["quantity"] <= 5) {
 			$db->createNotifyAdminLowQuantityFood($arrayFood[$i]);
 		}
 	}
