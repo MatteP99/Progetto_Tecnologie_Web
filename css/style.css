@@ -534,7 +534,12 @@ button, .overlay a, #orders + a, [type="submit"] {
 }
 
 #orders th, #orders td {
-    width: 16.66%;
+    width: 25%;
+    padding: 10px 0;
+}
+
+#orders th:nth-child(5), #orders td:nth-child(2), #orders td:nth-child(5), #orders th:nth-child(2) {
+    display: none
 }
 
 #p_data > form li:last-child {
@@ -768,6 +773,14 @@ footer > div:last-child li {
     
     input#a_data {
         width: 40%;
+    }
+
+    #orders th, #orders td {
+        width: 16.666%;
+    }
+    
+    #orders th:nth-child(5), #orders td:nth-child(2), #orders td:nth-child(5), #orders th:nth-child(2) {
+        display: revert;
     }
 
     .overlay form li:nth-last-child(2) {
