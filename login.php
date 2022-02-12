@@ -84,11 +84,13 @@ if(isset($templateParams["user_orders"])) {
 				$final_quantity = $quantity[0]["quantity"] + $food["food_quantity"];
 				$db->restoreQuantity($food["id_food"], $final_quantity);
 			}
-			$order = (int)$orders["id_order"];
-			header("location:login.php");
+			$order = $orders["id_order"];
+			if(isset($order)) {
+				$db->notifyAdminOrderCancelled($order);
+				header("location:login.php");
+			}
 		}
 	}
-	$db->notifyAdminOrderCancelled($order);
 }
 //Buttons admin
 if(isset($templateParams["admin_notify"])) {
