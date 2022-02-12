@@ -20,6 +20,7 @@ $(document).ready(function() {
 
     //Bottoni per aggiungere elementi al carellello
     $(".addItemToCart").click(function(event) {
+        $(this).attr("disabled", true);
         if($(".overlay tbody tr").length == 0 ) {
             $(".voverlay").fadeIn();
             $(".overlay a").fadeIn();
@@ -31,7 +32,8 @@ $(document).ready(function() {
         addToCartTable(name, $(this).siblings("h5").text());
         checkQuantity(name);
         sendNotification(name,"Aggiunto al carrello!", 2000);        
-        computePrice();
+        computePrice();        
+        $(this).attr("disabled", false);
     });
 
     //Apro la pagina del carrello
