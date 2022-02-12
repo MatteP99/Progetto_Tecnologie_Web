@@ -84,7 +84,7 @@ if(isset($templateParams["user_orders"])) {
 				$final_quantity = $quantity[0]["quantity"] + $food["food_quantity"];
 				$db->restoreQuantity($food["id_food"], $final_quantity);
 			}
-			$order = $orders["id_order"];
+			$order = (int)$orders["id_order"];
 			header("location:login.php");
 		}
 	}
