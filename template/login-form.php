@@ -48,7 +48,7 @@
         <li class="signup">
             <label for="tel">Numero di telefono:</label>
             <em class="fas" aria-label="Icona di controllo: requisiti non soddisfatti"></em>
-            <input type="tel" class="toBeChecked tel" id="tel" name="tel" />
+            <input type="tel" class="toBeChecked tel" maxlength="10" id="tel" name="tel" />
         </li>
         <li class="signup">
             <label for="address">Indirizzo fatturazione:</label>

@@ -43,7 +43,7 @@
 						</li>
 						<li>                 
 							<label for="numero">Numero di telefono:</label>
-							<input required type="text" id="numero" name="numero" />
+							<input required type="text" id="numero" name="numero" maxlength="10" />
 						</li>
 						<li>                 
 							<label for="mail">Mail Personale:</label>

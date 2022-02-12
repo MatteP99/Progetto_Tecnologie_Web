@@ -48,6 +48,13 @@ $(document).ready(function () {
             });
         }            
     });
+
+    $("#numeroCarta").keydown( function(e) {
+        let nlen= $(this).val().length;
+        if((nlen === 4 || nlen === 9 || nlen === 14) && ( e.key !== "Backspace")) {
+            $(this).val($(this).val() + " ");
+        }
+    });
 });
 
 function sendNotification(title, description, millis = 0) {
