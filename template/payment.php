@@ -23,11 +23,11 @@
 						<?php endif; ?>
 						<li>                 
 							<label for="numero">Numero di telefono:</label>
-							<input required type="text" id="numero" name="numero" value="<?php echo $user["phone_num"]?>" />
+							<input required type="text" id="numero_c" name="numero" value="<?php echo $user["phone_num"]?>" />
 						</li>
 						<li>                 
 							<label for="mail">Mail Personale:</label>
-							<input required type="text" id="mail" name="mail" value="<?php echo $user["email"]?> " />
+							<input required type="text" id="mail_c" name="mail" value="<?php echo $user["email"]?> " />
 						</li>
 					</ul> 
 					<?php endforeach;
@@ -43,11 +43,11 @@
 						</li>
 						<li>                 
 							<label for="numero">Numero di telefono:</label>
-							<input required type="text" id="numero" name="numero" maxlength="10" />
+							<input required type="text" id="numero_c" name="numero" maxlength="10" />
 						</li>
 						<li>                 
 							<label for="mail">Mail Personale:</label>
-							<input required type="text" id="mail" name="mail" />
+							<input required type="text" id="mail_c" name="mail" />
 						</li>
 					</ul> 
 			<?php endif; ?>
@@ -65,7 +65,7 @@
                 </li>
                 <li>                
                     <label for="scadenza">Scadenza:</label>
-                    <input required type="date" id="scadenza" name="scadenza"/>
+                    <input required type="date" id="scadenza" name="scadenza" min="<?php echo date("Y-m-d"); ?>" />
                 </li>
                 <li>                
                     <label for="CVV">CVV:</label>
