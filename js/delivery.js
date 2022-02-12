@@ -8,7 +8,8 @@ $(document).ready(function() {
         let elemHTML = $(`.itemId:contains('${elem}'):first`);
         let name = elemHTML.siblings("h4").text();
         let price = elemHTML.siblings("h5").text();
-        elemHTML.siblings(".itemQuantity").text(50 - parseInt(cartObj.cart_ids[elem]));
+        let qt = elemHTML.siblings(".itemQuantity").text();
+        elemHTML.siblings(".itemQuantity").text(qt - parseInt(cartObj.cart_ids[elem]));
         addToCartTable(name, price, cartObj.cart_ids[elem]);
         checkQuantity(name, 0);
     }
@@ -30,10 +31,10 @@ $(document).ready(function() {
         addToCart(parseInt(id));
         let name = $(this).siblings("h4").text();
         addToCartTable(name, $(this).siblings("h5").text());
-        checkQuantity(name);
         sendNotification(name,"Aggiunto al carrello!", 2000);        
         computePrice();        
         $(this).attr("disabled", false);
+        checkQuantity(name);
     });
 
     //Apro la pagina del carrello
