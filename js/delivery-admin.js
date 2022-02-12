@@ -13,7 +13,7 @@ $(document).ready(function() {
         });
         $(".voverlay").fadeIn();
         $(".overlay form").trigger("reset");
-        $(".overlay img").attr("src","dummy.png");
+        $(".overlay img").attr("src","upload/dummy.png");
         $(".overlay img").attr("alt","Immagine da caricare");
     });
 

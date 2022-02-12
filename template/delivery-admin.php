@@ -69,7 +69,7 @@
                 <li>
                     <label for="m_image">Immagine:</label>
                     <div>
-                        <img src="dummy.png" alt="Immagine da caricare" />
+                        <img src="<?php echo UPLOAD_DIR?>/dummy.png" alt="Immagine da caricare" />
                         <input type="file" id="m_image" name="m_image" />
                     </div>
                 </li>
