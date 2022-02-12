@@ -605,7 +605,7 @@ button.voverlay {
     width: 100%;
 }
 
-.edit button {
+.edit button, .edit input {
     padding: 0.6vw;
 }
 

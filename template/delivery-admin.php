@@ -19,7 +19,7 @@
                     <div class="edit">
 						<button type="button" class="modifyItem" name="<?php echo $food["id_food"]."modify" ?>" id="<?php echo $food["id_food"]."modify" ?>">Modifica</button>
 						<form action="#" method="post">
-							<button type="submit" class="delete" name="<?php echo $food["id_food"]."delete" ?>" id="<?php echo $food["id_food"]."delete" ?>">Rimuovi</button>
+							<input type="submit" class="delete" name="<?php echo $food["id_food"]."delete" ?>" id="<?php echo $food["id_food"]."delete" ?>" value="Rimuovi" />
 						</form>
                     </div>
                 </li>
@@ -40,7 +40,7 @@
         </button>
         <h2>Aggiungi elemento</h2>
         <form action="#" method="POST" enctype="multipart/form-data">
-			<input type="text" id="m_id" name="m_id" value=""/>
+			<input type="hidden" id="m_id" name="m_id" value=""/>
             <ul>
                 <li>
                     <label for="m_name">Nome:</label>
@@ -67,7 +67,7 @@
 					</select>
 				</li>
                 <li>
-                    <label for="m_type">Immagine:</label>
+                    <label for="m_image">Immagine:</label>
                     <div>
                         <img src="dummy.png" alt="Immagine da caricare" />
                         <input type="file" id="m_image" name="m_image" />
