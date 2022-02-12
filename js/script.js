@@ -4,7 +4,7 @@ $(document).ready(function () {
     let img = $("body > header > img:first");
     
     if (getCookie("consent") == "") {
-        sendNotification("Cookie","Questo sito utilizza cookie tecnici per funzionare. Se si continua ad utilizzare il sito il consenso è implicito.");
+        sendNotification("Cookie","Questo sito utilizza <a href='cookie.php'>cookie tecnici</a> per funzionare. Se si continua ad utilizzare il sito il consenso è implicito.");
         setCookie("consent", 'yes', 1);
     }
 

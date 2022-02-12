@@ -81,6 +81,7 @@
                     </ul>
                 </div>
                 <div>
+                    <a href="cookie.php"><small>Informativa cookie</small></a>
                     <address>Piazza Baschetti 23, 47863, Cesena (FC)</address>
                 </div>
             </div>

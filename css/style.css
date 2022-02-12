@@ -2,7 +2,7 @@ h1 {
     display: none;
 }
 
-h3 {
+.delivery h3 {
     border: 1px solid #C24A00;
     background-color: #FFF8F3;
     font-size: 30px;
@@ -14,6 +14,10 @@ h3 {
 
 h4 {
     font-size: 22px;
+}
+
+#cookie_sect h4 {
+    font-size: revert;
 }
 
 h5 {
@@ -204,6 +208,15 @@ button.close {
     font-size: 3vw;
 }
 
+.toast-body a {
+    color: revert;
+    text-decoration: revert;
+}
+
+.toast-body a:hover {
+    font-weight: revert;
+}
+
 body {
     margin: 0;
     width: 100%;
@@ -264,6 +277,15 @@ section#p_data {
 
 section > header > h2 {
     font-size: larger;
+}
+
+section#cookie_sect {
+    gap: 0;
+    text-align: left;
+}
+
+body > footer > div:nth-child(2) > div:nth-child(2) {
+    text-align: center;
 }
 
 #contactus h2 {
@@ -826,7 +848,7 @@ footer > div:last-child li {
         font-weight: 900;
     }
 
-    h3:hover {
+    .delivery h3:hover {
         font-weight: 900;
 
     }        
